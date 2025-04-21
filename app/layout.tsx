@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
+import { ThemeProvider } from "@/components/providers/themeProvider";
+import { cn } from "@/lib/utils";
 
 const openSANS = Open_Sans({
   variable: "--font-open-sans",
@@ -20,8 +22,23 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className={`${openSANS.variable} antialiased`}>{children}</body>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={cn(
+            `${openSANS.variable} antialiased`,
+            "bg-white dark:bg-[#313338]"
+          )}
+        >
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            storageKey="discord-theme"
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </body>
       </html>
     </ClerkProvider>
   );
