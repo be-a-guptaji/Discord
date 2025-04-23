@@ -1,6 +1,5 @@
 // lib/initialProfile.ts
 import { currentUser } from "@clerk/nextjs/server";
-import { RedirectToSignIn } from "@clerk/nextjs";
 import { db } from "@/lib/db";
 
 // This function retrieves the initial profile for the current user.

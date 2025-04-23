@@ -38,3 +38,6 @@ next-env.d.ts
 # Prettier
 .prettierrc.json
 .prettierignore
+
+# Prisma Client
+lib/generated
