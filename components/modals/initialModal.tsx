@@ -4,6 +4,7 @@
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 import {
   Dialog,
   DialogContent,
@@ -23,6 +24,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import FileUpload from "@/components/fileUpload";
+import { useRouter } from "next/navigation";
 
 // This is the schema for the form
 const formSchema = z.object({
@@ -30,11 +32,14 @@ const formSchema = z.object({
     message: "Server name is required",
   }),
   imageURL: z.string().url({
-    message: "Image URL must be a valid URL",
+    message: "Image is required",
   }),
 });
 
 const InitialModal = () => {
+  // Navigation hook
+  const router = useRouter();
+
   // This is the form value and validation from react-hook-form and zod
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -49,7 +54,21 @@ const InitialModal = () => {
 
   // This is the submit function for the form
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+    try {
+      await axios.post("/api/servers", data);
+
+      // Reset the form after submission
+      form.reset();
+
+      // Refresh the page after submission
+      router.refresh();
+
+      // Reload the page to reflect the changes
+      window.location.reload();
+    } catch (error) {
+      // Handle error
+      console.error("Error creating server:", error);
+    }
   };
 
   return (
@@ -81,6 +100,7 @@ const InitialModal = () => {
                             onChange={field.onChange}
                           />
                         </FormControl>
+                        <FormMessage />
                       </FormItem>
                     )}
                   />
