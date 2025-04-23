@@ -48,7 +48,7 @@ const NavigationSidebar = async () => {
         </ScrollArea>
         <div className="mt-auto flex flex-col items-center gap-y-4 pb-3">
           <ModeToggle />
-          <UserButton />
+          <UserButton appearance={{ elements: { avatarBox: "size-[48px]" } }} />
         </div>
       </div>
     </>
