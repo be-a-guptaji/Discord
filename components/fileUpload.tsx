@@ -22,6 +22,7 @@ const FileUpload = ({ endpoint, value, onChange }: FileUploadProps) => {
         <div className="relative size-20">
           <Image
             fill
+            priority
             src={value}
             alt="Upload"
             className="rounded-full"

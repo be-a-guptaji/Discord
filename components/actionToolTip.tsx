@@ -25,7 +25,7 @@ const ActionToolTip = ({
   return (
     <>
       <TooltipProvider>
-        <Tooltip delayDuration={100}>
+        <Tooltip delayDuration={75}>
           <TooltipTrigger asChild>{children}</TooltipTrigger>
           <TooltipContent side={side} align={align}>
             <p className="text-sm font-semibold capitalize">
