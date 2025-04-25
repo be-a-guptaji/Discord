@@ -20,7 +20,7 @@ import {
   UserPlus,
   Users,
 } from "lucide-react";
-import { useModalStore } from "@/hooks/useModalStore";
+import { useModal } from "@/hooks/useModal";
 
 interface ServerHeaderProps {
   server: ServerWithMembersWithProfiles;
@@ -29,7 +29,7 @@ interface ServerHeaderProps {
 
 const ServerHeader = ({ server, role }: ServerHeaderProps) => {
   // Import the modal store to handle modal actions
-  const { onOpen } = useModalStore();
+  const { onOpen } = useModal();
 
   // Check the role of the user in the server
   const isAdmin = role === MemberRole.ADMIN;
@@ -66,7 +66,10 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
           )}
           {isAdmin && (
             <>
-              <DropdownMenuItem className="cursor-pointer px-3 py-2 text-sm">
+              <DropdownMenuItem
+                onClick={() => onOpen("members", { server })}
+                className="cursor-pointer px-3 py-2 text-sm"
+              >
                 Manage Members
                 <Users className="ml-auto size-4" />
               </DropdownMenuItem>

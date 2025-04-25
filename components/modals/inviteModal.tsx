@@ -8,7 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { useModalStore } from "@/hooks/useModalStore";
+import { useModal } from "@/hooks/useModal";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -19,7 +19,7 @@ import axios from "axios";
 
 const InviteModal = () => {
   // This is the modal store for opening and closing the modal and getting the type of modal
-  const { type, data, isOpen, onOpen, onClose } = useModalStore();
+  const { type, data, isOpen, onOpen, onClose } = useModal();
   const origin = useOrigin();
 
   // State to handle the copying of invite link and also the loading state

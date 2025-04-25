@@ -1,9 +1,9 @@
-// hooks/useModalStore.ts
+// hooks/useModal.ts
 
 import { Server } from "@/lib/generated/prisma/client";
 import { create } from "zustand";
 
-export type ModalType = "createServer" | "invite" | "editServer";
+export type ModalType = "createServer" | "invite" | "editServer" | "members";
 
 interface ModalData {
   server?: Server;
@@ -17,7 +17,7 @@ interface ModalStore {
   onClose: () => void;
 }
 
-export const useModalStore = create<ModalStore>((set) => ({
+export const useModal = create<ModalStore>((set) => ({
   type: null,
   data: {},
   isOpen: false,

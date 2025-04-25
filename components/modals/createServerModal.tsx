@@ -26,7 +26,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import FileUpload from "@/components/fileUpload";
 import { useRouter } from "next/navigation";
-import { useModalStore } from "@/hooks/useModalStore";
+import { useModal } from "@/hooks/useModal";
 
 // This is the schema for the form
 const formSchema = z.object({
@@ -40,7 +40,7 @@ const formSchema = z.object({
 
 const CreateServerModal = () => {
   // This is the modal store for opening and closing the modal and getting the type of modal
-  const { type, isOpen, onClose } = useModalStore();
+  const { type, isOpen, onClose } = useModal();
   // Navigation hook
   const router = useRouter();
 

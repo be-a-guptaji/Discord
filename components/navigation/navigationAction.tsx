@@ -4,11 +4,11 @@
 
 import { Plus } from "lucide-react";
 import ActionToolTip from "@/components/actionToolTip";
-import { useModalStore } from "@/hooks/useModalStore";
+import { useModal } from "@/hooks/useModal";
 
 const NavigationAction = () => {
   // This is the modal store for opening and closing the modal and getting the type of modal
-  const { onOpen } = useModalStore();
+  const { onOpen } = useModal();
 
   return (
     <>
