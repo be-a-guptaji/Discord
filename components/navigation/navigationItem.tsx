@@ -30,9 +30,7 @@ const NavigationItem = ({ id, name, imageURL }: NavigationItemProps) => {
           <div
             className={cn(
               "bg-primary absolute left-0 w-[4px] rounded-r-full transition-all",
-              params.serverID === id
-                ? "h-[36px]"
-                : "h-[8px] group-hover:h-[20px]"
+              params.serverID === id ? "h-[36px]" : "h-0 group-hover:h-[20px]"
             )}
           />
           <div

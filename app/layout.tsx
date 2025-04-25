@@ -1,9 +1,12 @@
+// app/layout.tsx
+
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import "@/app/globals.css";
 import { ThemeProvider } from "@/components/providers/themeProvider";
 import { cn } from "@/lib/utils";
+import { ModalProvider } from "@/components/providers/modalProvider";
 
 const openSANS = Open_Sans({
   variable: "--font-open-sans",
@@ -36,6 +39,7 @@ export default function RootLayout({
             storageKey="discord-theme"
             disableTransitionOnChange
           >
+            <ModalProvider />
             {children}
           </ThemeProvider>
         </body>

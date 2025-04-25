@@ -1,3 +1,5 @@
+// middleware.ts This file is used to protect routes in a Next.js application using Clerk for authentication. It defines which routes are public and which should be protected, and applies middleware accordingly.
+
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
 // Define which routes are public and should not be protected

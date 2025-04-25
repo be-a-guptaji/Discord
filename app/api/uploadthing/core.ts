@@ -1,3 +1,5 @@
+// app/api/uploadthing/core.ts
+
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
 import { auth } from "@clerk/nextjs/server";

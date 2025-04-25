@@ -1,3 +1,5 @@
+// lib/uploadthing.ts
+
 import {
   generateUploadButton,
   generateUploadDropzone,

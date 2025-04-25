@@ -1,4 +1,5 @@
 // app/(setup)/page.tsx the main page of the app
+
 import { initialProfile } from "@/lib/initialProfile";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";

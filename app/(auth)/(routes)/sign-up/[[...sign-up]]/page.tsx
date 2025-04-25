@@ -1,4 +1,5 @@
 // app/(auth)/(routes)/sign-up/[[...sign-up]]/page.tsx for sing-up
+
 import { SignUp } from "@clerk/nextjs";
 import type { Metadata } from "next";
 

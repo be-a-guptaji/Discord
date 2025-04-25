@@ -1,4 +1,4 @@
-// components/modals/initialModal.tsx
+// components/modals/createServerModal.tsx
 
 "use client";
 
@@ -26,7 +26,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import FileUpload from "@/components/fileUpload";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useModalStore } from "@/hooks/useModalStore";
 
 // This is the schema for the form
 const formSchema = z.object({
@@ -38,11 +38,13 @@ const formSchema = z.object({
   }),
 });
 
-const InitialModal = () => {
+const CreateServerModal = () => {
+  // This is the modal store for opening and closing the modal and getting the type of modal
+  const { type, isOpen, onClose } = useModalStore();
   // Navigation hook
   const router = useRouter();
-  // This is to avoid hydration error
-  const [isMounted, setIsMounted] = useState(false);
+
+  const isModalOpen = type === "createServer" && isOpen;
 
   // This is the form value and validation from react-hook-form and zod
   const form = useForm({
@@ -67,25 +69,23 @@ const InitialModal = () => {
       // Refresh the page after submission
       router.refresh();
 
-      // Reload the page to reflect the changes
-      window.location.reload();
+      // Close the modal after submission
+      onClose();
     } catch (error) {
       // Handle error
       console.error("Error creating server:", error);
     }
   };
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) {
-    return null;
-  }
+  // This is the close function for the modal
+  const handleClose = () => {
+    form.reset();
+    onClose();
+  };
 
   return (
     <>
-      <Dialog open>
+      <Dialog open={isModalOpen} onOpenChange={handleClose}>
         <DialogContent className="overflow-hidden bg-white p-0 text-black">
           <DialogHeader className="px-6 pt-8">
             <DialogTitle className="text-center text-2xl font-bold">
@@ -152,4 +152,4 @@ const InitialModal = () => {
   );
 };
 
-export default InitialModal;
+export default CreateServerModal;
