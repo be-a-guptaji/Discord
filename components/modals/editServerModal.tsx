@@ -1,4 +1,4 @@
-// components/modals/createServerModal.tsx
+// components/modals/editServer.tsx
 
 "use client";
 
@@ -27,6 +27,7 @@ import { Button } from "@/components/ui/button";
 import FileUpload from "@/components/fileUpload";
 import { useRouter } from "next/navigation";
 import { useModalStore } from "@/hooks/useModalStore";
+import { useEffect } from "react";
 
 // This is the schema for the form
 const formSchema = z.object({
@@ -38,14 +39,17 @@ const formSchema = z.object({
   }),
 });
 
-const CreateServerModal = () => {
+const EditServerModal = () => {
   // This is the modal store for opening and closing the modal and getting the type of modal
-  const { type, isOpen, onClose } = useModalStore();
+  const { type, data, isOpen, onClose } = useModalStore();
   // Navigation hook
   const router = useRouter();
 
-  // This is for opening the modal for creating a server
-  const isModalOpen = type === "createServer" && isOpen;
+  // Extract the server data from the modal store
+  const { server } = data;
+
+  // This is for opening the modal for editing the server
+  const isModalOpen = type === "editServer" && isOpen;
 
   // This is the form value and validation from react-hook-form and zod
   const form = useForm({
@@ -62,7 +66,7 @@ const CreateServerModal = () => {
   // This is the submit function for the form
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
-      await axios.post("/api/servers", data);
+      await axios.patch(`/api/servers/${server?.id}`, data);
 
       // Reset the form after submission
       form.reset();
@@ -80,9 +84,16 @@ const CreateServerModal = () => {
 
   // This is the close function for the modal
   const handleClose = () => {
-    form.reset();
     onClose();
   };
+
+  // This is the useEffect hook to set the default values for the form
+  useEffect(() => {
+    if (server) {
+      form.setValue("name", server.name);
+      form.setValue("imageURL", server.imageURL);
+    }
+  }, [server, form]);
 
   return (
     <>
@@ -142,7 +153,7 @@ const CreateServerModal = () => {
               </div>
               <DialogFooter className="bg-gray-100 px-6 py-4">
                 <Button disabled={isLoading} variant={"primary"}>
-                  Create
+                  Save
                 </Button>
               </DialogFooter>
             </form>
@@ -153,4 +164,4 @@ const CreateServerModal = () => {
   );
 };
 
-export default CreateServerModal;
+export default EditServerModal;

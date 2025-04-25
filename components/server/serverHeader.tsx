@@ -1,4 +1,4 @@
-// components/server/serverSidebar.tsx
+// components/server/serverHeader.tsx
 
 "use client";
 
@@ -74,7 +74,10 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
           )}
           {isAdmin && (
             <>
-              <DropdownMenuItem className="cursor-pointer px-3 py-2 text-sm">
+              <DropdownMenuItem
+                onClick={() => onOpen("editServer", { server })}
+                className="cursor-pointer px-3 py-2 text-sm"
+              >
                 Server Settings
                 <Settings className="ml-auto size-4" />
               </DropdownMenuItem>
