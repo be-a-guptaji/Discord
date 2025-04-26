@@ -41,6 +41,7 @@ export async function POST(req: Request) {
     // Return the created server data
     return NextResponse.json(server);
   } catch (error) {
+    // Handle errors and log them
     console.error("Error creating server:", error);
     return new NextResponse("Internal Server Error", { status: 500 });
   }

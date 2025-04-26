@@ -43,6 +43,7 @@ export async function PATCH(
     // Return the updated server data
     return NextResponse.json(server);
   } catch (error) {
+    // Handle errors and log them
     console.error("Error while updating the server:", error);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
