@@ -1,4 +1,4 @@
-// app/api/servers/[serverID]/route.ts
+// app/api/servers/[serverID]/leave/route.ts
 
 import getCurrentProfile from "@/lib/currentProfile";
 import { db } from "@/lib/db";
@@ -25,26 +25,33 @@ export async function PATCH(
       return new NextResponse("Server ID is missing", { status: 400 });
     }
 
-    // Parse the request body to get the server name and image URL
-    const { name, imageURL } = await req.json();
-
-    // Update the server's data in the database
+    // Leave the server in the database
     const server = await db.server.update({
       where: {
         id: serverID,
-        profileID: profile.id,
+        profileID: {
+          not: profile.id, // Ensure that the admin is not leaving the server
+        },
+        members: {
+          some: {
+            profileID: profile.id,
+          },
+        },
       },
       data: {
-        name,
-        imageURL,
+        members: {
+          deleteMany: {
+            profileID: profile.id,
+          },
+        },
       },
     });
 
-    // Return the updated server data
+    // Return the updated server
     return NextResponse.json(server);
   } catch (error) {
     // Handle errors and log them
-    console.error("Error while updating the server:", error);
+    console.error("Error leaving server:", error);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }
