@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import InviteModal from "@/components/modals/inviteModal";
 import EditServerModal from "@/components/modals/editServerModal";
 import MembersModal from "@/components/modals/membersModal";
+import CreateChannelModal from "@/components/modals/createChannelModal";
 
 export const ModalProvider = () => {
   // This is to avoid hydration error
@@ -26,6 +27,7 @@ export const ModalProvider = () => {
       <InviteModal />
       <EditServerModal />
       <MembersModal />
+      <CreateChannelModal />
     </>
   );
 };

@@ -58,7 +58,10 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
           )}
           {isModerator && (
             <>
-              <DropdownMenuItem className="cursor-pointer px-3 py-2 text-sm !text-indigo-600 dark:!text-indigo-400">
+              <DropdownMenuItem
+                onClick={() => onOpen("createChannel")}
+                className="cursor-pointer px-3 py-2 text-sm !text-indigo-600 dark:!text-indigo-400"
+              >
                 Create Channel
                 <PlusCircle className="ml-auto size-4 !text-indigo-600 dark:!text-indigo-400" />
               </DropdownMenuItem>

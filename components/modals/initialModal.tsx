@@ -59,6 +59,7 @@ const InitialModal = () => {
   // This is the submit function for the form
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
+      // Make a POST request to create a server
       await axios.post("/api/servers", data);
 
       // Reset the form after submission
@@ -86,7 +87,10 @@ const InitialModal = () => {
   return (
     <>
       <Dialog open>
-        <DialogContent className="overflow-hidden bg-white p-0 text-black">
+        <DialogContent
+          className="overflow-hidden bg-white p-0 text-black"
+          aria-describedby="Initial Modal for new users"
+        >
           <DialogHeader className="px-6 pt-8">
             <DialogTitle className="text-center text-2xl font-bold">
               Create your first server
@@ -140,7 +144,11 @@ const InitialModal = () => {
                 />
               </div>
               <DialogFooter className="bg-gray-100 px-6 py-4">
-                <Button disabled={isLoading} variant={"primary"}>
+                <Button
+                  disabled={isLoading}
+                  variant={"primary"}
+                  className="w-full"
+                >
                   Create
                 </Button>
               </DialogFooter>

@@ -1,4 +1,4 @@
-// api/members/[memberID]/route.ts
+// app/api/members/[memberID]/route.ts
 
 import getCurrentProfile from "@/lib/currentProfile";
 import { db } from "@/lib/db";
