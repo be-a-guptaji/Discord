@@ -34,6 +34,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useModal } from "@/hooks/useModal";
 import { ChannelType } from "@/lib/generated/prisma/client";
 import qs from "query-string";
+import { useEffect } from "react";
 
 // This is the schema for the form
 const formSchema = z.object({
@@ -52,7 +53,7 @@ const formSchema = z.object({
 
 const CreateChannelModal = () => {
   // This is the modal store for opening and closing the modal and getting the type of modal
-  const { type, isOpen, onClose } = useModal();
+  const { type, data, isOpen, onClose } = useModal();
 
   // Navigation hook
   const router = useRouter();
@@ -63,14 +64,26 @@ const CreateChannelModal = () => {
   // This is for opening the modal for creating a server
   const isModalOpen = type === "createChannel" && isOpen;
 
+  // Extract the channel type from the data object
+  const { channelType } = data;
+
   // This is the form value and validation from react-hook-form and zod
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      type: ChannelType.TEXT,
+      type: channelType || ChannelType.TEXT,
     },
   });
+
+  // UseEffect hook to change the type of the channel
+  useEffect(() => {
+    if (channelType) {
+      form.setValue("type", channelType);
+    } else {
+      form.setValue("type", ChannelType.TEXT);
+    }
+  }, [channelType, form]);
 
   // This is the loading state for the form
   const isLoading = form.formState.isSubmitting;

@@ -34,6 +34,20 @@ export async function POST(req: Request) {
       return new NextResponse("Name cannot be 'general'", { status: 400 });
     }
 
+    // Check if the channel already exists
+    const existingChannel = await db.channel.findFirst({
+      where: {
+        name,
+        serverID,
+        type,
+      },
+    });
+
+    // If the channel already exists, return the existing channel
+    if (existingChannel) {
+      return NextResponse.json(existingChannel);
+    }
+
     // Create a new channel in the database
     const server = await db.server.update({
       where: {
