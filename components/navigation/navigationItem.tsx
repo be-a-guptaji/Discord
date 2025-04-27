@@ -14,9 +14,11 @@ interface NavigationItemProps {
 }
 
 const NavigationItem = ({ id, name, imageURL }: NavigationItemProps) => {
-  // Get the params from the URL and the router object from next/navigation
-  const params = useParams();
+  // Navigation hook
   const router = useRouter();
+
+  // Params hook
+  const params = useParams();
 
   // Handle the click event to navigate to the server page
   const onClick = () => {
