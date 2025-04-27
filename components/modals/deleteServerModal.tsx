@@ -85,7 +85,7 @@ const DeleteServerModal = () => {
                 variant={"ghost"}
                 className="w-[48%] bg-gray-400/50 focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
               >
-                Cancle
+                Cancel
               </Button>
               <Button
                 disabled={loading}

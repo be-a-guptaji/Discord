@@ -10,6 +10,7 @@ import MembersModal from "@/components/modals/membersModal";
 import CreateChannelModal from "@/components/modals/createChannelModal";
 import LeaveServerModal from "@/components/modals/leaveServerModal";
 import DeleteServerModal from "@/components/modals/deleteServerModal";
+import DeleteChannelModal from "@/components/modals/deleteChannelModal";
 
 export const ModalProvider = () => {
   // This is to avoid hydration error
@@ -32,6 +33,7 @@ export const ModalProvider = () => {
       <CreateChannelModal />
       <LeaveServerModal />
       <DeleteServerModal />
+      <DeleteChannelModal />
     </>
   );
 };

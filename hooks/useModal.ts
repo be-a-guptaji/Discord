@@ -1,6 +1,6 @@
 // hooks/useModal.ts
 
-import { ChannelType, Server } from "@/lib/generated/prisma/client";
+import { Channel, ChannelType, Server } from "@/lib/generated/prisma/client";
 import { create } from "zustand";
 
 export type ModalType =
@@ -10,10 +10,12 @@ export type ModalType =
   | "members"
   | "createChannel"
   | "leaveServer"
-  | "deleteServer";
+  | "deleteServer"
+  | "deleteChannel";
 
 interface ModalData {
   server?: Server;
+  channel?: Channel;
   channelType?: ChannelType;
 }
 
