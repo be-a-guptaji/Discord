@@ -28,7 +28,7 @@ export async function PATCH(
       return new NextResponse("Server ID is missing", { status: 400 });
     }
 
-    // Get the server ID from the request parameters
+    // Get the member ID from the request parameters
     const { memberID } = await params;
 
     // Check if the server ID is provided
