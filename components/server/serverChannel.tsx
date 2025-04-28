@@ -12,7 +12,7 @@ import {
 import { useParams, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import ActionToolTip from "@/components/actionToolTip";
-import { useModal } from "@/hooks/useModal";
+import { ModalType, useModal } from "@/hooks/useModal";
 
 interface ServerChannelProps {
   role?: MemberRole;
@@ -46,10 +46,23 @@ const ServerChannel = ({ role, channel, server }: ServerChannelProps) => {
   // Mapping of channel types to icons
   const icon = iconMap[channel.type];
 
+  // Function to redirect to the channel page
+  const onClick = () => {
+    router.push(`/server/${server.id}/channel/${channel.id}`);
+  };
+
+  // Function to prevent opening page on edit and delete
+  const onAction = (e: React.MouseEvent, action: ModalType) => {
+    e.stopPropagation();
+
+    // Open the Modal
+    onOpen(action, { channel, server });
+  };
+
   return (
     <>
       <button
-        onClick={() => {}}
+        onClick={onClick}
         className={cn(
           "group mb-2 flex w-full items-center gap-x-2 rounded-md p-2 transition hover:bg-zinc-700/10 dark:hover:bg-zinc-700/50",
           params?.channelID === channel.id &&
@@ -71,13 +84,13 @@ const ServerChannel = ({ role, channel, server }: ServerChannelProps) => {
             <div className="ml-auto flex items-center gap-x-2">
               <ActionToolTip lable="Edit">
                 <Edit
-                  onClick={() => onOpen("editChannel", { channel })}
+                  onClick={(e) => onAction(e, "editChannel")}
                   className="hidden size-4 text-zinc-500 transition group-hover:block hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300"
                 />
               </ActionToolTip>
               <ActionToolTip lable="Delete">
                 <Trash
-                  onClick={() => onOpen("deleteChannel", { channel })}
+                  onClick={(e) => onAction(e, "deleteChannel")}
                   className="hidden size-4 text-rose-500 transition group-hover:block hover:text-rose-600 dark:text-rose-400 dark:hover:text-rose-500"
                 />
               </ActionToolTip>

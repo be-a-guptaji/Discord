@@ -97,16 +97,16 @@ const EditChannelModal = () => {
       });
 
       // Make a PATCH request to edit a channel
-      await axios.patch(URL, data);
+      const apiData = await axios.patch(URL, data);
 
       // Reset the form after submission
       form.reset();
 
-      // Refresh the page after submission
-      router.refresh();
-
       // Close the modal after submission
       onClose();
+
+      // Refresh the page after submission
+      router.refresh();
     } catch (error) {
       // Handle error
       console.error("Error editing channel:", error);

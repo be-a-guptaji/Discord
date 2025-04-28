@@ -27,6 +27,7 @@ import { Button } from "@/components/ui/button";
 import FileUpload from "@/components/fileUpload";
 import { useRouter } from "next/navigation";
 import { useModal } from "@/hooks/useModal";
+import { Server } from "@/lib/generated/prisma/client";
 
 // This is the schema for the form
 const formSchema = z.object({
@@ -63,16 +64,19 @@ const CreateServerModal = () => {
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
       // Make a POST request to create a server
-      await axios.post("/api/servers", data);
+      const apiData = await axios.post("/api/servers", data);
 
       // Reset the form after submission
       form.reset();
 
-      // Refresh the page after submission
-      router.refresh();
-
       // Close the modal after submission
       onClose();
+
+      // Redirect to the server page
+      router.push(`/server/${apiData.data.id}`);
+
+      // Refresh the page after submission
+      router.refresh();
     } catch (error) {
       // Handle error
       console.error("Error creating server:", error);
