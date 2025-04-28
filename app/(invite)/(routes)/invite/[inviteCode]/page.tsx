@@ -16,7 +16,7 @@ const InviteCodePage = async ({ params }: InviteCodePageProps) => {
 
   // Check if the profile is null or undefined
   if (!profile) {
-    redirect("/");
+    return redirect("/");
   }
 
   // Extract the inviteCode from the params
@@ -24,7 +24,7 @@ const InviteCodePage = async ({ params }: InviteCodePageProps) => {
 
   // Check if the inviteCode is null or undefined
   if (!inviteCode) {
-    redirect("/");
+    return redirect("/");
   }
 
   // Check if user already exists in the server
@@ -41,7 +41,7 @@ const InviteCodePage = async ({ params }: InviteCodePageProps) => {
 
   // If the user already exists in the server, redirect to the server page
   if (existingInServer) {
-    redirect(`/server/${existingInServer.id}`);
+    return redirect(`/server/${existingInServer.id}`);
   }
 
   try {
@@ -63,12 +63,12 @@ const InviteCodePage = async ({ params }: InviteCodePageProps) => {
 
     // If the server with the given inviteCode exist, redirect to the home page
     if (server) {
-      redirect(`/server/${server.id}`);
+      return redirect(`/server/${server.id}`);
     }
   } catch (error) {
     // Handle the case where the server with the given inviteCode does not exist
     console.error("Error no server found:", error);
-    redirect("/"); // Redirect to home page if the server does not exist
+    return redirect("/"); // Redirect to home page if the server does not exist
   }
 
   return null; // Return null if no redirection occurs

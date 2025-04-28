@@ -46,7 +46,7 @@ const ServerSidebar = async ({ serverID }: ServerSidebarProps) => {
   const profile = await getCurrentProfile();
 
   if (!profile) {
-    redirect("/sign-in");
+    return redirect("/sign-in");
   }
 
   // Fetch the server data using the serverID and profileID
@@ -92,7 +92,7 @@ const ServerSidebar = async ({ serverID }: ServerSidebarProps) => {
   );
 
   if (!server) {
-    redirect("/");
+    return redirect("/");
   }
 
   // Find role in the server
