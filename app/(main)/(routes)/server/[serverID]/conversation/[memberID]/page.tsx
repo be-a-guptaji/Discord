@@ -1,6 +1,7 @@
 // app/(main)/(routes)/server/[serverID]/conversation/[memberID]/page.tsx
 
 import ChatHeader from "@/components/chat/chatHeader";
+import { getOrCreateConversation } from "@/lib/conversation";
 import getCurrentProfile from "@/lib/currentProfile";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
@@ -22,9 +23,10 @@ const MemberIDPage = async ({
   const { memberID, serverID } = await params;
 
   // Fetch the member Profile
-  const member = await db.member.findUnique({
+  const currentMember = await db.member.findFirst({
     where: {
-      id: memberID,
+      serverID: serverID,
+      profileID: profile.id,
     },
     include: {
       profile: true,
@@ -32,18 +34,36 @@ const MemberIDPage = async ({
   });
 
   // If member is NULL return to the server page
-  if (!member) {
+  if (!currentMember) {
+    return redirect("/");
+  }
+
+  // Get the conversation member
+  const conversation = await getOrCreateConversation(
+    currentMember.id,
+    memberID
+  );
+
+  // If conversation is NULL return to the server page
+  if (!conversation) {
     return redirect(`/server/${serverID}`);
   }
+
+  // Extract the memberOne and memberTwo from the conversation
+  const { memberOne, memberTwo } = conversation;
+
+  // Get the other member
+  const otherMember =
+    memberOne.profileID === profile.id ? memberTwo : memberOne;
 
   return (
     <>
       <div className="flex h-full flex-col bg-white dark:bg-[#313338]">
         <ChatHeader
           serverID={serverID}
-          name={member.profile.name}
+          name={otherMember.profile.name}
           type="conversation"
-          imageURL={member.profile.imageURL}
+          imageURL={otherMember.profile.imageURL}
         />
       </div>
     </>
