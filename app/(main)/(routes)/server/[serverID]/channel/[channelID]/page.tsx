@@ -17,6 +17,7 @@ const ChannelIDPage = async ({
   if (!profile) {
     return redirect("/sign-in");
   }
+
   // Get the channel ID and server ID from the request parameters
   const { channelID, serverID } = await params;
 
