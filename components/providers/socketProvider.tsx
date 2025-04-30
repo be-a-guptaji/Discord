@@ -33,8 +33,9 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
     if (typeof window === "undefined") return;
 
     const socketInstance = ClientIO(process.env.NEXT_PUBLIC_SITE_URL!, {
-      path: "/api/socket",
+      path: "/api/socket/io",
       addTrailingSlash: false,
+      withCredentials: true,
     });
 
     socketInstance.on("connect", () => setIsConnected(true));

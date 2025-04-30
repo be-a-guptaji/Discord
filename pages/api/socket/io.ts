@@ -1,10 +1,9 @@
-// app/api/socket/route.ts
+// pages/api/socket/io.ts
 
 import { Server as NetServer } from "http";
 import { NextApiRequest } from "next";
 import { Server as ServerIO } from "socket.io";
 import { NextApiResponseServerIO } from "@/types";
-import { NextResponse } from "next/server";
 
 export const config = {
   api: {
@@ -12,16 +11,25 @@ export const config = {
   },
 };
 
-export function GET(req: NextApiRequest, res: NextApiResponseServerIO) {
+const ioHandler = (req: NextApiRequest, res: NextApiResponseServerIO) => {
   if (!res.socket?.server?.io) {
-    const path = "/api/socket";
+    const path = "/api/socket/io";
     const httpServer: NetServer | undefined = res.socket?.server as any;
-
     if (httpServer) {
-      const io = new ServerIO(httpServer, { path, addTrailingSlash: false });
+      const io = new ServerIO(httpServer, {
+        path,
+        addTrailingSlash: false,
+        cors: {
+          origin: process.env.NEXT_PUBLIC_SITE_URL,
+          methods: ["GET", "POST"],
+          credentials: true,
+        },
+      });
       (res.socket as any).server.io = io;
     }
   }
 
-  return NextResponse.json({ message: "Socket connected" });
-}
+  res.end();
+};
+
+export default ioHandler;
