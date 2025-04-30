@@ -86,17 +86,18 @@ const ServerSearch = ({ data }: ServerSearchProps) => {
       </button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Search all channels and members" />
-        <CommandList>
+        <CommandList className="py-2">
           <CommandEmpty>No results found.</CommandEmpty>
           {data.map(({ label, type, data }) => {
             if (!data?.length) return null;
 
             return (
-              <CommandGroup key={label} heading={label} className="py-4">
+              <CommandGroup key={label} heading={label}>
                 {data?.map(({ id, name, icon }) => {
                   return (
                     <CommandItem
                       className={cn(
+                        "my-1",
                         (params?.channelID === id &&
                           "bg-zinc-700/20 dark:bg-zinc-700/60") ||
                           (params?.memberID === id &&
