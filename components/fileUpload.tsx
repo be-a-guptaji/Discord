@@ -57,10 +57,10 @@ const FileUpload = ({ endpoint, value, onChange }: FileUploadProps) => {
             href={value}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 flex items-center justify-center text-sm text-indigo-500 hover:underline dark:text-indigo-400"
+            className="flex items-center justify-center text-sm text-indigo-500 hover:underline dark:text-indigo-400"
           >
             <Mic className="size-10 fill-indigo-200 stroke-indigo-400" />
-            <p className="w-[390px] truncate text-wrap">{value}</p>
+            <audio controls autoPlay src={value} />
           </a>
           <button
             onClick={() => onChange("")}
