@@ -11,6 +11,7 @@ import { Hash, Mic, Plus, Smile, Video } from "lucide-react";
 import { ChannelType } from "@/lib/generated/prisma/client";
 import axios from "axios";
 import qs from "query-string";
+import { useModal } from "@/hooks/useModal";
 
 interface ChatInputProps {
   apiURL: string;
@@ -52,6 +53,9 @@ const ChatInput = ({
     },
   });
 
+  // This is the modal store for opening and closing the modal and getting the type of modal
+  const { onOpen } = useModal();
+
   // Get the loading state from the form
   const isLoading = form.formState.isSubmitting;
 
@@ -88,7 +92,7 @@ const ChatInput = ({
                 <FormControl>
                   <div className="relative p-4 pb-6">
                     <button
-                      onClick={() => {}}
+                      onClick={() => onOpen("messageFile", { apiURL, query })}
                       type="button"
                       className="absolute top-7 left-8 flex size-[24px] items-center justify-center rounded-full bg-zinc-500 p-1 transition hover:bg-zinc-600 dark:bg-zinc-400 dark:hover:bg-zinc-300"
                     >
