@@ -2,7 +2,7 @@
 
 "use client";
 
-import { FileIcon, X } from "lucide-react";
+import { FileIcon, Mic, X } from "lucide-react";
 import Image from "next/image";
 import { UploadDropzone } from "@/lib/uploadthing";
 import { useState } from "react";
@@ -17,6 +17,7 @@ const FileUpload = ({ endpoint, value, onChange }: FileUploadProps) => {
   // Extract the file Type
   const [fileType, setFileType] = useState<string>("");
 
+  // Function to handle video upload
   if (value && fileType === "mp4") {
     return (
       <>
@@ -47,6 +48,33 @@ const FileUpload = ({ endpoint, value, onChange }: FileUploadProps) => {
     );
   }
 
+  // Function to handle audio upload
+  if (value && fileType === "mp3") {
+    return (
+      <>
+        <div className="bg-background/10 relative mt-2 flex items-center rounded-md p-2">
+          <a
+            href={value}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-2 flex items-center justify-center text-sm text-indigo-500 hover:underline dark:text-indigo-400"
+          >
+            <Mic className="size-10 fill-indigo-200 stroke-indigo-400" />
+            <p className="w-[390px] truncate text-wrap">{value}</p>
+          </a>
+          <button
+            onClick={() => onChange("")}
+            className="absolute -top-2 -right-2 rounded-full bg-rose-500 p-1 text-white shadow-sm"
+            type="button"
+          >
+            <X className="size-4" />
+          </button>
+        </div>
+      </>
+    );
+  }
+
+  // Function to handle pdf upload
   if (value && fileType === "pdf") {
     return (
       <>
@@ -72,6 +100,7 @@ const FileUpload = ({ endpoint, value, onChange }: FileUploadProps) => {
     );
   }
 
+  // Function to handle image upload
   if (value && fileType !== "pdf") {
     return (
       <>

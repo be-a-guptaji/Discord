@@ -83,7 +83,7 @@ const CreateChannelModal = () => {
     } else {
       form.setValue("type", ChannelType.TEXT);
     }
-  }, [channelType, form]);
+  });
 
   // This is the loading state for the form
   const isLoading = form.formState.isSubmitting;
@@ -181,7 +181,9 @@ const CreateChannelModal = () => {
                               value={type}
                               className="capitalize"
                             >
-                              {type.toLowerCase()}
+                              {type === ChannelType.AUDIO
+                                ? "Voice"
+                                : type.toLowerCase()}
                             </SelectItem>
                           ))}
                         </SelectContent>
