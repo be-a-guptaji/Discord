@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/providers/themeProvider";
 import { cn } from "@/lib/utils";
 import { ModalProvider } from "@/components/providers/modalProvider";
 import { SocketProvider } from "@/components/providers/socketProvider";
+import { QueryProvider } from "@/components/providers/queryProvider";
 import "@/app/globals.css";
 
 const openSANS = Open_Sans({
@@ -42,7 +43,7 @@ export default function RootLayout({
           >
             <SocketProvider>
               <ModalProvider />
-              {children}
+              <QueryProvider>{children}</QueryProvider>
             </SocketProvider>
           </ThemeProvider>
         </body>

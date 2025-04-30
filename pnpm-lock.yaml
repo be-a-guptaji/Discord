@@ -52,6 +52,9 @@ importers:
       "@radix-ui/react-tooltip":
         specifier: ^1.2.4
         version: 1.2.4(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      "@tanstack/react-query":
+        specifier: ^5.74.11
+        version: 5.74.11(react@19.1.0)
       "@uploadthing/react":
         specifier: ^7.3.0
         version: 7.3.0(next@15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)(uploadthing@7.6.0(next@15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(tailwindcss@4.1.4))
@@ -1654,6 +1657,20 @@ packages:
       {
         integrity: sha512-bjV6sqycCEa+AQSt2Kr7wpGF1bOZJ5wsqnLEkqSbM/JEHxx/yhMH8wHmdkPyApF9xhHeMSwnnkDUUMMM/hYnXw==,
       }
+
+  "@tanstack/query-core@5.74.9":
+    resolution:
+      {
+        integrity: sha512-qmjXpWyigDw4SfqdSBy24FzRvpBPXlaSbl92N77lcrL+yvVQLQkf0T6bQNbTxl9IEB/SvVFhhVZoIlQvFnNuuw==,
+      }
+
+  "@tanstack/react-query@5.74.11":
+    resolution:
+      {
+        integrity: sha512-FFhn9ZiYRUOsxLAWZYxVfQTpVE7UWRaAeHJIWVDHKlmZZGc16rMHW9KrFZ8peC4hA71QUf/shJD8dPSMqDnRmA==,
+      }
+    peerDependencies:
+      react: ^18 || ^19
 
   "@tybys/wasm-util@0.9.0":
     resolution:
@@ -5478,6 +5495,13 @@ snapshots:
       "@tailwindcss/oxide": 4.1.4
       postcss: 8.5.3
       tailwindcss: 4.1.4
+
+  "@tanstack/query-core@5.74.9": {}
+
+  "@tanstack/react-query@5.74.11(react@19.1.0)":
+    dependencies:
+      "@tanstack/query-core": 5.74.9
+      react: 19.1.0
 
   "@tybys/wasm-util@0.9.0":
     dependencies:
