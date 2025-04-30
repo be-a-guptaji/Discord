@@ -13,6 +13,7 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import { useParams, useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 interface ServerSearchProps {
   data: {
@@ -61,11 +62,11 @@ const ServerSearch = ({ data }: ServerSearchProps) => {
     setOpen(false);
 
     if (type === "member") {
-      return router.push(`/server/${params?.serverID}/conversations/${id}`);
+      return router.push(`/server/${params?.serverID}/conversation/${id}`);
     }
 
     if (type === "channel") {
-      return router.push(`/server/${params?.serverID}/channels/${id}`);
+      return router.push(`/server/${params?.serverID}/channel/${id}`);
     }
   };
 
@@ -91,10 +92,16 @@ const ServerSearch = ({ data }: ServerSearchProps) => {
             if (!data?.length) return null;
 
             return (
-              <CommandGroup key={label} heading={label}>
+              <CommandGroup key={label} heading={label} className="py-4">
                 {data?.map(({ id, name, icon }) => {
                   return (
                     <CommandItem
+                      className={cn(
+                        (params?.channelID === id &&
+                          "bg-zinc-700/20 dark:bg-zinc-700/60") ||
+                          (params?.memberID === id &&
+                            "bg-zinc-700/20 dark:bg-zinc-700/60")
+                      )}
                       key={id}
                       onSelect={() => onClick({ id, type })}
                     >
