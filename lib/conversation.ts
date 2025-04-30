@@ -1,4 +1,4 @@
-// @lib/conversation.ts
+// lib/conversation.ts
 
 import { db } from "@/lib/db";
 

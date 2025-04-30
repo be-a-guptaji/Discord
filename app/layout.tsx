@@ -3,10 +3,11 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
-import "@/app/globals.css";
 import { ThemeProvider } from "@/components/providers/themeProvider";
 import { cn } from "@/lib/utils";
 import { ModalProvider } from "@/components/providers/modalProvider";
+import { SocketProvider } from "@/components/providers/socketProvider";
+import "@/app/globals.css";
 
 const openSANS = Open_Sans({
   variable: "--font-open-sans",
@@ -39,8 +40,10 @@ export default function RootLayout({
             storageKey="discord-theme"
             disableTransitionOnChange
           >
-            <ModalProvider />
-            {children}
+            <SocketProvider>
+              <ModalProvider />
+              {children}
+            </SocketProvider>
           </ThemeProvider>
         </body>
       </html>
