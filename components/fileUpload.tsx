@@ -10,12 +10,20 @@ import { useState } from "react";
 interface FileUploadProps {
   endpoint: "serverImage" | "messageFile";
   value: string;
+  gettingFileType?: boolean;
+  getFileType?: (fileType: string | null | undefined) => void;
   onChange: (fileUrl?: string) => void;
 }
 
-const FileUpload = ({ endpoint, value, onChange }: FileUploadProps) => {
+const FileUpload = ({
+  endpoint,
+  value,
+  gettingFileType = false,
+  onChange,
+  getFileType,
+}: FileUploadProps) => {
   // Extract the file Type
-  const [fileType, setFileType] = useState<string>("");
+  const [fileType, setFileType] = useState<string | null>();
 
   // Function to handle video upload
   if (value && fileType === "mp4") {
@@ -131,7 +139,10 @@ const FileUpload = ({ endpoint, value, onChange }: FileUploadProps) => {
         endpoint={endpoint}
         onClientUploadComplete={(res) => {
           onChange(res?.[0].ufsUrl);
-          setFileType(res?.[0]?.name?.split(".").pop() || "");
+          setFileType(res?.[0]?.name?.split(".").pop());
+          if (gettingFileType && getFileType) {
+            getFileType(res?.[0]?.name?.split(".").pop());
+          }
         }}
         onUploadError={(err: Error) => {
           // Do something with the error.

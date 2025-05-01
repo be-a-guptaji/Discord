@@ -43,6 +43,21 @@ const ChatItem = ({
   socketURL,
   socketQuery,
 }: ChatItemProps) => {
+  // Check if the current member is an admin
+  const isAdmin = currentMember.role === MemberRole.ADMIN;
+
+  // Check if the current member is a moderator
+  const isModerator = currentMember.role === MemberRole.MODERATOR;
+
+  // Check if the current member is the author of the message
+  const isOwner = currentMember.id === member.id;
+
+  // Check if the current member is the author of the message or an admin or a moderator
+  const canDeleteMessage = !deleted && (isAdmin || isModerator || isOwner);
+
+  // Check if the current member is the author of the message to edit
+  const canEditMessage = !deleted && isOwner && !fileURL;
+
   return (
     <>
       <div className="group relative flex w-full items-center p-4 transition hover:bg-black/5">

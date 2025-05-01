@@ -22,8 +22,8 @@ export default async function handler(
       return res.status(401).json({ error: "Unauthorized" });
     }
 
-    // Destructure the request body to get the content and fileURL
-    const { content, fileURL } = req.body;
+    // Destructure the request body to get the content, fileURL and fileType
+    const { content, fileURL, fileType } = req.body;
 
     // Destructure the request body to get the serverID and channelID
     const { serverID, channelID } = req.query;
@@ -91,6 +91,7 @@ export default async function handler(
       data: {
         content,
         fileURL,
+        fileType: fileType as string,
         channelID: channelID as string,
         memberID: member.id,
       },

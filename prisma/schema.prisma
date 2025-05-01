@@ -103,6 +103,7 @@ model Message {
   id      String  @id @default(uuid())
   content String  @db.Text
   fileURL String? @db.Text
+  fileType String?
   deleted Boolean @default(false)
 
   memberID String
