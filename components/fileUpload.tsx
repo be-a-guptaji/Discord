@@ -6,6 +6,7 @@ import { FileIcon, Mic, X } from "lucide-react";
 import Image from "next/image";
 import { UploadDropzone } from "@/lib/uploadthing";
 import { useState } from "react";
+import { useModal } from "@/hooks/useModal";
 
 interface FileUploadProps {
   endpoint: "serverImage" | "messageFile";
@@ -24,6 +25,9 @@ const FileUpload = ({
 }: FileUploadProps) => {
   // Extract the file Type
   const [fileType, setFileType] = useState<string | null>();
+
+  // This is the modal store for opening and closing the modal and getting the type of modal
+  const { type } = useModal();
 
   // Function to handle video upload
   if (value && fileType === "mp4") {
@@ -108,8 +112,33 @@ const FileUpload = ({
     );
   }
 
+  // Function to handle image upload on message
+  if (value && type === "messageFile") {
+    return (
+      <>
+        <div className="relative">
+          <Image
+            priority
+            src={value}
+            alt="Upload"
+            width={500}
+            height={500}
+            className="aspect-square w-[300px] rounded-md object-fill"
+          />
+          <button
+            onClick={() => onChange("")}
+            className="absolute -top-2 -right-2 rounded-full bg-rose-500 p-1 text-white shadow-sm"
+            type="button"
+          >
+            <X className="size-4" />
+          </button>
+        </div>
+      </>
+    );
+  }
+
   // Function to handle image upload
-  if (value && fileType !== "pdf") {
+  if (value) {
     return (
       <>
         <div className="relative size-20">

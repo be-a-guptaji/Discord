@@ -15,6 +15,7 @@ interface ChatItemProps {
   };
   timestamp: string;
   fileURL: string | null;
+  fileType: string | null;
   deleted: boolean;
   currentMember: Member;
   isUpdated: boolean;
@@ -37,6 +38,7 @@ const ChatItem = ({
   member,
   timestamp,
   fileURL,
+  fileType,
   deleted,
   currentMember,
   isUpdated,

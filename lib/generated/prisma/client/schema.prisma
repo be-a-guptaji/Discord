@@ -1,0 +1,155 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id       String @id @default(uuid())
+  userID   String @unique
+  name     String
+  imageURL String @db.Text
+  email    String @unique @db.Text
+
+  servers  Server[]
+  members  Member[]
+  channels Channel[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Server {
+  id         String @id @default(uuid())
+  name       String
+  imageURL   String @db.Text
+  inviteCode String @unique
+
+  profileID String
+  profile   Profile @relation(fields: [profileID], references: [id], onDelete: Cascade)
+
+  members  Member[]
+  channels Channel[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([profileID])
+}
+
+enum MemberRole {
+  MODERATOR
+  ADMIN
+  GUEST
+}
+
+model Member {
+  id   String     @id @default(uuid())
+  role MemberRole @default(GUEST)
+
+  profileID String
+  profile   Profile @relation(fields: [profileID], references: [id], onDelete: Cascade)
+  serverID  String
+  server    Server  @relation(fields: [serverID], references: [id], onDelete: Cascade)
+
+  messages              Message[]
+  directMessages        DirectMessage[]
+  conversationInitiated Coversation[]   @relation("MemberOne")
+  conversationReceived  Coversation[]   @relation("MemberTwo")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([serverID])
+  @@index([profileID])
+}
+
+enum ChannelType {
+  TEXT
+  AUDIO
+  VIDEO
+}
+
+model Channel {
+  id   String      @id @default(uuid())
+  name String
+  type ChannelType @default(TEXT)
+
+  profileID String
+  profile   Profile @relation(fields: [profileID], references: [id], onDelete: Cascade)
+  serverID  String
+  server    Server  @relation(fields: [serverID], references: [id], onDelete: Cascade)
+
+  message Message[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([profileID])
+  @@index([serverID])
+}
+
+model Message {
+  id       String  @id @default(uuid())
+  content  String  @db.Text
+  fileURL  String? @db.Text
+  fileType String?
+  deleted  Boolean @default(false)
+
+  memberID String
+  member   Member @relation(fields: [memberID], references: [id], onDelete: Cascade)
+
+  channelID String
+  channel   Channel @relation(fields: [channelID], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([memberID])
+  @@index([channelID])
+}
+
+model Coversation {
+  id String @id @default(uuid())
+
+  memberOneID String
+  memberOne   Member @relation("MemberOne", fields: [memberOneID], references: [id], onDelete: Cascade)
+
+  memberTwoID String
+  memberTwo   Member @relation("MemberTwo", fields: [memberTwoID], references: [id], onDelete: Cascade)
+
+  directMessages DirectMessage[]
+
+  @@unique([memberOneID, memberTwoID])
+  @@index([memberOneID])
+  @@index([memberTwoID])
+}
+
+model DirectMessage {
+  id      String  @id @default(uuid())
+  content String  @db.Text
+  fileURL String? @db.Text
+  deleted Boolean @default(false)
+
+  memberID String
+  member   Member @relation(fields: [memberID], references: [id], onDelete: Cascade)
+
+  conversationID String
+  conversation   Coversation @relation(fields: [conversationID], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([memberID])
+  @@index([conversationID])
+}
