@@ -42,9 +42,11 @@ import { useRouter } from "next/navigation";
 
 // Mapping of member roles to icons
 const roleIconMap = {
-  GUEST: <User className="ml-2 size-4 text-gray-500" />,
-  MODERATOR: <ShieldCheck className="ml-2 size-4 text-indigo-500" />,
-  ADMIN: <ShieldAlert className="ml-2 size-4 text-rose-500" />,
+  [MemberRole.GUEST]: <User className="ml-2 size-4 text-gray-500" />,
+  [MemberRole.MODERATOR]: (
+    <ShieldCheck className="ml-2 size-4 text-indigo-500" />
+  ),
+  [MemberRole.ADMIN]: <ShieldAlert className="ml-2 size-4 text-rose-500" />,
 };
 
 const MembersModal = () => {

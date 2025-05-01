@@ -77,12 +77,12 @@ export default async function handler(
     }
 
     // Find if the user is a member of the server
-    const members = server.members.find(
-      (member) => member.profileID !== profile.id
+    const member = server.members.find(
+      (member) => member.profileID === profile.id
     );
 
     // Check if the user is a member of the server
-    if (!members) {
+    if (!member) {
       return res.status(401).json({ error: "Member not found" });
     }
 
@@ -92,7 +92,7 @@ export default async function handler(
         content,
         fileURL,
         channelID: channelID as string,
-        memberID: members.id,
+        memberID: member.id,
       },
       include: {
         member: {
