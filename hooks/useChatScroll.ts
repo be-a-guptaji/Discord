@@ -67,7 +67,7 @@ export const useChatScroll = ({
         bottomRef?.current?.scrollIntoView({
           behavior: "smooth",
         });
-      }, 100);
+      }, 1000);
     }
   }, [bottomRef, chatRef, hasInitialized, count]);
 };

@@ -7,8 +7,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Hash, Mic, Plus, Send, Video } from "lucide-react";
-import { ChannelType } from "@/lib/generated/prisma/client";
+import { Plus, Send } from "lucide-react";
 import axios from "axios";
 import qs from "query-string";
 import { useModal } from "@/hooks/useModal";
@@ -16,24 +15,17 @@ import EmojiPicker from "@/components/emojiPicker";
 import ActionToolTip from "@/components/actionToolTip";
 
 interface ChatInputProps {
+  name: string;
   apiURL: string;
   query: Record<string, string>;
-  name: string;
   type: "channel" | "conversation";
-  channelType?: ChannelType;
 }
 
 const formSchema = z.object({
   content: z.string().min(1),
 });
 
-const ChatInput = ({
-  apiURL,
-  query,
-  name,
-  type,
-  channelType,
-}: ChatInputProps) => {
+const ChatInput = ({ name, apiURL, query, type }: ChatInputProps) => {
   // Construct a form hook
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

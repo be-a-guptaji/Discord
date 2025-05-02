@@ -64,8 +64,8 @@ model Member {
 
   messages              Message[]
   directMessages        DirectMessage[]
-  conversationInitiated Coversation[]   @relation("MemberOne")
-  conversationReceived  Coversation[]   @relation("MemberTwo")
+  conversationInitiated Conversation[]   @relation("MemberOne")
+  conversationReceived  Conversation[]   @relation("MemberTwo")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -119,7 +119,7 @@ model Message {
   @@index([channelID])
 }
 
-model Coversation {
+model Conversation {
   id String @id @default(uuid())
 
   memberOneID String
@@ -139,13 +139,14 @@ model DirectMessage {
   id      String  @id @default(uuid())
   content String  @db.Text
   fileURL String? @db.Text
+  fileType String?
   deleted Boolean @default(false)
 
   memberID String
   member   Member @relation(fields: [memberID], references: [id], onDelete: Cascade)
 
   conversationID String
-  conversation   Coversation @relation(fields: [conversationID], references: [id], onDelete: Cascade)
+  conversation   Conversation @relation(fields: [conversationID], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

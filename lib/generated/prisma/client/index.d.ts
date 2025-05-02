@@ -37,10 +37,11 @@ export type Channel = $Result.DefaultSelection<Prisma.$ChannelPayload>;
  */
 export type Message = $Result.DefaultSelection<Prisma.$MessagePayload>;
 /**
- * Model Coversation
+ * Model Conversation
  *
  */
-export type Coversation = $Result.DefaultSelection<Prisma.$CoversationPayload>;
+export type Conversation =
+  $Result.DefaultSelection<Prisma.$ConversationPayload>;
 /**
  * Model DirectMessage
  *
@@ -294,14 +295,14 @@ export class PrismaClient<
   get message(): Prisma.MessageDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.coversation`: Exposes CRUD operations for the **Coversation** model.
+   * `prisma.conversation`: Exposes CRUD operations for the **Conversation** model.
    * Example usage:
    * ```ts
-   * // Fetch zero or more Coversations
-   * const coversations = await prisma.coversation.findMany()
+   * // Fetch zero or more Conversations
+   * const conversations = await prisma.conversation.findMany()
    * ```
    */
-  get coversation(): Prisma.CoversationDelegate<ExtArgs, ClientOptions>;
+  get conversation(): Prisma.ConversationDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.directMessage`: Exposes CRUD operations for the **DirectMessage** model.
@@ -775,7 +776,7 @@ export namespace Prisma {
     Member: "Member";
     Channel: "Channel";
     Message: "Message";
-    Coversation: "Coversation";
+    Conversation: "Conversation";
     DirectMessage: "DirectMessage";
   };
 
@@ -810,7 +811,7 @@ export namespace Prisma {
         | "member"
         | "channel"
         | "message"
-        | "coversation"
+        | "conversation"
         | "directMessage";
       txIsolationLevel: Prisma.TransactionIsolationLevel;
     };
@@ -1185,78 +1186,78 @@ export namespace Prisma {
           };
         };
       };
-      Coversation: {
-        payload: Prisma.$CoversationPayload<ExtArgs>;
-        fields: Prisma.CoversationFieldRefs;
+      Conversation: {
+        payload: Prisma.$ConversationPayload<ExtArgs>;
+        fields: Prisma.ConversationFieldRefs;
         operations: {
           findUnique: {
-            args: Prisma.CoversationFindUniqueArgs<ExtArgs>;
-            result: $Utils.PayloadToResult<Prisma.$CoversationPayload> | null;
+            args: Prisma.ConversationFindUniqueArgs<ExtArgs>;
+            result: $Utils.PayloadToResult<Prisma.$ConversationPayload> | null;
           };
           findUniqueOrThrow: {
-            args: Prisma.CoversationFindUniqueOrThrowArgs<ExtArgs>;
-            result: $Utils.PayloadToResult<Prisma.$CoversationPayload>;
+            args: Prisma.ConversationFindUniqueOrThrowArgs<ExtArgs>;
+            result: $Utils.PayloadToResult<Prisma.$ConversationPayload>;
           };
           findFirst: {
-            args: Prisma.CoversationFindFirstArgs<ExtArgs>;
-            result: $Utils.PayloadToResult<Prisma.$CoversationPayload> | null;
+            args: Prisma.ConversationFindFirstArgs<ExtArgs>;
+            result: $Utils.PayloadToResult<Prisma.$ConversationPayload> | null;
           };
           findFirstOrThrow: {
-            args: Prisma.CoversationFindFirstOrThrowArgs<ExtArgs>;
-            result: $Utils.PayloadToResult<Prisma.$CoversationPayload>;
+            args: Prisma.ConversationFindFirstOrThrowArgs<ExtArgs>;
+            result: $Utils.PayloadToResult<Prisma.$ConversationPayload>;
           };
           findMany: {
-            args: Prisma.CoversationFindManyArgs<ExtArgs>;
-            result: $Utils.PayloadToResult<Prisma.$CoversationPayload>[];
+            args: Prisma.ConversationFindManyArgs<ExtArgs>;
+            result: $Utils.PayloadToResult<Prisma.$ConversationPayload>[];
           };
           create: {
-            args: Prisma.CoversationCreateArgs<ExtArgs>;
-            result: $Utils.PayloadToResult<Prisma.$CoversationPayload>;
+            args: Prisma.ConversationCreateArgs<ExtArgs>;
+            result: $Utils.PayloadToResult<Prisma.$ConversationPayload>;
           };
           createMany: {
-            args: Prisma.CoversationCreateManyArgs<ExtArgs>;
+            args: Prisma.ConversationCreateManyArgs<ExtArgs>;
             result: BatchPayload;
           };
           createManyAndReturn: {
-            args: Prisma.CoversationCreateManyAndReturnArgs<ExtArgs>;
-            result: $Utils.PayloadToResult<Prisma.$CoversationPayload>[];
+            args: Prisma.ConversationCreateManyAndReturnArgs<ExtArgs>;
+            result: $Utils.PayloadToResult<Prisma.$ConversationPayload>[];
           };
           delete: {
-            args: Prisma.CoversationDeleteArgs<ExtArgs>;
-            result: $Utils.PayloadToResult<Prisma.$CoversationPayload>;
+            args: Prisma.ConversationDeleteArgs<ExtArgs>;
+            result: $Utils.PayloadToResult<Prisma.$ConversationPayload>;
           };
           update: {
-            args: Prisma.CoversationUpdateArgs<ExtArgs>;
-            result: $Utils.PayloadToResult<Prisma.$CoversationPayload>;
+            args: Prisma.ConversationUpdateArgs<ExtArgs>;
+            result: $Utils.PayloadToResult<Prisma.$ConversationPayload>;
           };
           deleteMany: {
-            args: Prisma.CoversationDeleteManyArgs<ExtArgs>;
+            args: Prisma.ConversationDeleteManyArgs<ExtArgs>;
             result: BatchPayload;
           };
           updateMany: {
-            args: Prisma.CoversationUpdateManyArgs<ExtArgs>;
+            args: Prisma.ConversationUpdateManyArgs<ExtArgs>;
             result: BatchPayload;
           };
           updateManyAndReturn: {
-            args: Prisma.CoversationUpdateManyAndReturnArgs<ExtArgs>;
-            result: $Utils.PayloadToResult<Prisma.$CoversationPayload>[];
+            args: Prisma.ConversationUpdateManyAndReturnArgs<ExtArgs>;
+            result: $Utils.PayloadToResult<Prisma.$ConversationPayload>[];
           };
           upsert: {
-            args: Prisma.CoversationUpsertArgs<ExtArgs>;
-            result: $Utils.PayloadToResult<Prisma.$CoversationPayload>;
+            args: Prisma.ConversationUpsertArgs<ExtArgs>;
+            result: $Utils.PayloadToResult<Prisma.$ConversationPayload>;
           };
           aggregate: {
-            args: Prisma.CoversationAggregateArgs<ExtArgs>;
-            result: $Utils.Optional<AggregateCoversation>;
+            args: Prisma.ConversationAggregateArgs<ExtArgs>;
+            result: $Utils.Optional<AggregateConversation>;
           };
           groupBy: {
-            args: Prisma.CoversationGroupByArgs<ExtArgs>;
-            result: $Utils.Optional<CoversationGroupByOutputType>[];
+            args: Prisma.ConversationGroupByArgs<ExtArgs>;
+            result: $Utils.Optional<ConversationGroupByOutputType>[];
           };
           count: {
-            args: Prisma.CoversationCountArgs<ExtArgs>;
+            args: Prisma.ConversationCountArgs<ExtArgs>;
             result:
-              | $Utils.Optional<CoversationCountAggregateOutputType>
+              | $Utils.Optional<ConversationCountAggregateOutputType>
               | number;
           };
         };
@@ -1430,7 +1431,7 @@ export namespace Prisma {
     member?: MemberOmit;
     channel?: ChannelOmit;
     message?: MessageOmit;
-    coversation?: CoversationOmit;
+    conversation?: ConversationOmit;
     directMessage?: DirectMessageOmit;
   };
 
@@ -1700,7 +1701,7 @@ export namespace Prisma {
   export type MemberCountOutputTypeCountConversationInitiatedArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
-    where?: CoversationWhereInput;
+    where?: ConversationWhereInput;
   };
 
   /**
@@ -1709,7 +1710,7 @@ export namespace Prisma {
   export type MemberCountOutputTypeCountConversationReceivedArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
-    where?: CoversationWhereInput;
+    where?: ConversationWhereInput;
   };
 
   /**
@@ -1749,38 +1750,38 @@ export namespace Prisma {
   };
 
   /**
-   * Count Type CoversationCountOutputType
+   * Count Type ConversationCountOutputType
    */
 
-  export type CoversationCountOutputType = {
+  export type ConversationCountOutputType = {
     directMessages: number;
   };
 
-  export type CoversationCountOutputTypeSelect<
+  export type ConversationCountOutputTypeSelect<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     directMessages?:
       | boolean
-      | CoversationCountOutputTypeCountDirectMessagesArgs;
+      | ConversationCountOutputTypeCountDirectMessagesArgs;
   };
 
   // Custom InputTypes
   /**
-   * CoversationCountOutputType without action
+   * ConversationCountOutputType without action
    */
-  export type CoversationCountOutputTypeDefaultArgs<
+  export type ConversationCountOutputTypeDefaultArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
-     * Select specific fields to fetch from the CoversationCountOutputType
+     * Select specific fields to fetch from the ConversationCountOutputType
      */
-    select?: CoversationCountOutputTypeSelect<ExtArgs> | null;
+    select?: ConversationCountOutputTypeSelect<ExtArgs> | null;
   };
 
   /**
-   * CoversationCountOutputType without action
+   * ConversationCountOutputType without action
    */
-  export type CoversationCountOutputTypeCountDirectMessagesArgs<
+  export type ConversationCountOutputTypeCountDirectMessagesArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     where?: DirectMessageWhereInput;
@@ -4886,8 +4887,8 @@ export namespace Prisma {
       server: Prisma.$ServerPayload<ExtArgs>;
       messages: Prisma.$MessagePayload<ExtArgs>[];
       directMessages: Prisma.$DirectMessagePayload<ExtArgs>[];
-      conversationInitiated: Prisma.$CoversationPayload<ExtArgs>[];
-      conversationReceived: Prisma.$CoversationPayload<ExtArgs>[];
+      conversationInitiated: Prisma.$ConversationPayload<ExtArgs>[];
+      conversationReceived: Prisma.$ConversationPayload<ExtArgs>[];
     };
     scalars: $Extensions.GetPayloadResult<
       {
@@ -5499,7 +5500,7 @@ export namespace Prisma {
       args?: Subset<T, Member$conversationInitiatedArgs<ExtArgs>>
     ): Prisma.PrismaPromise<
       | $Result.GetResult<
-          Prisma.$CoversationPayload<ExtArgs>,
+          Prisma.$ConversationPayload<ExtArgs>,
           T,
           "findMany",
           GlobalOmitOptions
@@ -5512,7 +5513,7 @@ export namespace Prisma {
       args?: Subset<T, Member$conversationReceivedArgs<ExtArgs>>
     ): Prisma.PrismaPromise<
       | $Result.GetResult<
-          Prisma.$CoversationPayload<ExtArgs>,
+          Prisma.$ConversationPayload<ExtArgs>,
           T,
           "findMany",
           GlobalOmitOptions
@@ -6050,25 +6051,25 @@ export namespace Prisma {
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
-     * Select specific fields to fetch from the Coversation
+     * Select specific fields to fetch from the Conversation
      */
-    select?: CoversationSelect<ExtArgs> | null;
+    select?: ConversationSelect<ExtArgs> | null;
     /**
-     * Omit specific fields from the Coversation
+     * Omit specific fields from the Conversation
      */
-    omit?: CoversationOmit<ExtArgs> | null;
+    omit?: ConversationOmit<ExtArgs> | null;
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CoversationInclude<ExtArgs> | null;
-    where?: CoversationWhereInput;
+    include?: ConversationInclude<ExtArgs> | null;
+    where?: ConversationWhereInput;
     orderBy?:
-      | CoversationOrderByWithRelationInput
-      | CoversationOrderByWithRelationInput[];
-    cursor?: CoversationWhereUniqueInput;
+      | ConversationOrderByWithRelationInput
+      | ConversationOrderByWithRelationInput[];
+    cursor?: ConversationWhereUniqueInput;
     take?: number;
     skip?: number;
-    distinct?: CoversationScalarFieldEnum | CoversationScalarFieldEnum[];
+    distinct?: ConversationScalarFieldEnum | ConversationScalarFieldEnum[];
   };
 
   /**
@@ -6078,25 +6079,25 @@ export namespace Prisma {
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
-     * Select specific fields to fetch from the Coversation
+     * Select specific fields to fetch from the Conversation
      */
-    select?: CoversationSelect<ExtArgs> | null;
+    select?: ConversationSelect<ExtArgs> | null;
     /**
-     * Omit specific fields from the Coversation
+     * Omit specific fields from the Conversation
      */
-    omit?: CoversationOmit<ExtArgs> | null;
+    omit?: ConversationOmit<ExtArgs> | null;
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CoversationInclude<ExtArgs> | null;
-    where?: CoversationWhereInput;
+    include?: ConversationInclude<ExtArgs> | null;
+    where?: ConversationWhereInput;
     orderBy?:
-      | CoversationOrderByWithRelationInput
-      | CoversationOrderByWithRelationInput[];
-    cursor?: CoversationWhereUniqueInput;
+      | ConversationOrderByWithRelationInput
+      | ConversationOrderByWithRelationInput[];
+    cursor?: ConversationWhereUniqueInput;
     take?: number;
     skip?: number;
-    distinct?: CoversationScalarFieldEnum | CoversationScalarFieldEnum[];
+    distinct?: ConversationScalarFieldEnum | ConversationScalarFieldEnum[];
   };
 
   /**
@@ -8898,155 +8899,156 @@ export namespace Prisma {
   };
 
   /**
-   * Model Coversation
+   * Model Conversation
    */
 
-  export type AggregateCoversation = {
-    _count: CoversationCountAggregateOutputType | null;
-    _min: CoversationMinAggregateOutputType | null;
-    _max: CoversationMaxAggregateOutputType | null;
+  export type AggregateConversation = {
+    _count: ConversationCountAggregateOutputType | null;
+    _min: ConversationMinAggregateOutputType | null;
+    _max: ConversationMaxAggregateOutputType | null;
   };
 
-  export type CoversationMinAggregateOutputType = {
+  export type ConversationMinAggregateOutputType = {
     id: string | null;
     memberOneID: string | null;
     memberTwoID: string | null;
   };
 
-  export type CoversationMaxAggregateOutputType = {
+  export type ConversationMaxAggregateOutputType = {
     id: string | null;
     memberOneID: string | null;
     memberTwoID: string | null;
   };
 
-  export type CoversationCountAggregateOutputType = {
+  export type ConversationCountAggregateOutputType = {
     id: number;
     memberOneID: number;
     memberTwoID: number;
     _all: number;
   };
 
-  export type CoversationMinAggregateInputType = {
+  export type ConversationMinAggregateInputType = {
     id?: true;
     memberOneID?: true;
     memberTwoID?: true;
   };
 
-  export type CoversationMaxAggregateInputType = {
+  export type ConversationMaxAggregateInputType = {
     id?: true;
     memberOneID?: true;
     memberTwoID?: true;
   };
 
-  export type CoversationCountAggregateInputType = {
+  export type ConversationCountAggregateInputType = {
     id?: true;
     memberOneID?: true;
     memberTwoID?: true;
     _all?: true;
   };
 
-  export type CoversationAggregateArgs<
+  export type ConversationAggregateArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
-     * Filter which Coversation to aggregate.
+     * Filter which Conversation to aggregate.
      */
-    where?: CoversationWhereInput;
+    where?: ConversationWhereInput;
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      *
-     * Determine the order of Coversations to fetch.
+     * Determine the order of Conversations to fetch.
      */
     orderBy?:
-      | CoversationOrderByWithRelationInput
-      | CoversationOrderByWithRelationInput[];
+      | ConversationOrderByWithRelationInput
+      | ConversationOrderByWithRelationInput[];
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      *
      * Sets the start position
      */
-    cursor?: CoversationWhereUniqueInput;
+    cursor?: ConversationWhereUniqueInput;
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      *
-     * Take `±n` Coversations from the position of the cursor.
+     * Take `±n` Conversations from the position of the cursor.
      */
     take?: number;
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      *
-     * Skip the first `n` Coversations.
+     * Skip the first `n` Conversations.
      */
     skip?: number;
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      *
-     * Count returned Coversations
+     * Count returned Conversations
      **/
-    _count?: true | CoversationCountAggregateInputType;
+    _count?: true | ConversationCountAggregateInputType;
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      *
      * Select which fields to find the minimum value
      **/
-    _min?: CoversationMinAggregateInputType;
+    _min?: ConversationMinAggregateInputType;
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      *
      * Select which fields to find the maximum value
      **/
-    _max?: CoversationMaxAggregateInputType;
+    _max?: ConversationMaxAggregateInputType;
   };
 
-  export type GetCoversationAggregateType<T extends CoversationAggregateArgs> =
-    {
-      [P in keyof T & keyof AggregateCoversation]: P extends "_count" | "count"
-        ? T[P] extends true
-          ? number
-          : GetScalarType<T[P], AggregateCoversation[P]>
-        : GetScalarType<T[P], AggregateCoversation[P]>;
-    };
+  export type GetConversationAggregateType<
+    T extends ConversationAggregateArgs,
+  > = {
+    [P in keyof T & keyof AggregateConversation]: P extends "_count" | "count"
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateConversation[P]>
+      : GetScalarType<T[P], AggregateConversation[P]>;
+  };
 
-  export type CoversationGroupByArgs<
+  export type ConversationGroupByArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
-    where?: CoversationWhereInput;
+    where?: ConversationWhereInput;
     orderBy?:
-      | CoversationOrderByWithAggregationInput
-      | CoversationOrderByWithAggregationInput[];
-    by: CoversationScalarFieldEnum[] | CoversationScalarFieldEnum;
-    having?: CoversationScalarWhereWithAggregatesInput;
+      | ConversationOrderByWithAggregationInput
+      | ConversationOrderByWithAggregationInput[];
+    by: ConversationScalarFieldEnum[] | ConversationScalarFieldEnum;
+    having?: ConversationScalarWhereWithAggregatesInput;
     take?: number;
     skip?: number;
-    _count?: CoversationCountAggregateInputType | true;
-    _min?: CoversationMinAggregateInputType;
-    _max?: CoversationMaxAggregateInputType;
+    _count?: ConversationCountAggregateInputType | true;
+    _min?: ConversationMinAggregateInputType;
+    _max?: ConversationMaxAggregateInputType;
   };
 
-  export type CoversationGroupByOutputType = {
+  export type ConversationGroupByOutputType = {
     id: string;
     memberOneID: string;
     memberTwoID: string;
-    _count: CoversationCountAggregateOutputType | null;
-    _min: CoversationMinAggregateOutputType | null;
-    _max: CoversationMaxAggregateOutputType | null;
+    _count: ConversationCountAggregateOutputType | null;
+    _min: ConversationMinAggregateOutputType | null;
+    _max: ConversationMaxAggregateOutputType | null;
   };
 
-  type GetCoversationGroupByPayload<T extends CoversationGroupByArgs> =
+  type GetConversationGroupByPayload<T extends ConversationGroupByArgs> =
     Prisma.PrismaPromise<
       Array<
-        PickEnumerable<CoversationGroupByOutputType, T["by"]> & {
+        PickEnumerable<ConversationGroupByOutputType, T["by"]> & {
           [P in keyof T &
-            keyof CoversationGroupByOutputType]: P extends "_count"
+            keyof ConversationGroupByOutputType]: P extends "_count"
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], CoversationGroupByOutputType[P]>
-            : GetScalarType<T[P], CoversationGroupByOutputType[P]>;
+              : GetScalarType<T[P], ConversationGroupByOutputType[P]>
+            : GetScalarType<T[P], ConversationGroupByOutputType[P]>;
         }
       >
     >;
 
-  export type CoversationSelect<
+  export type ConversationSelect<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = $Extensions.GetSelect<
     {
@@ -9055,26 +9057,13 @@ export namespace Prisma {
       memberTwoID?: boolean;
       memberOne?: boolean | MemberDefaultArgs<ExtArgs>;
       memberTwo?: boolean | MemberDefaultArgs<ExtArgs>;
-      directMessages?: boolean | Coversation$directMessagesArgs<ExtArgs>;
-      _count?: boolean | CoversationCountOutputTypeDefaultArgs<ExtArgs>;
+      directMessages?: boolean | Conversation$directMessagesArgs<ExtArgs>;
+      _count?: boolean | ConversationCountOutputTypeDefaultArgs<ExtArgs>;
     },
-    ExtArgs["result"]["coversation"]
+    ExtArgs["result"]["conversation"]
   >;
 
-  export type CoversationSelectCreateManyAndReturn<
-    ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
-  > = $Extensions.GetSelect<
-    {
-      id?: boolean;
-      memberOneID?: boolean;
-      memberTwoID?: boolean;
-      memberOne?: boolean | MemberDefaultArgs<ExtArgs>;
-      memberTwo?: boolean | MemberDefaultArgs<ExtArgs>;
-    },
-    ExtArgs["result"]["coversation"]
-  >;
-
-  export type CoversationSelectUpdateManyAndReturn<
+  export type ConversationSelectCreateManyAndReturn<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = $Extensions.GetSelect<
     {
@@ -9084,46 +9073,59 @@ export namespace Prisma {
       memberOne?: boolean | MemberDefaultArgs<ExtArgs>;
       memberTwo?: boolean | MemberDefaultArgs<ExtArgs>;
     },
-    ExtArgs["result"]["coversation"]
+    ExtArgs["result"]["conversation"]
   >;
 
-  export type CoversationSelectScalar = {
+  export type ConversationSelectUpdateManyAndReturn<
+    ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
+  > = $Extensions.GetSelect<
+    {
+      id?: boolean;
+      memberOneID?: boolean;
+      memberTwoID?: boolean;
+      memberOne?: boolean | MemberDefaultArgs<ExtArgs>;
+      memberTwo?: boolean | MemberDefaultArgs<ExtArgs>;
+    },
+    ExtArgs["result"]["conversation"]
+  >;
+
+  export type ConversationSelectScalar = {
     id?: boolean;
     memberOneID?: boolean;
     memberTwoID?: boolean;
   };
 
-  export type CoversationOmit<
+  export type ConversationOmit<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = $Extensions.GetOmit<
     "id" | "memberOneID" | "memberTwoID",
-    ExtArgs["result"]["coversation"]
+    ExtArgs["result"]["conversation"]
   >;
-  export type CoversationInclude<
+  export type ConversationInclude<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     memberOne?: boolean | MemberDefaultArgs<ExtArgs>;
     memberTwo?: boolean | MemberDefaultArgs<ExtArgs>;
-    directMessages?: boolean | Coversation$directMessagesArgs<ExtArgs>;
-    _count?: boolean | CoversationCountOutputTypeDefaultArgs<ExtArgs>;
+    directMessages?: boolean | Conversation$directMessagesArgs<ExtArgs>;
+    _count?: boolean | ConversationCountOutputTypeDefaultArgs<ExtArgs>;
   };
-  export type CoversationIncludeCreateManyAndReturn<
+  export type ConversationIncludeCreateManyAndReturn<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     memberOne?: boolean | MemberDefaultArgs<ExtArgs>;
     memberTwo?: boolean | MemberDefaultArgs<ExtArgs>;
   };
-  export type CoversationIncludeUpdateManyAndReturn<
+  export type ConversationIncludeUpdateManyAndReturn<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     memberOne?: boolean | MemberDefaultArgs<ExtArgs>;
     memberTwo?: boolean | MemberDefaultArgs<ExtArgs>;
   };
 
-  export type $CoversationPayload<
+  export type $ConversationPayload<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
-    name: "Coversation";
+    name: "Conversation";
     objects: {
       memberOne: Prisma.$MemberPayload<ExtArgs>;
       memberTwo: Prisma.$MemberPayload<ExtArgs>;
@@ -9135,48 +9137,48 @@ export namespace Prisma {
         memberOneID: string;
         memberTwoID: string;
       },
-      ExtArgs["result"]["coversation"]
+      ExtArgs["result"]["conversation"]
     >;
     composites: {};
   };
 
-  type CoversationGetPayload<
-    S extends boolean | null | undefined | CoversationDefaultArgs,
-  > = $Result.GetResult<Prisma.$CoversationPayload, S>;
+  type ConversationGetPayload<
+    S extends boolean | null | undefined | ConversationDefaultArgs,
+  > = $Result.GetResult<Prisma.$ConversationPayload, S>;
 
-  type CoversationCountArgs<
+  type ConversationCountArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = Omit<
-    CoversationFindManyArgs,
+    ConversationFindManyArgs,
     "select" | "include" | "distinct" | "omit"
   > & {
-    select?: CoversationCountAggregateInputType | true;
+    select?: ConversationCountAggregateInputType | true;
   };
 
-  export interface CoversationDelegate<
+  export interface ConversationDelegate<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
     GlobalOmitOptions = {},
   > {
     [K: symbol]: {
-      types: Prisma.TypeMap<ExtArgs>["model"]["Coversation"];
-      meta: { name: "Coversation" };
+      types: Prisma.TypeMap<ExtArgs>["model"]["Conversation"];
+      meta: { name: "Conversation" };
     };
     /**
-     * Find zero or one Coversation that matches the filter.
-     * @param {CoversationFindUniqueArgs} args - Arguments to find a Coversation
+     * Find zero or one Conversation that matches the filter.
+     * @param {ConversationFindUniqueArgs} args - Arguments to find a Conversation
      * @example
-     * // Get one Coversation
-     * const coversation = await prisma.coversation.findUnique({
+     * // Get one Conversation
+     * const conversation = await prisma.conversation.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends CoversationFindUniqueArgs>(
-      args: SelectSubset<T, CoversationFindUniqueArgs<ExtArgs>>
-    ): Prisma__CoversationClient<
+    findUnique<T extends ConversationFindUniqueArgs>(
+      args: SelectSubset<T, ConversationFindUniqueArgs<ExtArgs>>
+    ): Prisma__ConversationClient<
       $Result.GetResult<
-        Prisma.$CoversationPayload<ExtArgs>,
+        Prisma.$ConversationPayload<ExtArgs>,
         T,
         "findUnique",
         GlobalOmitOptions
@@ -9187,22 +9189,22 @@ export namespace Prisma {
     >;
 
     /**
-     * Find one Coversation that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Conversation that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {CoversationFindUniqueOrThrowArgs} args - Arguments to find a Coversation
+     * @param {ConversationFindUniqueOrThrowArgs} args - Arguments to find a Conversation
      * @example
-     * // Get one Coversation
-     * const coversation = await prisma.coversation.findUniqueOrThrow({
+     * // Get one Conversation
+     * const conversation = await prisma.conversation.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends CoversationFindUniqueOrThrowArgs>(
-      args: SelectSubset<T, CoversationFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__CoversationClient<
+    findUniqueOrThrow<T extends ConversationFindUniqueOrThrowArgs>(
+      args: SelectSubset<T, ConversationFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__ConversationClient<
       $Result.GetResult<
-        Prisma.$CoversationPayload<ExtArgs>,
+        Prisma.$ConversationPayload<ExtArgs>,
         T,
         "findUniqueOrThrow",
         GlobalOmitOptions
@@ -9213,23 +9215,23 @@ export namespace Prisma {
     >;
 
     /**
-     * Find the first Coversation that matches the filter.
+     * Find the first Conversation that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CoversationFindFirstArgs} args - Arguments to find a Coversation
+     * @param {ConversationFindFirstArgs} args - Arguments to find a Conversation
      * @example
-     * // Get one Coversation
-     * const coversation = await prisma.coversation.findFirst({
+     * // Get one Conversation
+     * const conversation = await prisma.conversation.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends CoversationFindFirstArgs>(
-      args?: SelectSubset<T, CoversationFindFirstArgs<ExtArgs>>
-    ): Prisma__CoversationClient<
+    findFirst<T extends ConversationFindFirstArgs>(
+      args?: SelectSubset<T, ConversationFindFirstArgs<ExtArgs>>
+    ): Prisma__ConversationClient<
       $Result.GetResult<
-        Prisma.$CoversationPayload<ExtArgs>,
+        Prisma.$ConversationPayload<ExtArgs>,
         T,
         "findFirst",
         GlobalOmitOptions
@@ -9240,24 +9242,24 @@ export namespace Prisma {
     >;
 
     /**
-     * Find the first Coversation that matches the filter or
+     * Find the first Conversation that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CoversationFindFirstOrThrowArgs} args - Arguments to find a Coversation
+     * @param {ConversationFindFirstOrThrowArgs} args - Arguments to find a Conversation
      * @example
-     * // Get one Coversation
-     * const coversation = await prisma.coversation.findFirstOrThrow({
+     * // Get one Conversation
+     * const conversation = await prisma.conversation.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends CoversationFindFirstOrThrowArgs>(
-      args?: SelectSubset<T, CoversationFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__CoversationClient<
+    findFirstOrThrow<T extends ConversationFindFirstOrThrowArgs>(
+      args?: SelectSubset<T, ConversationFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__ConversationClient<
       $Result.GetResult<
-        Prisma.$CoversationPayload<ExtArgs>,
+        Prisma.$ConversationPayload<ExtArgs>,
         T,
         "findFirstOrThrow",
         GlobalOmitOptions
@@ -9268,26 +9270,26 @@ export namespace Prisma {
     >;
 
     /**
-     * Find zero or more Coversations that matches the filter.
+     * Find zero or more Conversations that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CoversationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {ConversationFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Coversations
-     * const coversations = await prisma.coversation.findMany()
+     * // Get all Conversations
+     * const conversations = await prisma.conversation.findMany()
      *
-     * // Get first 10 Coversations
-     * const coversations = await prisma.coversation.findMany({ take: 10 })
+     * // Get first 10 Conversations
+     * const conversations = await prisma.conversation.findMany({ take: 10 })
      *
      * // Only select the `id`
-     * const coversationWithIdOnly = await prisma.coversation.findMany({ select: { id: true } })
+     * const conversationWithIdOnly = await prisma.conversation.findMany({ select: { id: true } })
      *
      */
-    findMany<T extends CoversationFindManyArgs>(
-      args?: SelectSubset<T, CoversationFindManyArgs<ExtArgs>>
+    findMany<T extends ConversationFindManyArgs>(
+      args?: SelectSubset<T, ConversationFindManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<
       $Result.GetResult<
-        Prisma.$CoversationPayload<ExtArgs>,
+        Prisma.$ConversationPayload<ExtArgs>,
         T,
         "findMany",
         GlobalOmitOptions
@@ -9295,22 +9297,22 @@ export namespace Prisma {
     >;
 
     /**
-     * Create a Coversation.
-     * @param {CoversationCreateArgs} args - Arguments to create a Coversation.
+     * Create a Conversation.
+     * @param {ConversationCreateArgs} args - Arguments to create a Conversation.
      * @example
-     * // Create one Coversation
-     * const Coversation = await prisma.coversation.create({
+     * // Create one Conversation
+     * const Conversation = await prisma.conversation.create({
      *   data: {
-     *     // ... data to create a Coversation
+     *     // ... data to create a Conversation
      *   }
      * })
      *
      */
-    create<T extends CoversationCreateArgs>(
-      args: SelectSubset<T, CoversationCreateArgs<ExtArgs>>
-    ): Prisma__CoversationClient<
+    create<T extends ConversationCreateArgs>(
+      args: SelectSubset<T, ConversationCreateArgs<ExtArgs>>
+    ): Prisma__ConversationClient<
       $Result.GetResult<
-        Prisma.$CoversationPayload<ExtArgs>,
+        Prisma.$ConversationPayload<ExtArgs>,
         T,
         "create",
         GlobalOmitOptions
@@ -9321,34 +9323,34 @@ export namespace Prisma {
     >;
 
     /**
-     * Create many Coversations.
-     * @param {CoversationCreateManyArgs} args - Arguments to create many Coversations.
+     * Create many Conversations.
+     * @param {ConversationCreateManyArgs} args - Arguments to create many Conversations.
      * @example
-     * // Create many Coversations
-     * const coversation = await prisma.coversation.createMany({
+     * // Create many Conversations
+     * const conversation = await prisma.conversation.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *
      */
-    createMany<T extends CoversationCreateManyArgs>(
-      args?: SelectSubset<T, CoversationCreateManyArgs<ExtArgs>>
+    createMany<T extends ConversationCreateManyArgs>(
+      args?: SelectSubset<T, ConversationCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>;
 
     /**
-     * Create many Coversations and returns the data saved in the database.
-     * @param {CoversationCreateManyAndReturnArgs} args - Arguments to create many Coversations.
+     * Create many Conversations and returns the data saved in the database.
+     * @param {ConversationCreateManyAndReturnArgs} args - Arguments to create many Conversations.
      * @example
-     * // Create many Coversations
-     * const coversation = await prisma.coversation.createManyAndReturn({
+     * // Create many Conversations
+     * const conversation = await prisma.conversation.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *
-     * // Create many Coversations and only return the `id`
-     * const coversationWithIdOnly = await prisma.coversation.createManyAndReturn({
+     * // Create many Conversations and only return the `id`
+     * const conversationWithIdOnly = await prisma.conversation.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -9358,11 +9360,11 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      *
      */
-    createManyAndReturn<T extends CoversationCreateManyAndReturnArgs>(
-      args?: SelectSubset<T, CoversationCreateManyAndReturnArgs<ExtArgs>>
+    createManyAndReturn<T extends ConversationCreateManyAndReturnArgs>(
+      args?: SelectSubset<T, ConversationCreateManyAndReturnArgs<ExtArgs>>
     ): Prisma.PrismaPromise<
       $Result.GetResult<
-        Prisma.$CoversationPayload<ExtArgs>,
+        Prisma.$ConversationPayload<ExtArgs>,
         T,
         "createManyAndReturn",
         GlobalOmitOptions
@@ -9370,22 +9372,22 @@ export namespace Prisma {
     >;
 
     /**
-     * Delete a Coversation.
-     * @param {CoversationDeleteArgs} args - Arguments to delete one Coversation.
+     * Delete a Conversation.
+     * @param {ConversationDeleteArgs} args - Arguments to delete one Conversation.
      * @example
-     * // Delete one Coversation
-     * const Coversation = await prisma.coversation.delete({
+     * // Delete one Conversation
+     * const Conversation = await prisma.conversation.delete({
      *   where: {
-     *     // ... filter to delete one Coversation
+     *     // ... filter to delete one Conversation
      *   }
      * })
      *
      */
-    delete<T extends CoversationDeleteArgs>(
-      args: SelectSubset<T, CoversationDeleteArgs<ExtArgs>>
-    ): Prisma__CoversationClient<
+    delete<T extends ConversationDeleteArgs>(
+      args: SelectSubset<T, ConversationDeleteArgs<ExtArgs>>
+    ): Prisma__ConversationClient<
       $Result.GetResult<
-        Prisma.$CoversationPayload<ExtArgs>,
+        Prisma.$ConversationPayload<ExtArgs>,
         T,
         "delete",
         GlobalOmitOptions
@@ -9396,11 +9398,11 @@ export namespace Prisma {
     >;
 
     /**
-     * Update one Coversation.
-     * @param {CoversationUpdateArgs} args - Arguments to update one Coversation.
+     * Update one Conversation.
+     * @param {ConversationUpdateArgs} args - Arguments to update one Conversation.
      * @example
-     * // Update one Coversation
-     * const coversation = await prisma.coversation.update({
+     * // Update one Conversation
+     * const conversation = await prisma.conversation.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -9410,11 +9412,11 @@ export namespace Prisma {
      * })
      *
      */
-    update<T extends CoversationUpdateArgs>(
-      args: SelectSubset<T, CoversationUpdateArgs<ExtArgs>>
-    ): Prisma__CoversationClient<
+    update<T extends ConversationUpdateArgs>(
+      args: SelectSubset<T, ConversationUpdateArgs<ExtArgs>>
+    ): Prisma__ConversationClient<
       $Result.GetResult<
-        Prisma.$CoversationPayload<ExtArgs>,
+        Prisma.$ConversationPayload<ExtArgs>,
         T,
         "update",
         GlobalOmitOptions
@@ -9425,29 +9427,29 @@ export namespace Prisma {
     >;
 
     /**
-     * Delete zero or more Coversations.
-     * @param {CoversationDeleteManyArgs} args - Arguments to filter Coversations to delete.
+     * Delete zero or more Conversations.
+     * @param {ConversationDeleteManyArgs} args - Arguments to filter Conversations to delete.
      * @example
-     * // Delete a few Coversations
-     * const { count } = await prisma.coversation.deleteMany({
+     * // Delete a few Conversations
+     * const { count } = await prisma.conversation.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      *
      */
-    deleteMany<T extends CoversationDeleteManyArgs>(
-      args?: SelectSubset<T, CoversationDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends ConversationDeleteManyArgs>(
+      args?: SelectSubset<T, ConversationDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>;
 
     /**
-     * Update zero or more Coversations.
+     * Update zero or more Conversations.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CoversationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {ConversationUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Coversations
-     * const coversation = await prisma.coversation.updateMany({
+     * // Update many Conversations
+     * const conversation = await prisma.conversation.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -9457,16 +9459,16 @@ export namespace Prisma {
      * })
      *
      */
-    updateMany<T extends CoversationUpdateManyArgs>(
-      args: SelectSubset<T, CoversationUpdateManyArgs<ExtArgs>>
+    updateMany<T extends ConversationUpdateManyArgs>(
+      args: SelectSubset<T, ConversationUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>;
 
     /**
-     * Update zero or more Coversations and returns the data updated in the database.
-     * @param {CoversationUpdateManyAndReturnArgs} args - Arguments to update many Coversations.
+     * Update zero or more Conversations and returns the data updated in the database.
+     * @param {ConversationUpdateManyAndReturnArgs} args - Arguments to update many Conversations.
      * @example
-     * // Update many Coversations
-     * const coversation = await prisma.coversation.updateManyAndReturn({
+     * // Update many Conversations
+     * const conversation = await prisma.conversation.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -9475,8 +9477,8 @@ export namespace Prisma {
      *   ]
      * })
      *
-     * // Update zero or more Coversations and only return the `id`
-     * const coversationWithIdOnly = await prisma.coversation.updateManyAndReturn({
+     * // Update zero or more Conversations and only return the `id`
+     * const conversationWithIdOnly = await prisma.conversation.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -9489,11 +9491,11 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      *
      */
-    updateManyAndReturn<T extends CoversationUpdateManyAndReturnArgs>(
-      args: SelectSubset<T, CoversationUpdateManyAndReturnArgs<ExtArgs>>
+    updateManyAndReturn<T extends ConversationUpdateManyAndReturnArgs>(
+      args: SelectSubset<T, ConversationUpdateManyAndReturnArgs<ExtArgs>>
     ): Prisma.PrismaPromise<
       $Result.GetResult<
-        Prisma.$CoversationPayload<ExtArgs>,
+        Prisma.$ConversationPayload<ExtArgs>,
         T,
         "updateManyAndReturn",
         GlobalOmitOptions
@@ -9501,27 +9503,27 @@ export namespace Prisma {
     >;
 
     /**
-     * Create or update one Coversation.
-     * @param {CoversationUpsertArgs} args - Arguments to update or create a Coversation.
+     * Create or update one Conversation.
+     * @param {ConversationUpsertArgs} args - Arguments to update or create a Conversation.
      * @example
-     * // Update or create a Coversation
-     * const coversation = await prisma.coversation.upsert({
+     * // Update or create a Conversation
+     * const conversation = await prisma.conversation.upsert({
      *   create: {
-     *     // ... data to create a Coversation
+     *     // ... data to create a Conversation
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Coversation we want to update
+     *     // ... the filter for the Conversation we want to update
      *   }
      * })
      */
-    upsert<T extends CoversationUpsertArgs>(
-      args: SelectSubset<T, CoversationUpsertArgs<ExtArgs>>
-    ): Prisma__CoversationClient<
+    upsert<T extends ConversationUpsertArgs>(
+      args: SelectSubset<T, ConversationUpsertArgs<ExtArgs>>
+    ): Prisma__ConversationClient<
       $Result.GetResult<
-        Prisma.$CoversationPayload<ExtArgs>,
+        Prisma.$ConversationPayload<ExtArgs>,
         T,
         "upsert",
         GlobalOmitOptions
@@ -9532,33 +9534,33 @@ export namespace Prisma {
     >;
 
     /**
-     * Count the number of Coversations.
+     * Count the number of Conversations.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CoversationCountArgs} args - Arguments to filter Coversations to count.
+     * @param {ConversationCountArgs} args - Arguments to filter Conversations to count.
      * @example
-     * // Count the number of Coversations
-     * const count = await prisma.coversation.count({
+     * // Count the number of Conversations
+     * const count = await prisma.conversation.count({
      *   where: {
-     *     // ... the filter for the Coversations we want to count
+     *     // ... the filter for the Conversations we want to count
      *   }
      * })
      **/
-    count<T extends CoversationCountArgs>(
-      args?: Subset<T, CoversationCountArgs>
+    count<T extends ConversationCountArgs>(
+      args?: Subset<T, ConversationCountArgs>
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<"select", any>
         ? T["select"] extends true
           ? number
-          : GetScalarType<T["select"], CoversationCountAggregateOutputType>
+          : GetScalarType<T["select"], ConversationCountAggregateOutputType>
         : number
     >;
 
     /**
-     * Allows you to perform aggregations operations on a Coversation.
+     * Allows you to perform aggregations operations on a Conversation.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CoversationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {ConversationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -9578,15 +9580,15 @@ export namespace Prisma {
      *   take: 10,
      * })
      **/
-    aggregate<T extends CoversationAggregateArgs>(
-      args: Subset<T, CoversationAggregateArgs>
-    ): Prisma.PrismaPromise<GetCoversationAggregateType<T>>;
+    aggregate<T extends ConversationAggregateArgs>(
+      args: Subset<T, ConversationAggregateArgs>
+    ): Prisma.PrismaPromise<GetConversationAggregateType<T>>;
 
     /**
-     * Group by Coversation.
+     * Group by Conversation.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CoversationGroupByArgs} args - Group by arguments.
+     * @param {ConversationGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -9601,14 +9603,14 @@ export namespace Prisma {
      *
      **/
     groupBy<
-      T extends CoversationGroupByArgs,
+      T extends ConversationGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<"skip", Keys<T>>,
         Extends<"take", Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: CoversationGroupByArgs["orderBy"] }
-        : { orderBy?: CoversationGroupByArgs["orderBy"] },
+        ? { orderBy: ConversationGroupByArgs["orderBy"] }
+        : { orderBy?: ConversationGroupByArgs["orderBy"] },
       OrderFields extends ExcludeUnderscoreKeys<
         Keys<MaybeTupleToUnion<T["orderBy"]>>
       >,
@@ -9660,24 +9662,24 @@ export namespace Prisma {
                       : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
                   }[OrderFields],
     >(
-      args: SubsetIntersection<T, CoversationGroupByArgs, OrderByArg> &
+      args: SubsetIntersection<T, ConversationGroupByArgs, OrderByArg> &
         InputErrors
     ): {} extends InputErrors
-      ? GetCoversationGroupByPayload<T>
+      ? GetConversationGroupByPayload<T>
       : Prisma.PrismaPromise<InputErrors>;
     /**
-     * Fields of the Coversation model
+     * Fields of the Conversation model
      */
-    readonly fields: CoversationFieldRefs;
+    readonly fields: ConversationFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Coversation.
+   * The delegate class that acts as a "Promise-like" for Conversation.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__CoversationClient<
+  export interface Prisma__ConversationClient<
     T,
     Null = never,
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
@@ -9712,8 +9714,8 @@ export namespace Prisma {
       ExtArgs,
       GlobalOmitOptions
     >;
-    directMessages<T extends Coversation$directMessagesArgs<ExtArgs> = {}>(
-      args?: Subset<T, Coversation$directMessagesArgs<ExtArgs>>
+    directMessages<T extends Conversation$directMessagesArgs<ExtArgs> = {}>(
+      args?: Subset<T, Conversation$directMessagesArgs<ExtArgs>>
     ): Prisma.PrismaPromise<
       | $Result.GetResult<
           Prisma.$DirectMessagePayload<ExtArgs>,
@@ -9760,450 +9762,450 @@ export namespace Prisma {
   }
 
   /**
-   * Fields of the Coversation model
+   * Fields of the Conversation model
    */
-  interface CoversationFieldRefs {
-    readonly id: FieldRef<"Coversation", "String">;
-    readonly memberOneID: FieldRef<"Coversation", "String">;
-    readonly memberTwoID: FieldRef<"Coversation", "String">;
+  interface ConversationFieldRefs {
+    readonly id: FieldRef<"Conversation", "String">;
+    readonly memberOneID: FieldRef<"Conversation", "String">;
+    readonly memberTwoID: FieldRef<"Conversation", "String">;
   }
 
   // Custom InputTypes
   /**
-   * Coversation findUnique
+   * Conversation findUnique
    */
-  export type CoversationFindUniqueArgs<
+  export type ConversationFindUniqueArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
-     * Select specific fields to fetch from the Coversation
+     * Select specific fields to fetch from the Conversation
      */
-    select?: CoversationSelect<ExtArgs> | null;
+    select?: ConversationSelect<ExtArgs> | null;
     /**
-     * Omit specific fields from the Coversation
+     * Omit specific fields from the Conversation
      */
-    omit?: CoversationOmit<ExtArgs> | null;
+    omit?: ConversationOmit<ExtArgs> | null;
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CoversationInclude<ExtArgs> | null;
+    include?: ConversationInclude<ExtArgs> | null;
     /**
-     * Filter, which Coversation to fetch.
+     * Filter, which Conversation to fetch.
      */
-    where: CoversationWhereUniqueInput;
+    where: ConversationWhereUniqueInput;
   };
 
   /**
-   * Coversation findUniqueOrThrow
+   * Conversation findUniqueOrThrow
    */
-  export type CoversationFindUniqueOrThrowArgs<
+  export type ConversationFindUniqueOrThrowArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
-     * Select specific fields to fetch from the Coversation
+     * Select specific fields to fetch from the Conversation
      */
-    select?: CoversationSelect<ExtArgs> | null;
+    select?: ConversationSelect<ExtArgs> | null;
     /**
-     * Omit specific fields from the Coversation
+     * Omit specific fields from the Conversation
      */
-    omit?: CoversationOmit<ExtArgs> | null;
+    omit?: ConversationOmit<ExtArgs> | null;
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CoversationInclude<ExtArgs> | null;
+    include?: ConversationInclude<ExtArgs> | null;
     /**
-     * Filter, which Coversation to fetch.
+     * Filter, which Conversation to fetch.
      */
-    where: CoversationWhereUniqueInput;
+    where: ConversationWhereUniqueInput;
   };
 
   /**
-   * Coversation findFirst
+   * Conversation findFirst
    */
-  export type CoversationFindFirstArgs<
+  export type ConversationFindFirstArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
-     * Select specific fields to fetch from the Coversation
+     * Select specific fields to fetch from the Conversation
      */
-    select?: CoversationSelect<ExtArgs> | null;
+    select?: ConversationSelect<ExtArgs> | null;
     /**
-     * Omit specific fields from the Coversation
+     * Omit specific fields from the Conversation
      */
-    omit?: CoversationOmit<ExtArgs> | null;
+    omit?: ConversationOmit<ExtArgs> | null;
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CoversationInclude<ExtArgs> | null;
+    include?: ConversationInclude<ExtArgs> | null;
     /**
-     * Filter, which Coversation to fetch.
+     * Filter, which Conversation to fetch.
      */
-    where?: CoversationWhereInput;
+    where?: ConversationWhereInput;
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      *
-     * Determine the order of Coversations to fetch.
+     * Determine the order of Conversations to fetch.
      */
     orderBy?:
-      | CoversationOrderByWithRelationInput
-      | CoversationOrderByWithRelationInput[];
+      | ConversationOrderByWithRelationInput
+      | ConversationOrderByWithRelationInput[];
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      *
-     * Sets the position for searching for Coversations.
+     * Sets the position for searching for Conversations.
      */
-    cursor?: CoversationWhereUniqueInput;
+    cursor?: ConversationWhereUniqueInput;
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      *
-     * Take `±n` Coversations from the position of the cursor.
+     * Take `±n` Conversations from the position of the cursor.
      */
     take?: number;
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      *
-     * Skip the first `n` Coversations.
+     * Skip the first `n` Conversations.
      */
     skip?: number;
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      *
-     * Filter by unique combinations of Coversations.
+     * Filter by unique combinations of Conversations.
      */
-    distinct?: CoversationScalarFieldEnum | CoversationScalarFieldEnum[];
+    distinct?: ConversationScalarFieldEnum | ConversationScalarFieldEnum[];
   };
 
   /**
-   * Coversation findFirstOrThrow
+   * Conversation findFirstOrThrow
    */
-  export type CoversationFindFirstOrThrowArgs<
+  export type ConversationFindFirstOrThrowArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
-     * Select specific fields to fetch from the Coversation
+     * Select specific fields to fetch from the Conversation
      */
-    select?: CoversationSelect<ExtArgs> | null;
+    select?: ConversationSelect<ExtArgs> | null;
     /**
-     * Omit specific fields from the Coversation
+     * Omit specific fields from the Conversation
      */
-    omit?: CoversationOmit<ExtArgs> | null;
+    omit?: ConversationOmit<ExtArgs> | null;
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CoversationInclude<ExtArgs> | null;
+    include?: ConversationInclude<ExtArgs> | null;
     /**
-     * Filter, which Coversation to fetch.
+     * Filter, which Conversation to fetch.
      */
-    where?: CoversationWhereInput;
+    where?: ConversationWhereInput;
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      *
-     * Determine the order of Coversations to fetch.
+     * Determine the order of Conversations to fetch.
      */
     orderBy?:
-      | CoversationOrderByWithRelationInput
-      | CoversationOrderByWithRelationInput[];
+      | ConversationOrderByWithRelationInput
+      | ConversationOrderByWithRelationInput[];
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      *
-     * Sets the position for searching for Coversations.
+     * Sets the position for searching for Conversations.
      */
-    cursor?: CoversationWhereUniqueInput;
+    cursor?: ConversationWhereUniqueInput;
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      *
-     * Take `±n` Coversations from the position of the cursor.
+     * Take `±n` Conversations from the position of the cursor.
      */
     take?: number;
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      *
-     * Skip the first `n` Coversations.
+     * Skip the first `n` Conversations.
      */
     skip?: number;
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      *
-     * Filter by unique combinations of Coversations.
+     * Filter by unique combinations of Conversations.
      */
-    distinct?: CoversationScalarFieldEnum | CoversationScalarFieldEnum[];
+    distinct?: ConversationScalarFieldEnum | ConversationScalarFieldEnum[];
   };
 
   /**
-   * Coversation findMany
+   * Conversation findMany
    */
-  export type CoversationFindManyArgs<
+  export type ConversationFindManyArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
-     * Select specific fields to fetch from the Coversation
+     * Select specific fields to fetch from the Conversation
      */
-    select?: CoversationSelect<ExtArgs> | null;
+    select?: ConversationSelect<ExtArgs> | null;
     /**
-     * Omit specific fields from the Coversation
+     * Omit specific fields from the Conversation
      */
-    omit?: CoversationOmit<ExtArgs> | null;
+    omit?: ConversationOmit<ExtArgs> | null;
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CoversationInclude<ExtArgs> | null;
+    include?: ConversationInclude<ExtArgs> | null;
     /**
-     * Filter, which Coversations to fetch.
+     * Filter, which Conversations to fetch.
      */
-    where?: CoversationWhereInput;
+    where?: ConversationWhereInput;
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      *
-     * Determine the order of Coversations to fetch.
+     * Determine the order of Conversations to fetch.
      */
     orderBy?:
-      | CoversationOrderByWithRelationInput
-      | CoversationOrderByWithRelationInput[];
+      | ConversationOrderByWithRelationInput
+      | ConversationOrderByWithRelationInput[];
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      *
-     * Sets the position for listing Coversations.
+     * Sets the position for listing Conversations.
      */
-    cursor?: CoversationWhereUniqueInput;
+    cursor?: ConversationWhereUniqueInput;
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      *
-     * Take `±n` Coversations from the position of the cursor.
+     * Take `±n` Conversations from the position of the cursor.
      */
     take?: number;
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      *
-     * Skip the first `n` Coversations.
+     * Skip the first `n` Conversations.
      */
     skip?: number;
-    distinct?: CoversationScalarFieldEnum | CoversationScalarFieldEnum[];
+    distinct?: ConversationScalarFieldEnum | ConversationScalarFieldEnum[];
   };
 
   /**
-   * Coversation create
+   * Conversation create
    */
-  export type CoversationCreateArgs<
+  export type ConversationCreateArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
-     * Select specific fields to fetch from the Coversation
+     * Select specific fields to fetch from the Conversation
      */
-    select?: CoversationSelect<ExtArgs> | null;
+    select?: ConversationSelect<ExtArgs> | null;
     /**
-     * Omit specific fields from the Coversation
+     * Omit specific fields from the Conversation
      */
-    omit?: CoversationOmit<ExtArgs> | null;
+    omit?: ConversationOmit<ExtArgs> | null;
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CoversationInclude<ExtArgs> | null;
+    include?: ConversationInclude<ExtArgs> | null;
     /**
-     * The data needed to create a Coversation.
+     * The data needed to create a Conversation.
      */
-    data: XOR<CoversationCreateInput, CoversationUncheckedCreateInput>;
+    data: XOR<ConversationCreateInput, ConversationUncheckedCreateInput>;
   };
 
   /**
-   * Coversation createMany
+   * Conversation createMany
    */
-  export type CoversationCreateManyArgs<
+  export type ConversationCreateManyArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
-     * The data used to create many Coversations.
+     * The data used to create many Conversations.
      */
-    data: CoversationCreateManyInput | CoversationCreateManyInput[];
+    data: ConversationCreateManyInput | ConversationCreateManyInput[];
     skipDuplicates?: boolean;
   };
 
   /**
-   * Coversation createManyAndReturn
+   * Conversation createManyAndReturn
    */
-  export type CoversationCreateManyAndReturnArgs<
+  export type ConversationCreateManyAndReturnArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
-     * Select specific fields to fetch from the Coversation
+     * Select specific fields to fetch from the Conversation
      */
-    select?: CoversationSelectCreateManyAndReturn<ExtArgs> | null;
+    select?: ConversationSelectCreateManyAndReturn<ExtArgs> | null;
     /**
-     * Omit specific fields from the Coversation
+     * Omit specific fields from the Conversation
      */
-    omit?: CoversationOmit<ExtArgs> | null;
+    omit?: ConversationOmit<ExtArgs> | null;
     /**
-     * The data used to create many Coversations.
+     * The data used to create many Conversations.
      */
-    data: CoversationCreateManyInput | CoversationCreateManyInput[];
+    data: ConversationCreateManyInput | ConversationCreateManyInput[];
     skipDuplicates?: boolean;
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CoversationIncludeCreateManyAndReturn<ExtArgs> | null;
+    include?: ConversationIncludeCreateManyAndReturn<ExtArgs> | null;
   };
 
   /**
-   * Coversation update
+   * Conversation update
    */
-  export type CoversationUpdateArgs<
+  export type ConversationUpdateArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
-     * Select specific fields to fetch from the Coversation
+     * Select specific fields to fetch from the Conversation
      */
-    select?: CoversationSelect<ExtArgs> | null;
+    select?: ConversationSelect<ExtArgs> | null;
     /**
-     * Omit specific fields from the Coversation
+     * Omit specific fields from the Conversation
      */
-    omit?: CoversationOmit<ExtArgs> | null;
+    omit?: ConversationOmit<ExtArgs> | null;
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CoversationInclude<ExtArgs> | null;
+    include?: ConversationInclude<ExtArgs> | null;
     /**
-     * The data needed to update a Coversation.
+     * The data needed to update a Conversation.
      */
-    data: XOR<CoversationUpdateInput, CoversationUncheckedUpdateInput>;
+    data: XOR<ConversationUpdateInput, ConversationUncheckedUpdateInput>;
     /**
-     * Choose, which Coversation to update.
+     * Choose, which Conversation to update.
      */
-    where: CoversationWhereUniqueInput;
+    where: ConversationWhereUniqueInput;
   };
 
   /**
-   * Coversation updateMany
+   * Conversation updateMany
    */
-  export type CoversationUpdateManyArgs<
+  export type ConversationUpdateManyArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
-     * The data used to update Coversations.
+     * The data used to update Conversations.
      */
     data: XOR<
-      CoversationUpdateManyMutationInput,
-      CoversationUncheckedUpdateManyInput
+      ConversationUpdateManyMutationInput,
+      ConversationUncheckedUpdateManyInput
     >;
     /**
-     * Filter which Coversations to update
+     * Filter which Conversations to update
      */
-    where?: CoversationWhereInput;
+    where?: ConversationWhereInput;
     /**
-     * Limit how many Coversations to update.
+     * Limit how many Conversations to update.
      */
     limit?: number;
   };
 
   /**
-   * Coversation updateManyAndReturn
+   * Conversation updateManyAndReturn
    */
-  export type CoversationUpdateManyAndReturnArgs<
+  export type ConversationUpdateManyAndReturnArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
-     * Select specific fields to fetch from the Coversation
+     * Select specific fields to fetch from the Conversation
      */
-    select?: CoversationSelectUpdateManyAndReturn<ExtArgs> | null;
+    select?: ConversationSelectUpdateManyAndReturn<ExtArgs> | null;
     /**
-     * Omit specific fields from the Coversation
+     * Omit specific fields from the Conversation
      */
-    omit?: CoversationOmit<ExtArgs> | null;
+    omit?: ConversationOmit<ExtArgs> | null;
     /**
-     * The data used to update Coversations.
+     * The data used to update Conversations.
      */
     data: XOR<
-      CoversationUpdateManyMutationInput,
-      CoversationUncheckedUpdateManyInput
+      ConversationUpdateManyMutationInput,
+      ConversationUncheckedUpdateManyInput
     >;
     /**
-     * Filter which Coversations to update
+     * Filter which Conversations to update
      */
-    where?: CoversationWhereInput;
+    where?: ConversationWhereInput;
     /**
-     * Limit how many Coversations to update.
+     * Limit how many Conversations to update.
      */
     limit?: number;
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CoversationIncludeUpdateManyAndReturn<ExtArgs> | null;
+    include?: ConversationIncludeUpdateManyAndReturn<ExtArgs> | null;
   };
 
   /**
-   * Coversation upsert
+   * Conversation upsert
    */
-  export type CoversationUpsertArgs<
+  export type ConversationUpsertArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
-     * Select specific fields to fetch from the Coversation
+     * Select specific fields to fetch from the Conversation
      */
-    select?: CoversationSelect<ExtArgs> | null;
+    select?: ConversationSelect<ExtArgs> | null;
     /**
-     * Omit specific fields from the Coversation
+     * Omit specific fields from the Conversation
      */
-    omit?: CoversationOmit<ExtArgs> | null;
+    omit?: ConversationOmit<ExtArgs> | null;
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CoversationInclude<ExtArgs> | null;
+    include?: ConversationInclude<ExtArgs> | null;
     /**
-     * The filter to search for the Coversation to update in case it exists.
+     * The filter to search for the Conversation to update in case it exists.
      */
-    where: CoversationWhereUniqueInput;
+    where: ConversationWhereUniqueInput;
     /**
-     * In case the Coversation found by the `where` argument doesn't exist, create a new Coversation with this data.
+     * In case the Conversation found by the `where` argument doesn't exist, create a new Conversation with this data.
      */
-    create: XOR<CoversationCreateInput, CoversationUncheckedCreateInput>;
+    create: XOR<ConversationCreateInput, ConversationUncheckedCreateInput>;
     /**
-     * In case the Coversation was found with the provided `where` argument, update it with this data.
+     * In case the Conversation was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<CoversationUpdateInput, CoversationUncheckedUpdateInput>;
+    update: XOR<ConversationUpdateInput, ConversationUncheckedUpdateInput>;
   };
 
   /**
-   * Coversation delete
+   * Conversation delete
    */
-  export type CoversationDeleteArgs<
+  export type ConversationDeleteArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
-     * Select specific fields to fetch from the Coversation
+     * Select specific fields to fetch from the Conversation
      */
-    select?: CoversationSelect<ExtArgs> | null;
+    select?: ConversationSelect<ExtArgs> | null;
     /**
-     * Omit specific fields from the Coversation
+     * Omit specific fields from the Conversation
      */
-    omit?: CoversationOmit<ExtArgs> | null;
+    omit?: ConversationOmit<ExtArgs> | null;
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CoversationInclude<ExtArgs> | null;
+    include?: ConversationInclude<ExtArgs> | null;
     /**
-     * Filter which Coversation to delete.
+     * Filter which Conversation to delete.
      */
-    where: CoversationWhereUniqueInput;
+    where: ConversationWhereUniqueInput;
   };
 
   /**
-   * Coversation deleteMany
+   * Conversation deleteMany
    */
-  export type CoversationDeleteManyArgs<
+  export type ConversationDeleteManyArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
-     * Filter which Coversations to delete
+     * Filter which Conversations to delete
      */
-    where?: CoversationWhereInput;
+    where?: ConversationWhereInput;
     /**
-     * Limit how many Coversations to delete.
+     * Limit how many Conversations to delete.
      */
     limit?: number;
   };
 
   /**
-   * Coversation.directMessages
+   * Conversation.directMessages
    */
-  export type Coversation$directMessagesArgs<
+  export type Conversation$directMessagesArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
@@ -10229,23 +10231,23 @@ export namespace Prisma {
   };
 
   /**
-   * Coversation without action
+   * Conversation without action
    */
-  export type CoversationDefaultArgs<
+  export type ConversationDefaultArgs<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     /**
-     * Select specific fields to fetch from the Coversation
+     * Select specific fields to fetch from the Conversation
      */
-    select?: CoversationSelect<ExtArgs> | null;
+    select?: ConversationSelect<ExtArgs> | null;
     /**
-     * Omit specific fields from the Coversation
+     * Omit specific fields from the Conversation
      */
-    omit?: CoversationOmit<ExtArgs> | null;
+    omit?: ConversationOmit<ExtArgs> | null;
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CoversationInclude<ExtArgs> | null;
+    include?: ConversationInclude<ExtArgs> | null;
   };
 
   /**
@@ -10262,6 +10264,7 @@ export namespace Prisma {
     id: string | null;
     content: string | null;
     fileURL: string | null;
+    fileType: string | null;
     deleted: boolean | null;
     memberID: string | null;
     conversationID: string | null;
@@ -10273,6 +10276,7 @@ export namespace Prisma {
     id: string | null;
     content: string | null;
     fileURL: string | null;
+    fileType: string | null;
     deleted: boolean | null;
     memberID: string | null;
     conversationID: string | null;
@@ -10284,6 +10288,7 @@ export namespace Prisma {
     id: number;
     content: number;
     fileURL: number;
+    fileType: number;
     deleted: number;
     memberID: number;
     conversationID: number;
@@ -10296,6 +10301,7 @@ export namespace Prisma {
     id?: true;
     content?: true;
     fileURL?: true;
+    fileType?: true;
     deleted?: true;
     memberID?: true;
     conversationID?: true;
@@ -10307,6 +10313,7 @@ export namespace Prisma {
     id?: true;
     content?: true;
     fileURL?: true;
+    fileType?: true;
     deleted?: true;
     memberID?: true;
     conversationID?: true;
@@ -10318,6 +10325,7 @@ export namespace Prisma {
     id?: true;
     content?: true;
     fileURL?: true;
+    fileType?: true;
     deleted?: true;
     memberID?: true;
     conversationID?: true;
@@ -10409,6 +10417,7 @@ export namespace Prisma {
     id: string;
     content: string;
     fileURL: string | null;
+    fileType: string | null;
     deleted: boolean;
     memberID: string;
     conversationID: string;
@@ -10440,13 +10449,14 @@ export namespace Prisma {
       id?: boolean;
       content?: boolean;
       fileURL?: boolean;
+      fileType?: boolean;
       deleted?: boolean;
       memberID?: boolean;
       conversationID?: boolean;
       createdAt?: boolean;
       updatedAt?: boolean;
       member?: boolean | MemberDefaultArgs<ExtArgs>;
-      conversation?: boolean | CoversationDefaultArgs<ExtArgs>;
+      conversation?: boolean | ConversationDefaultArgs<ExtArgs>;
     },
     ExtArgs["result"]["directMessage"]
   >;
@@ -10458,13 +10468,14 @@ export namespace Prisma {
       id?: boolean;
       content?: boolean;
       fileURL?: boolean;
+      fileType?: boolean;
       deleted?: boolean;
       memberID?: boolean;
       conversationID?: boolean;
       createdAt?: boolean;
       updatedAt?: boolean;
       member?: boolean | MemberDefaultArgs<ExtArgs>;
-      conversation?: boolean | CoversationDefaultArgs<ExtArgs>;
+      conversation?: boolean | ConversationDefaultArgs<ExtArgs>;
     },
     ExtArgs["result"]["directMessage"]
   >;
@@ -10476,13 +10487,14 @@ export namespace Prisma {
       id?: boolean;
       content?: boolean;
       fileURL?: boolean;
+      fileType?: boolean;
       deleted?: boolean;
       memberID?: boolean;
       conversationID?: boolean;
       createdAt?: boolean;
       updatedAt?: boolean;
       member?: boolean | MemberDefaultArgs<ExtArgs>;
-      conversation?: boolean | CoversationDefaultArgs<ExtArgs>;
+      conversation?: boolean | ConversationDefaultArgs<ExtArgs>;
     },
     ExtArgs["result"]["directMessage"]
   >;
@@ -10491,6 +10503,7 @@ export namespace Prisma {
     id?: boolean;
     content?: boolean;
     fileURL?: boolean;
+    fileType?: boolean;
     deleted?: boolean;
     memberID?: boolean;
     conversationID?: boolean;
@@ -10504,6 +10517,7 @@ export namespace Prisma {
     | "id"
     | "content"
     | "fileURL"
+    | "fileType"
     | "deleted"
     | "memberID"
     | "conversationID"
@@ -10515,19 +10529,19 @@ export namespace Prisma {
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     member?: boolean | MemberDefaultArgs<ExtArgs>;
-    conversation?: boolean | CoversationDefaultArgs<ExtArgs>;
+    conversation?: boolean | ConversationDefaultArgs<ExtArgs>;
   };
   export type DirectMessageIncludeCreateManyAndReturn<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     member?: boolean | MemberDefaultArgs<ExtArgs>;
-    conversation?: boolean | CoversationDefaultArgs<ExtArgs>;
+    conversation?: boolean | ConversationDefaultArgs<ExtArgs>;
   };
   export type DirectMessageIncludeUpdateManyAndReturn<
     ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs,
   > = {
     member?: boolean | MemberDefaultArgs<ExtArgs>;
-    conversation?: boolean | CoversationDefaultArgs<ExtArgs>;
+    conversation?: boolean | ConversationDefaultArgs<ExtArgs>;
   };
 
   export type $DirectMessagePayload<
@@ -10536,13 +10550,14 @@ export namespace Prisma {
     name: "DirectMessage";
     objects: {
       member: Prisma.$MemberPayload<ExtArgs>;
-      conversation: Prisma.$CoversationPayload<ExtArgs>;
+      conversation: Prisma.$ConversationPayload<ExtArgs>;
     };
     scalars: $Extensions.GetPayloadResult<
       {
         id: string;
         content: string;
         fileURL: string | null;
+        fileType: string | null;
         deleted: boolean;
         memberID: string;
         conversationID: string;
@@ -11112,11 +11127,11 @@ export namespace Prisma {
       ExtArgs,
       GlobalOmitOptions
     >;
-    conversation<T extends CoversationDefaultArgs<ExtArgs> = {}>(
-      args?: Subset<T, CoversationDefaultArgs<ExtArgs>>
-    ): Prisma__CoversationClient<
+    conversation<T extends ConversationDefaultArgs<ExtArgs> = {}>(
+      args?: Subset<T, ConversationDefaultArgs<ExtArgs>>
+    ): Prisma__ConversationClient<
       | $Result.GetResult<
-          Prisma.$CoversationPayload<ExtArgs>,
+          Prisma.$ConversationPayload<ExtArgs>,
           T,
           "findUniqueOrThrow",
           GlobalOmitOptions
@@ -11169,6 +11184,7 @@ export namespace Prisma {
     readonly id: FieldRef<"DirectMessage", "String">;
     readonly content: FieldRef<"DirectMessage", "String">;
     readonly fileURL: FieldRef<"DirectMessage", "String">;
+    readonly fileType: FieldRef<"DirectMessage", "String">;
     readonly deleted: FieldRef<"DirectMessage", "Boolean">;
     readonly memberID: FieldRef<"DirectMessage", "String">;
     readonly conversationID: FieldRef<"DirectMessage", "String">;
@@ -11708,19 +11724,20 @@ export namespace Prisma {
   export type MessageScalarFieldEnum =
     (typeof MessageScalarFieldEnum)[keyof typeof MessageScalarFieldEnum];
 
-  export const CoversationScalarFieldEnum: {
+  export const ConversationScalarFieldEnum: {
     id: "id";
     memberOneID: "memberOneID";
     memberTwoID: "memberTwoID";
   };
 
-  export type CoversationScalarFieldEnum =
-    (typeof CoversationScalarFieldEnum)[keyof typeof CoversationScalarFieldEnum];
+  export type ConversationScalarFieldEnum =
+    (typeof ConversationScalarFieldEnum)[keyof typeof ConversationScalarFieldEnum];
 
   export const DirectMessageScalarFieldEnum: {
     id: "id";
     content: "content";
     fileURL: "fileURL";
+    fileType: "fileType";
     deleted: "deleted";
     memberID: "memberID";
     conversationID: "conversationID";
@@ -12016,8 +12033,8 @@ export namespace Prisma {
     server?: XOR<ServerScalarRelationFilter, ServerWhereInput>;
     messages?: MessageListRelationFilter;
     directMessages?: DirectMessageListRelationFilter;
-    conversationInitiated?: CoversationListRelationFilter;
-    conversationReceived?: CoversationListRelationFilter;
+    conversationInitiated?: ConversationListRelationFilter;
+    conversationReceived?: ConversationListRelationFilter;
   };
 
   export type MemberOrderByWithRelationInput = {
@@ -12031,8 +12048,8 @@ export namespace Prisma {
     server?: ServerOrderByWithRelationInput;
     messages?: MessageOrderByRelationAggregateInput;
     directMessages?: DirectMessageOrderByRelationAggregateInput;
-    conversationInitiated?: CoversationOrderByRelationAggregateInput;
-    conversationReceived?: CoversationOrderByRelationAggregateInput;
+    conversationInitiated?: ConversationOrderByRelationAggregateInput;
+    conversationReceived?: ConversationOrderByRelationAggregateInput;
   };
 
   export type MemberWhereUniqueInput = Prisma.AtLeast<
@@ -12050,8 +12067,8 @@ export namespace Prisma {
       server?: XOR<ServerScalarRelationFilter, ServerWhereInput>;
       messages?: MessageListRelationFilter;
       directMessages?: DirectMessageListRelationFilter;
-      conversationInitiated?: CoversationListRelationFilter;
-      conversationReceived?: CoversationListRelationFilter;
+      conversationInitiated?: ConversationListRelationFilter;
+      conversationReceived?: ConversationListRelationFilter;
     },
     "id"
   >;
@@ -12247,19 +12264,19 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Message"> | Date | string;
   };
 
-  export type CoversationWhereInput = {
-    AND?: CoversationWhereInput | CoversationWhereInput[];
-    OR?: CoversationWhereInput[];
-    NOT?: CoversationWhereInput | CoversationWhereInput[];
-    id?: StringFilter<"Coversation"> | string;
-    memberOneID?: StringFilter<"Coversation"> | string;
-    memberTwoID?: StringFilter<"Coversation"> | string;
+  export type ConversationWhereInput = {
+    AND?: ConversationWhereInput | ConversationWhereInput[];
+    OR?: ConversationWhereInput[];
+    NOT?: ConversationWhereInput | ConversationWhereInput[];
+    id?: StringFilter<"Conversation"> | string;
+    memberOneID?: StringFilter<"Conversation"> | string;
+    memberTwoID?: StringFilter<"Conversation"> | string;
     memberOne?: XOR<MemberScalarRelationFilter, MemberWhereInput>;
     memberTwo?: XOR<MemberScalarRelationFilter, MemberWhereInput>;
     directMessages?: DirectMessageListRelationFilter;
   };
 
-  export type CoversationOrderByWithRelationInput = {
+  export type ConversationOrderByWithRelationInput = {
     id?: SortOrder;
     memberOneID?: SortOrder;
     memberTwoID?: SortOrder;
@@ -12268,15 +12285,15 @@ export namespace Prisma {
     directMessages?: DirectMessageOrderByRelationAggregateInput;
   };
 
-  export type CoversationWhereUniqueInput = Prisma.AtLeast<
+  export type ConversationWhereUniqueInput = Prisma.AtLeast<
     {
       id?: string;
-      memberOneID_memberTwoID?: CoversationMemberOneIDMemberTwoIDCompoundUniqueInput;
-      AND?: CoversationWhereInput | CoversationWhereInput[];
-      OR?: CoversationWhereInput[];
-      NOT?: CoversationWhereInput | CoversationWhereInput[];
-      memberOneID?: StringFilter<"Coversation"> | string;
-      memberTwoID?: StringFilter<"Coversation"> | string;
+      memberOneID_memberTwoID?: ConversationMemberOneIDMemberTwoIDCompoundUniqueInput;
+      AND?: ConversationWhereInput | ConversationWhereInput[];
+      OR?: ConversationWhereInput[];
+      NOT?: ConversationWhereInput | ConversationWhereInput[];
+      memberOneID?: StringFilter<"Conversation"> | string;
+      memberTwoID?: StringFilter<"Conversation"> | string;
       memberOne?: XOR<MemberScalarRelationFilter, MemberWhereInput>;
       memberTwo?: XOR<MemberScalarRelationFilter, MemberWhereInput>;
       directMessages?: DirectMessageListRelationFilter;
@@ -12284,26 +12301,26 @@ export namespace Prisma {
     "id" | "memberOneID_memberTwoID"
   >;
 
-  export type CoversationOrderByWithAggregationInput = {
+  export type ConversationOrderByWithAggregationInput = {
     id?: SortOrder;
     memberOneID?: SortOrder;
     memberTwoID?: SortOrder;
-    _count?: CoversationCountOrderByAggregateInput;
-    _max?: CoversationMaxOrderByAggregateInput;
-    _min?: CoversationMinOrderByAggregateInput;
+    _count?: ConversationCountOrderByAggregateInput;
+    _max?: ConversationMaxOrderByAggregateInput;
+    _min?: ConversationMinOrderByAggregateInput;
   };
 
-  export type CoversationScalarWhereWithAggregatesInput = {
+  export type ConversationScalarWhereWithAggregatesInput = {
     AND?:
-      | CoversationScalarWhereWithAggregatesInput
-      | CoversationScalarWhereWithAggregatesInput[];
-    OR?: CoversationScalarWhereWithAggregatesInput[];
+      | ConversationScalarWhereWithAggregatesInput
+      | ConversationScalarWhereWithAggregatesInput[];
+    OR?: ConversationScalarWhereWithAggregatesInput[];
     NOT?:
-      | CoversationScalarWhereWithAggregatesInput
-      | CoversationScalarWhereWithAggregatesInput[];
-    id?: StringWithAggregatesFilter<"Coversation"> | string;
-    memberOneID?: StringWithAggregatesFilter<"Coversation"> | string;
-    memberTwoID?: StringWithAggregatesFilter<"Coversation"> | string;
+      | ConversationScalarWhereWithAggregatesInput
+      | ConversationScalarWhereWithAggregatesInput[];
+    id?: StringWithAggregatesFilter<"Conversation"> | string;
+    memberOneID?: StringWithAggregatesFilter<"Conversation"> | string;
+    memberTwoID?: StringWithAggregatesFilter<"Conversation"> | string;
   };
 
   export type DirectMessageWhereInput = {
@@ -12313,26 +12330,31 @@ export namespace Prisma {
     id?: StringFilter<"DirectMessage"> | string;
     content?: StringFilter<"DirectMessage"> | string;
     fileURL?: StringNullableFilter<"DirectMessage"> | string | null;
+    fileType?: StringNullableFilter<"DirectMessage"> | string | null;
     deleted?: BoolFilter<"DirectMessage"> | boolean;
     memberID?: StringFilter<"DirectMessage"> | string;
     conversationID?: StringFilter<"DirectMessage"> | string;
     createdAt?: DateTimeFilter<"DirectMessage"> | Date | string;
     updatedAt?: DateTimeFilter<"DirectMessage"> | Date | string;
     member?: XOR<MemberScalarRelationFilter, MemberWhereInput>;
-    conversation?: XOR<CoversationScalarRelationFilter, CoversationWhereInput>;
+    conversation?: XOR<
+      ConversationScalarRelationFilter,
+      ConversationWhereInput
+    >;
   };
 
   export type DirectMessageOrderByWithRelationInput = {
     id?: SortOrder;
     content?: SortOrder;
     fileURL?: SortOrderInput | SortOrder;
+    fileType?: SortOrderInput | SortOrder;
     deleted?: SortOrder;
     memberID?: SortOrder;
     conversationID?: SortOrder;
     createdAt?: SortOrder;
     updatedAt?: SortOrder;
     member?: MemberOrderByWithRelationInput;
-    conversation?: CoversationOrderByWithRelationInput;
+    conversation?: ConversationOrderByWithRelationInput;
   };
 
   export type DirectMessageWhereUniqueInput = Prisma.AtLeast<
@@ -12343,6 +12365,7 @@ export namespace Prisma {
       NOT?: DirectMessageWhereInput | DirectMessageWhereInput[];
       content?: StringFilter<"DirectMessage"> | string;
       fileURL?: StringNullableFilter<"DirectMessage"> | string | null;
+      fileType?: StringNullableFilter<"DirectMessage"> | string | null;
       deleted?: BoolFilter<"DirectMessage"> | boolean;
       memberID?: StringFilter<"DirectMessage"> | string;
       conversationID?: StringFilter<"DirectMessage"> | string;
@@ -12350,8 +12373,8 @@ export namespace Prisma {
       updatedAt?: DateTimeFilter<"DirectMessage"> | Date | string;
       member?: XOR<MemberScalarRelationFilter, MemberWhereInput>;
       conversation?: XOR<
-        CoversationScalarRelationFilter,
-        CoversationWhereInput
+        ConversationScalarRelationFilter,
+        ConversationWhereInput
       >;
     },
     "id"
@@ -12361,6 +12384,7 @@ export namespace Prisma {
     id?: SortOrder;
     content?: SortOrder;
     fileURL?: SortOrderInput | SortOrder;
+    fileType?: SortOrderInput | SortOrder;
     deleted?: SortOrder;
     memberID?: SortOrder;
     conversationID?: SortOrder;
@@ -12382,6 +12406,10 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"DirectMessage"> | string;
     content?: StringWithAggregatesFilter<"DirectMessage"> | string;
     fileURL?:
+      | StringNullableWithAggregatesFilter<"DirectMessage">
+      | string
+      | null;
+    fileType?:
       | StringNullableWithAggregatesFilter<"DirectMessage">
       | string
       | null;
@@ -12560,8 +12588,8 @@ export namespace Prisma {
     server: ServerCreateNestedOneWithoutMembersInput;
     messages?: MessageCreateNestedManyWithoutMemberInput;
     directMessages?: DirectMessageCreateNestedManyWithoutMemberInput;
-    conversationInitiated?: CoversationCreateNestedManyWithoutMemberOneInput;
-    conversationReceived?: CoversationCreateNestedManyWithoutMemberTwoInput;
+    conversationInitiated?: ConversationCreateNestedManyWithoutMemberOneInput;
+    conversationReceived?: ConversationCreateNestedManyWithoutMemberTwoInput;
   };
 
   export type MemberUncheckedCreateInput = {
@@ -12573,8 +12601,8 @@ export namespace Prisma {
     updatedAt?: Date | string;
     messages?: MessageUncheckedCreateNestedManyWithoutMemberInput;
     directMessages?: DirectMessageUncheckedCreateNestedManyWithoutMemberInput;
-    conversationInitiated?: CoversationUncheckedCreateNestedManyWithoutMemberOneInput;
-    conversationReceived?: CoversationUncheckedCreateNestedManyWithoutMemberTwoInput;
+    conversationInitiated?: ConversationUncheckedCreateNestedManyWithoutMemberOneInput;
+    conversationReceived?: ConversationUncheckedCreateNestedManyWithoutMemberTwoInput;
   };
 
   export type MemberUpdateInput = {
@@ -12586,8 +12614,8 @@ export namespace Prisma {
     server?: ServerUpdateOneRequiredWithoutMembersNestedInput;
     messages?: MessageUpdateManyWithoutMemberNestedInput;
     directMessages?: DirectMessageUpdateManyWithoutMemberNestedInput;
-    conversationInitiated?: CoversationUpdateManyWithoutMemberOneNestedInput;
-    conversationReceived?: CoversationUpdateManyWithoutMemberTwoNestedInput;
+    conversationInitiated?: ConversationUpdateManyWithoutMemberOneNestedInput;
+    conversationReceived?: ConversationUpdateManyWithoutMemberTwoNestedInput;
   };
 
   export type MemberUncheckedUpdateInput = {
@@ -12599,8 +12627,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string;
     messages?: MessageUncheckedUpdateManyWithoutMemberNestedInput;
     directMessages?: DirectMessageUncheckedUpdateManyWithoutMemberNestedInput;
-    conversationInitiated?: CoversationUncheckedUpdateManyWithoutMemberOneNestedInput;
-    conversationReceived?: CoversationUncheckedUpdateManyWithoutMemberTwoNestedInput;
+    conversationInitiated?: ConversationUncheckedUpdateManyWithoutMemberOneNestedInput;
+    conversationReceived?: ConversationUncheckedUpdateManyWithoutMemberTwoNestedInput;
   };
 
   export type MemberCreateManyInput = {
@@ -12782,45 +12810,45 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string;
   };
 
-  export type CoversationCreateInput = {
+  export type ConversationCreateInput = {
     id?: string;
     memberOne: MemberCreateNestedOneWithoutConversationInitiatedInput;
     memberTwo: MemberCreateNestedOneWithoutConversationReceivedInput;
     directMessages?: DirectMessageCreateNestedManyWithoutConversationInput;
   };
 
-  export type CoversationUncheckedCreateInput = {
+  export type ConversationUncheckedCreateInput = {
     id?: string;
     memberOneID: string;
     memberTwoID: string;
     directMessages?: DirectMessageUncheckedCreateNestedManyWithoutConversationInput;
   };
 
-  export type CoversationUpdateInput = {
+  export type ConversationUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string;
     memberOne?: MemberUpdateOneRequiredWithoutConversationInitiatedNestedInput;
     memberTwo?: MemberUpdateOneRequiredWithoutConversationReceivedNestedInput;
     directMessages?: DirectMessageUpdateManyWithoutConversationNestedInput;
   };
 
-  export type CoversationUncheckedUpdateInput = {
+  export type ConversationUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string;
     memberOneID?: StringFieldUpdateOperationsInput | string;
     memberTwoID?: StringFieldUpdateOperationsInput | string;
     directMessages?: DirectMessageUncheckedUpdateManyWithoutConversationNestedInput;
   };
 
-  export type CoversationCreateManyInput = {
+  export type ConversationCreateManyInput = {
     id?: string;
     memberOneID: string;
     memberTwoID: string;
   };
 
-  export type CoversationUpdateManyMutationInput = {
+  export type ConversationUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string;
   };
 
-  export type CoversationUncheckedUpdateManyInput = {
+  export type ConversationUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string;
     memberOneID?: StringFieldUpdateOperationsInput | string;
     memberTwoID?: StringFieldUpdateOperationsInput | string;
@@ -12830,17 +12858,19 @@ export namespace Prisma {
     id?: string;
     content: string;
     fileURL?: string | null;
+    fileType?: string | null;
     deleted?: boolean;
     createdAt?: Date | string;
     updatedAt?: Date | string;
     member: MemberCreateNestedOneWithoutDirectMessagesInput;
-    conversation: CoversationCreateNestedOneWithoutDirectMessagesInput;
+    conversation: ConversationCreateNestedOneWithoutDirectMessagesInput;
   };
 
   export type DirectMessageUncheckedCreateInput = {
     id?: string;
     content: string;
     fileURL?: string | null;
+    fileType?: string | null;
     deleted?: boolean;
     memberID: string;
     conversationID: string;
@@ -12852,17 +12882,19 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string;
     content?: StringFieldUpdateOperationsInput | string;
     fileURL?: NullableStringFieldUpdateOperationsInput | string | null;
+    fileType?: NullableStringFieldUpdateOperationsInput | string | null;
     deleted?: BoolFieldUpdateOperationsInput | boolean;
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string;
     member?: MemberUpdateOneRequiredWithoutDirectMessagesNestedInput;
-    conversation?: CoversationUpdateOneRequiredWithoutDirectMessagesNestedInput;
+    conversation?: ConversationUpdateOneRequiredWithoutDirectMessagesNestedInput;
   };
 
   export type DirectMessageUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string;
     content?: StringFieldUpdateOperationsInput | string;
     fileURL?: NullableStringFieldUpdateOperationsInput | string | null;
+    fileType?: NullableStringFieldUpdateOperationsInput | string | null;
     deleted?: BoolFieldUpdateOperationsInput | boolean;
     memberID?: StringFieldUpdateOperationsInput | string;
     conversationID?: StringFieldUpdateOperationsInput | string;
@@ -12874,6 +12906,7 @@ export namespace Prisma {
     id?: string;
     content: string;
     fileURL?: string | null;
+    fileType?: string | null;
     deleted?: boolean;
     memberID: string;
     conversationID: string;
@@ -12885,6 +12918,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string;
     content?: StringFieldUpdateOperationsInput | string;
     fileURL?: NullableStringFieldUpdateOperationsInput | string | null;
+    fileType?: NullableStringFieldUpdateOperationsInput | string | null;
     deleted?: BoolFieldUpdateOperationsInput | boolean;
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string;
@@ -12894,6 +12928,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string;
     content?: StringFieldUpdateOperationsInput | string;
     fileURL?: NullableStringFieldUpdateOperationsInput | string | null;
+    fileType?: NullableStringFieldUpdateOperationsInput | string | null;
     deleted?: BoolFieldUpdateOperationsInput | boolean;
     memberID?: StringFieldUpdateOperationsInput | string;
     conversationID?: StringFieldUpdateOperationsInput | string;
@@ -13078,10 +13113,10 @@ export namespace Prisma {
     none?: DirectMessageWhereInput;
   };
 
-  export type CoversationListRelationFilter = {
-    every?: CoversationWhereInput;
-    some?: CoversationWhereInput;
-    none?: CoversationWhereInput;
+  export type ConversationListRelationFilter = {
+    every?: ConversationWhereInput;
+    some?: ConversationWhereInput;
+    none?: ConversationWhereInput;
   };
 
   export type MessageOrderByRelationAggregateInput = {
@@ -13092,7 +13127,7 @@ export namespace Prisma {
     _count?: SortOrder;
   };
 
-  export type CoversationOrderByRelationAggregateInput = {
+  export type ConversationOrderByRelationAggregateInput = {
     _count?: SortOrder;
   };
 
@@ -13288,38 +13323,39 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>;
   };
 
-  export type CoversationMemberOneIDMemberTwoIDCompoundUniqueInput = {
+  export type ConversationMemberOneIDMemberTwoIDCompoundUniqueInput = {
     memberOneID: string;
     memberTwoID: string;
   };
 
-  export type CoversationCountOrderByAggregateInput = {
+  export type ConversationCountOrderByAggregateInput = {
     id?: SortOrder;
     memberOneID?: SortOrder;
     memberTwoID?: SortOrder;
   };
 
-  export type CoversationMaxOrderByAggregateInput = {
+  export type ConversationMaxOrderByAggregateInput = {
     id?: SortOrder;
     memberOneID?: SortOrder;
     memberTwoID?: SortOrder;
   };
 
-  export type CoversationMinOrderByAggregateInput = {
+  export type ConversationMinOrderByAggregateInput = {
     id?: SortOrder;
     memberOneID?: SortOrder;
     memberTwoID?: SortOrder;
   };
 
-  export type CoversationScalarRelationFilter = {
-    is?: CoversationWhereInput;
-    isNot?: CoversationWhereInput;
+  export type ConversationScalarRelationFilter = {
+    is?: ConversationWhereInput;
+    isNot?: ConversationWhereInput;
   };
 
   export type DirectMessageCountOrderByAggregateInput = {
     id?: SortOrder;
     content?: SortOrder;
     fileURL?: SortOrder;
+    fileType?: SortOrder;
     deleted?: SortOrder;
     memberID?: SortOrder;
     conversationID?: SortOrder;
@@ -13331,6 +13367,7 @@ export namespace Prisma {
     id?: SortOrder;
     content?: SortOrder;
     fileURL?: SortOrder;
+    fileType?: SortOrder;
     deleted?: SortOrder;
     memberID?: SortOrder;
     conversationID?: SortOrder;
@@ -13342,6 +13379,7 @@ export namespace Prisma {
     id?: SortOrder;
     content?: SortOrder;
     fileURL?: SortOrder;
+    fileType?: SortOrder;
     deleted?: SortOrder;
     memberID?: SortOrder;
     conversationID?: SortOrder;
@@ -13861,34 +13899,34 @@ export namespace Prisma {
     connect?: DirectMessageWhereUniqueInput | DirectMessageWhereUniqueInput[];
   };
 
-  export type CoversationCreateNestedManyWithoutMemberOneInput = {
+  export type ConversationCreateNestedManyWithoutMemberOneInput = {
     create?:
       | XOR<
-          CoversationCreateWithoutMemberOneInput,
-          CoversationUncheckedCreateWithoutMemberOneInput
+          ConversationCreateWithoutMemberOneInput,
+          ConversationUncheckedCreateWithoutMemberOneInput
         >
-      | CoversationCreateWithoutMemberOneInput[]
-      | CoversationUncheckedCreateWithoutMemberOneInput[];
+      | ConversationCreateWithoutMemberOneInput[]
+      | ConversationUncheckedCreateWithoutMemberOneInput[];
     connectOrCreate?:
-      | CoversationCreateOrConnectWithoutMemberOneInput
-      | CoversationCreateOrConnectWithoutMemberOneInput[];
-    createMany?: CoversationCreateManyMemberOneInputEnvelope;
-    connect?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
+      | ConversationCreateOrConnectWithoutMemberOneInput
+      | ConversationCreateOrConnectWithoutMemberOneInput[];
+    createMany?: ConversationCreateManyMemberOneInputEnvelope;
+    connect?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
   };
 
-  export type CoversationCreateNestedManyWithoutMemberTwoInput = {
+  export type ConversationCreateNestedManyWithoutMemberTwoInput = {
     create?:
       | XOR<
-          CoversationCreateWithoutMemberTwoInput,
-          CoversationUncheckedCreateWithoutMemberTwoInput
+          ConversationCreateWithoutMemberTwoInput,
+          ConversationUncheckedCreateWithoutMemberTwoInput
         >
-      | CoversationCreateWithoutMemberTwoInput[]
-      | CoversationUncheckedCreateWithoutMemberTwoInput[];
+      | ConversationCreateWithoutMemberTwoInput[]
+      | ConversationUncheckedCreateWithoutMemberTwoInput[];
     connectOrCreate?:
-      | CoversationCreateOrConnectWithoutMemberTwoInput
-      | CoversationCreateOrConnectWithoutMemberTwoInput[];
-    createMany?: CoversationCreateManyMemberTwoInputEnvelope;
-    connect?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
+      | ConversationCreateOrConnectWithoutMemberTwoInput
+      | ConversationCreateOrConnectWithoutMemberTwoInput[];
+    createMany?: ConversationCreateManyMemberTwoInputEnvelope;
+    connect?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
   };
 
   export type MessageUncheckedCreateNestedManyWithoutMemberInput = {
@@ -13921,34 +13959,34 @@ export namespace Prisma {
     connect?: DirectMessageWhereUniqueInput | DirectMessageWhereUniqueInput[];
   };
 
-  export type CoversationUncheckedCreateNestedManyWithoutMemberOneInput = {
+  export type ConversationUncheckedCreateNestedManyWithoutMemberOneInput = {
     create?:
       | XOR<
-          CoversationCreateWithoutMemberOneInput,
-          CoversationUncheckedCreateWithoutMemberOneInput
+          ConversationCreateWithoutMemberOneInput,
+          ConversationUncheckedCreateWithoutMemberOneInput
         >
-      | CoversationCreateWithoutMemberOneInput[]
-      | CoversationUncheckedCreateWithoutMemberOneInput[];
+      | ConversationCreateWithoutMemberOneInput[]
+      | ConversationUncheckedCreateWithoutMemberOneInput[];
     connectOrCreate?:
-      | CoversationCreateOrConnectWithoutMemberOneInput
-      | CoversationCreateOrConnectWithoutMemberOneInput[];
-    createMany?: CoversationCreateManyMemberOneInputEnvelope;
-    connect?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
+      | ConversationCreateOrConnectWithoutMemberOneInput
+      | ConversationCreateOrConnectWithoutMemberOneInput[];
+    createMany?: ConversationCreateManyMemberOneInputEnvelope;
+    connect?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
   };
 
-  export type CoversationUncheckedCreateNestedManyWithoutMemberTwoInput = {
+  export type ConversationUncheckedCreateNestedManyWithoutMemberTwoInput = {
     create?:
       | XOR<
-          CoversationCreateWithoutMemberTwoInput,
-          CoversationUncheckedCreateWithoutMemberTwoInput
+          ConversationCreateWithoutMemberTwoInput,
+          ConversationUncheckedCreateWithoutMemberTwoInput
         >
-      | CoversationCreateWithoutMemberTwoInput[]
-      | CoversationUncheckedCreateWithoutMemberTwoInput[];
+      | ConversationCreateWithoutMemberTwoInput[]
+      | ConversationUncheckedCreateWithoutMemberTwoInput[];
     connectOrCreate?:
-      | CoversationCreateOrConnectWithoutMemberTwoInput
-      | CoversationCreateOrConnectWithoutMemberTwoInput[];
-    createMany?: CoversationCreateManyMemberTwoInputEnvelope;
-    connect?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
+      | ConversationCreateOrConnectWithoutMemberTwoInput
+      | ConversationCreateOrConnectWithoutMemberTwoInput[];
+    createMany?: ConversationCreateManyMemberTwoInputEnvelope;
+    connect?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
   };
 
   export type EnumMemberRoleFieldUpdateOperationsInput = {
@@ -14049,60 +14087,60 @@ export namespace Prisma {
       | DirectMessageScalarWhereInput[];
   };
 
-  export type CoversationUpdateManyWithoutMemberOneNestedInput = {
+  export type ConversationUpdateManyWithoutMemberOneNestedInput = {
     create?:
       | XOR<
-          CoversationCreateWithoutMemberOneInput,
-          CoversationUncheckedCreateWithoutMemberOneInput
+          ConversationCreateWithoutMemberOneInput,
+          ConversationUncheckedCreateWithoutMemberOneInput
         >
-      | CoversationCreateWithoutMemberOneInput[]
-      | CoversationUncheckedCreateWithoutMemberOneInput[];
+      | ConversationCreateWithoutMemberOneInput[]
+      | ConversationUncheckedCreateWithoutMemberOneInput[];
     connectOrCreate?:
-      | CoversationCreateOrConnectWithoutMemberOneInput
-      | CoversationCreateOrConnectWithoutMemberOneInput[];
+      | ConversationCreateOrConnectWithoutMemberOneInput
+      | ConversationCreateOrConnectWithoutMemberOneInput[];
     upsert?:
-      | CoversationUpsertWithWhereUniqueWithoutMemberOneInput
-      | CoversationUpsertWithWhereUniqueWithoutMemberOneInput[];
-    createMany?: CoversationCreateManyMemberOneInputEnvelope;
-    set?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
-    disconnect?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
-    delete?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
-    connect?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
+      | ConversationUpsertWithWhereUniqueWithoutMemberOneInput
+      | ConversationUpsertWithWhereUniqueWithoutMemberOneInput[];
+    createMany?: ConversationCreateManyMemberOneInputEnvelope;
+    set?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
+    disconnect?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
+    delete?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
+    connect?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
     update?:
-      | CoversationUpdateWithWhereUniqueWithoutMemberOneInput
-      | CoversationUpdateWithWhereUniqueWithoutMemberOneInput[];
+      | ConversationUpdateWithWhereUniqueWithoutMemberOneInput
+      | ConversationUpdateWithWhereUniqueWithoutMemberOneInput[];
     updateMany?:
-      | CoversationUpdateManyWithWhereWithoutMemberOneInput
-      | CoversationUpdateManyWithWhereWithoutMemberOneInput[];
-    deleteMany?: CoversationScalarWhereInput | CoversationScalarWhereInput[];
+      | ConversationUpdateManyWithWhereWithoutMemberOneInput
+      | ConversationUpdateManyWithWhereWithoutMemberOneInput[];
+    deleteMany?: ConversationScalarWhereInput | ConversationScalarWhereInput[];
   };
 
-  export type CoversationUpdateManyWithoutMemberTwoNestedInput = {
+  export type ConversationUpdateManyWithoutMemberTwoNestedInput = {
     create?:
       | XOR<
-          CoversationCreateWithoutMemberTwoInput,
-          CoversationUncheckedCreateWithoutMemberTwoInput
+          ConversationCreateWithoutMemberTwoInput,
+          ConversationUncheckedCreateWithoutMemberTwoInput
         >
-      | CoversationCreateWithoutMemberTwoInput[]
-      | CoversationUncheckedCreateWithoutMemberTwoInput[];
+      | ConversationCreateWithoutMemberTwoInput[]
+      | ConversationUncheckedCreateWithoutMemberTwoInput[];
     connectOrCreate?:
-      | CoversationCreateOrConnectWithoutMemberTwoInput
-      | CoversationCreateOrConnectWithoutMemberTwoInput[];
+      | ConversationCreateOrConnectWithoutMemberTwoInput
+      | ConversationCreateOrConnectWithoutMemberTwoInput[];
     upsert?:
-      | CoversationUpsertWithWhereUniqueWithoutMemberTwoInput
-      | CoversationUpsertWithWhereUniqueWithoutMemberTwoInput[];
-    createMany?: CoversationCreateManyMemberTwoInputEnvelope;
-    set?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
-    disconnect?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
-    delete?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
-    connect?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
+      | ConversationUpsertWithWhereUniqueWithoutMemberTwoInput
+      | ConversationUpsertWithWhereUniqueWithoutMemberTwoInput[];
+    createMany?: ConversationCreateManyMemberTwoInputEnvelope;
+    set?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
+    disconnect?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
+    delete?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
+    connect?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
     update?:
-      | CoversationUpdateWithWhereUniqueWithoutMemberTwoInput
-      | CoversationUpdateWithWhereUniqueWithoutMemberTwoInput[];
+      | ConversationUpdateWithWhereUniqueWithoutMemberTwoInput
+      | ConversationUpdateWithWhereUniqueWithoutMemberTwoInput[];
     updateMany?:
-      | CoversationUpdateManyWithWhereWithoutMemberTwoInput
-      | CoversationUpdateManyWithWhereWithoutMemberTwoInput[];
-    deleteMany?: CoversationScalarWhereInput | CoversationScalarWhereInput[];
+      | ConversationUpdateManyWithWhereWithoutMemberTwoInput
+      | ConversationUpdateManyWithWhereWithoutMemberTwoInput[];
+    deleteMany?: ConversationScalarWhereInput | ConversationScalarWhereInput[];
   };
 
   export type MessageUncheckedUpdateManyWithoutMemberNestedInput = {
@@ -14165,60 +14203,60 @@ export namespace Prisma {
       | DirectMessageScalarWhereInput[];
   };
 
-  export type CoversationUncheckedUpdateManyWithoutMemberOneNestedInput = {
+  export type ConversationUncheckedUpdateManyWithoutMemberOneNestedInput = {
     create?:
       | XOR<
-          CoversationCreateWithoutMemberOneInput,
-          CoversationUncheckedCreateWithoutMemberOneInput
+          ConversationCreateWithoutMemberOneInput,
+          ConversationUncheckedCreateWithoutMemberOneInput
         >
-      | CoversationCreateWithoutMemberOneInput[]
-      | CoversationUncheckedCreateWithoutMemberOneInput[];
+      | ConversationCreateWithoutMemberOneInput[]
+      | ConversationUncheckedCreateWithoutMemberOneInput[];
     connectOrCreate?:
-      | CoversationCreateOrConnectWithoutMemberOneInput
-      | CoversationCreateOrConnectWithoutMemberOneInput[];
+      | ConversationCreateOrConnectWithoutMemberOneInput
+      | ConversationCreateOrConnectWithoutMemberOneInput[];
     upsert?:
-      | CoversationUpsertWithWhereUniqueWithoutMemberOneInput
-      | CoversationUpsertWithWhereUniqueWithoutMemberOneInput[];
-    createMany?: CoversationCreateManyMemberOneInputEnvelope;
-    set?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
-    disconnect?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
-    delete?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
-    connect?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
+      | ConversationUpsertWithWhereUniqueWithoutMemberOneInput
+      | ConversationUpsertWithWhereUniqueWithoutMemberOneInput[];
+    createMany?: ConversationCreateManyMemberOneInputEnvelope;
+    set?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
+    disconnect?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
+    delete?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
+    connect?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
     update?:
-      | CoversationUpdateWithWhereUniqueWithoutMemberOneInput
-      | CoversationUpdateWithWhereUniqueWithoutMemberOneInput[];
+      | ConversationUpdateWithWhereUniqueWithoutMemberOneInput
+      | ConversationUpdateWithWhereUniqueWithoutMemberOneInput[];
     updateMany?:
-      | CoversationUpdateManyWithWhereWithoutMemberOneInput
-      | CoversationUpdateManyWithWhereWithoutMemberOneInput[];
-    deleteMany?: CoversationScalarWhereInput | CoversationScalarWhereInput[];
+      | ConversationUpdateManyWithWhereWithoutMemberOneInput
+      | ConversationUpdateManyWithWhereWithoutMemberOneInput[];
+    deleteMany?: ConversationScalarWhereInput | ConversationScalarWhereInput[];
   };
 
-  export type CoversationUncheckedUpdateManyWithoutMemberTwoNestedInput = {
+  export type ConversationUncheckedUpdateManyWithoutMemberTwoNestedInput = {
     create?:
       | XOR<
-          CoversationCreateWithoutMemberTwoInput,
-          CoversationUncheckedCreateWithoutMemberTwoInput
+          ConversationCreateWithoutMemberTwoInput,
+          ConversationUncheckedCreateWithoutMemberTwoInput
         >
-      | CoversationCreateWithoutMemberTwoInput[]
-      | CoversationUncheckedCreateWithoutMemberTwoInput[];
+      | ConversationCreateWithoutMemberTwoInput[]
+      | ConversationUncheckedCreateWithoutMemberTwoInput[];
     connectOrCreate?:
-      | CoversationCreateOrConnectWithoutMemberTwoInput
-      | CoversationCreateOrConnectWithoutMemberTwoInput[];
+      | ConversationCreateOrConnectWithoutMemberTwoInput
+      | ConversationCreateOrConnectWithoutMemberTwoInput[];
     upsert?:
-      | CoversationUpsertWithWhereUniqueWithoutMemberTwoInput
-      | CoversationUpsertWithWhereUniqueWithoutMemberTwoInput[];
-    createMany?: CoversationCreateManyMemberTwoInputEnvelope;
-    set?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
-    disconnect?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
-    delete?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
-    connect?: CoversationWhereUniqueInput | CoversationWhereUniqueInput[];
+      | ConversationUpsertWithWhereUniqueWithoutMemberTwoInput
+      | ConversationUpsertWithWhereUniqueWithoutMemberTwoInput[];
+    createMany?: ConversationCreateManyMemberTwoInputEnvelope;
+    set?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
+    disconnect?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
+    delete?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
+    connect?: ConversationWhereUniqueInput | ConversationWhereUniqueInput[];
     update?:
-      | CoversationUpdateWithWhereUniqueWithoutMemberTwoInput
-      | CoversationUpdateWithWhereUniqueWithoutMemberTwoInput[];
+      | ConversationUpdateWithWhereUniqueWithoutMemberTwoInput
+      | ConversationUpdateWithWhereUniqueWithoutMemberTwoInput[];
     updateMany?:
-      | CoversationUpdateManyWithWhereWithoutMemberTwoInput
-      | CoversationUpdateManyWithWhereWithoutMemberTwoInput[];
-    deleteMany?: CoversationScalarWhereInput | CoversationScalarWhereInput[];
+      | ConversationUpdateManyWithWhereWithoutMemberTwoInput
+      | ConversationUpdateManyWithWhereWithoutMemberTwoInput[];
+    deleteMany?: ConversationScalarWhereInput | ConversationScalarWhereInput[];
   };
 
   export type ProfileCreateNestedOneWithoutChannelsInput = {
@@ -14578,13 +14616,13 @@ export namespace Prisma {
     connect?: MemberWhereUniqueInput;
   };
 
-  export type CoversationCreateNestedOneWithoutDirectMessagesInput = {
+  export type ConversationCreateNestedOneWithoutDirectMessagesInput = {
     create?: XOR<
-      CoversationCreateWithoutDirectMessagesInput,
-      CoversationUncheckedCreateWithoutDirectMessagesInput
+      ConversationCreateWithoutDirectMessagesInput,
+      ConversationUncheckedCreateWithoutDirectMessagesInput
     >;
-    connectOrCreate?: CoversationCreateOrConnectWithoutDirectMessagesInput;
-    connect?: CoversationWhereUniqueInput;
+    connectOrCreate?: ConversationCreateOrConnectWithoutDirectMessagesInput;
+    connect?: ConversationWhereUniqueInput;
   };
 
   export type MemberUpdateOneRequiredWithoutDirectMessagesNestedInput = {
@@ -14604,20 +14642,20 @@ export namespace Prisma {
     >;
   };
 
-  export type CoversationUpdateOneRequiredWithoutDirectMessagesNestedInput = {
+  export type ConversationUpdateOneRequiredWithoutDirectMessagesNestedInput = {
     create?: XOR<
-      CoversationCreateWithoutDirectMessagesInput,
-      CoversationUncheckedCreateWithoutDirectMessagesInput
+      ConversationCreateWithoutDirectMessagesInput,
+      ConversationUncheckedCreateWithoutDirectMessagesInput
     >;
-    connectOrCreate?: CoversationCreateOrConnectWithoutDirectMessagesInput;
-    upsert?: CoversationUpsertWithoutDirectMessagesInput;
-    connect?: CoversationWhereUniqueInput;
+    connectOrCreate?: ConversationCreateOrConnectWithoutDirectMessagesInput;
+    upsert?: ConversationUpsertWithoutDirectMessagesInput;
+    connect?: ConversationWhereUniqueInput;
     update?: XOR<
       XOR<
-        CoversationUpdateToOneWithWhereWithoutDirectMessagesInput,
-        CoversationUpdateWithoutDirectMessagesInput
+        ConversationUpdateToOneWithWhereWithoutDirectMessagesInput,
+        ConversationUpdateWithoutDirectMessagesInput
       >,
-      CoversationUncheckedUpdateWithoutDirectMessagesInput
+      ConversationUncheckedUpdateWithoutDirectMessagesInput
     >;
   };
 
@@ -14834,8 +14872,8 @@ export namespace Prisma {
     server: ServerCreateNestedOneWithoutMembersInput;
     messages?: MessageCreateNestedManyWithoutMemberInput;
     directMessages?: DirectMessageCreateNestedManyWithoutMemberInput;
-    conversationInitiated?: CoversationCreateNestedManyWithoutMemberOneInput;
-    conversationReceived?: CoversationCreateNestedManyWithoutMemberTwoInput;
+    conversationInitiated?: ConversationCreateNestedManyWithoutMemberOneInput;
+    conversationReceived?: ConversationCreateNestedManyWithoutMemberTwoInput;
   };
 
   export type MemberUncheckedCreateWithoutProfileInput = {
@@ -14846,8 +14884,8 @@ export namespace Prisma {
     updatedAt?: Date | string;
     messages?: MessageUncheckedCreateNestedManyWithoutMemberInput;
     directMessages?: DirectMessageUncheckedCreateNestedManyWithoutMemberInput;
-    conversationInitiated?: CoversationUncheckedCreateNestedManyWithoutMemberOneInput;
-    conversationReceived?: CoversationUncheckedCreateNestedManyWithoutMemberTwoInput;
+    conversationInitiated?: ConversationUncheckedCreateNestedManyWithoutMemberOneInput;
+    conversationReceived?: ConversationUncheckedCreateNestedManyWithoutMemberTwoInput;
   };
 
   export type MemberCreateOrConnectWithoutProfileInput = {
@@ -15058,8 +15096,8 @@ export namespace Prisma {
     profile: ProfileCreateNestedOneWithoutMembersInput;
     messages?: MessageCreateNestedManyWithoutMemberInput;
     directMessages?: DirectMessageCreateNestedManyWithoutMemberInput;
-    conversationInitiated?: CoversationCreateNestedManyWithoutMemberOneInput;
-    conversationReceived?: CoversationCreateNestedManyWithoutMemberTwoInput;
+    conversationInitiated?: ConversationCreateNestedManyWithoutMemberOneInput;
+    conversationReceived?: ConversationCreateNestedManyWithoutMemberTwoInput;
   };
 
   export type MemberUncheckedCreateWithoutServerInput = {
@@ -15070,8 +15108,8 @@ export namespace Prisma {
     updatedAt?: Date | string;
     messages?: MessageUncheckedCreateNestedManyWithoutMemberInput;
     directMessages?: DirectMessageUncheckedCreateNestedManyWithoutMemberInput;
-    conversationInitiated?: CoversationUncheckedCreateNestedManyWithoutMemberOneInput;
-    conversationReceived?: CoversationUncheckedCreateNestedManyWithoutMemberTwoInput;
+    conversationInitiated?: ConversationUncheckedCreateNestedManyWithoutMemberOneInput;
+    conversationReceived?: ConversationUncheckedCreateNestedManyWithoutMemberTwoInput;
   };
 
   export type MemberCreateOrConnectWithoutServerInput = {
@@ -15321,16 +15359,18 @@ export namespace Prisma {
     id?: string;
     content: string;
     fileURL?: string | null;
+    fileType?: string | null;
     deleted?: boolean;
     createdAt?: Date | string;
     updatedAt?: Date | string;
-    conversation: CoversationCreateNestedOneWithoutDirectMessagesInput;
+    conversation: ConversationCreateNestedOneWithoutDirectMessagesInput;
   };
 
   export type DirectMessageUncheckedCreateWithoutMemberInput = {
     id?: string;
     content: string;
     fileURL?: string | null;
+    fileType?: string | null;
     deleted?: boolean;
     conversationID: string;
     createdAt?: Date | string;
@@ -15352,57 +15392,57 @@ export namespace Prisma {
     skipDuplicates?: boolean;
   };
 
-  export type CoversationCreateWithoutMemberOneInput = {
+  export type ConversationCreateWithoutMemberOneInput = {
     id?: string;
     memberTwo: MemberCreateNestedOneWithoutConversationReceivedInput;
     directMessages?: DirectMessageCreateNestedManyWithoutConversationInput;
   };
 
-  export type CoversationUncheckedCreateWithoutMemberOneInput = {
+  export type ConversationUncheckedCreateWithoutMemberOneInput = {
     id?: string;
     memberTwoID: string;
     directMessages?: DirectMessageUncheckedCreateNestedManyWithoutConversationInput;
   };
 
-  export type CoversationCreateOrConnectWithoutMemberOneInput = {
-    where: CoversationWhereUniqueInput;
+  export type ConversationCreateOrConnectWithoutMemberOneInput = {
+    where: ConversationWhereUniqueInput;
     create: XOR<
-      CoversationCreateWithoutMemberOneInput,
-      CoversationUncheckedCreateWithoutMemberOneInput
+      ConversationCreateWithoutMemberOneInput,
+      ConversationUncheckedCreateWithoutMemberOneInput
     >;
   };
 
-  export type CoversationCreateManyMemberOneInputEnvelope = {
+  export type ConversationCreateManyMemberOneInputEnvelope = {
     data:
-      | CoversationCreateManyMemberOneInput
-      | CoversationCreateManyMemberOneInput[];
+      | ConversationCreateManyMemberOneInput
+      | ConversationCreateManyMemberOneInput[];
     skipDuplicates?: boolean;
   };
 
-  export type CoversationCreateWithoutMemberTwoInput = {
+  export type ConversationCreateWithoutMemberTwoInput = {
     id?: string;
     memberOne: MemberCreateNestedOneWithoutConversationInitiatedInput;
     directMessages?: DirectMessageCreateNestedManyWithoutConversationInput;
   };
 
-  export type CoversationUncheckedCreateWithoutMemberTwoInput = {
+  export type ConversationUncheckedCreateWithoutMemberTwoInput = {
     id?: string;
     memberOneID: string;
     directMessages?: DirectMessageUncheckedCreateNestedManyWithoutConversationInput;
   };
 
-  export type CoversationCreateOrConnectWithoutMemberTwoInput = {
-    where: CoversationWhereUniqueInput;
+  export type ConversationCreateOrConnectWithoutMemberTwoInput = {
+    where: ConversationWhereUniqueInput;
     create: XOR<
-      CoversationCreateWithoutMemberTwoInput,
-      CoversationUncheckedCreateWithoutMemberTwoInput
+      ConversationCreateWithoutMemberTwoInput,
+      ConversationUncheckedCreateWithoutMemberTwoInput
     >;
   };
 
-  export type CoversationCreateManyMemberTwoInputEnvelope = {
+  export type ConversationCreateManyMemberTwoInputEnvelope = {
     data:
-      | CoversationCreateManyMemberTwoInput
-      | CoversationCreateManyMemberTwoInput[];
+      | ConversationCreateManyMemberTwoInput
+      | ConversationCreateManyMemberTwoInput[];
     skipDuplicates?: boolean;
   };
 
@@ -15570,6 +15610,7 @@ export namespace Prisma {
     id?: StringFilter<"DirectMessage"> | string;
     content?: StringFilter<"DirectMessage"> | string;
     fileURL?: StringNullableFilter<"DirectMessage"> | string | null;
+    fileType?: StringNullableFilter<"DirectMessage"> | string | null;
     deleted?: BoolFilter<"DirectMessage"> | boolean;
     memberID?: StringFilter<"DirectMessage"> | string;
     conversationID?: StringFilter<"DirectMessage"> | string;
@@ -15577,68 +15618,68 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"DirectMessage"> | Date | string;
   };
 
-  export type CoversationUpsertWithWhereUniqueWithoutMemberOneInput = {
-    where: CoversationWhereUniqueInput;
+  export type ConversationUpsertWithWhereUniqueWithoutMemberOneInput = {
+    where: ConversationWhereUniqueInput;
     update: XOR<
-      CoversationUpdateWithoutMemberOneInput,
-      CoversationUncheckedUpdateWithoutMemberOneInput
+      ConversationUpdateWithoutMemberOneInput,
+      ConversationUncheckedUpdateWithoutMemberOneInput
     >;
     create: XOR<
-      CoversationCreateWithoutMemberOneInput,
-      CoversationUncheckedCreateWithoutMemberOneInput
+      ConversationCreateWithoutMemberOneInput,
+      ConversationUncheckedCreateWithoutMemberOneInput
     >;
   };
 
-  export type CoversationUpdateWithWhereUniqueWithoutMemberOneInput = {
-    where: CoversationWhereUniqueInput;
+  export type ConversationUpdateWithWhereUniqueWithoutMemberOneInput = {
+    where: ConversationWhereUniqueInput;
     data: XOR<
-      CoversationUpdateWithoutMemberOneInput,
-      CoversationUncheckedUpdateWithoutMemberOneInput
+      ConversationUpdateWithoutMemberOneInput,
+      ConversationUncheckedUpdateWithoutMemberOneInput
     >;
   };
 
-  export type CoversationUpdateManyWithWhereWithoutMemberOneInput = {
-    where: CoversationScalarWhereInput;
+  export type ConversationUpdateManyWithWhereWithoutMemberOneInput = {
+    where: ConversationScalarWhereInput;
     data: XOR<
-      CoversationUpdateManyMutationInput,
-      CoversationUncheckedUpdateManyWithoutMemberOneInput
+      ConversationUpdateManyMutationInput,
+      ConversationUncheckedUpdateManyWithoutMemberOneInput
     >;
   };
 
-  export type CoversationScalarWhereInput = {
-    AND?: CoversationScalarWhereInput | CoversationScalarWhereInput[];
-    OR?: CoversationScalarWhereInput[];
-    NOT?: CoversationScalarWhereInput | CoversationScalarWhereInput[];
-    id?: StringFilter<"Coversation"> | string;
-    memberOneID?: StringFilter<"Coversation"> | string;
-    memberTwoID?: StringFilter<"Coversation"> | string;
+  export type ConversationScalarWhereInput = {
+    AND?: ConversationScalarWhereInput | ConversationScalarWhereInput[];
+    OR?: ConversationScalarWhereInput[];
+    NOT?: ConversationScalarWhereInput | ConversationScalarWhereInput[];
+    id?: StringFilter<"Conversation"> | string;
+    memberOneID?: StringFilter<"Conversation"> | string;
+    memberTwoID?: StringFilter<"Conversation"> | string;
   };
 
-  export type CoversationUpsertWithWhereUniqueWithoutMemberTwoInput = {
-    where: CoversationWhereUniqueInput;
+  export type ConversationUpsertWithWhereUniqueWithoutMemberTwoInput = {
+    where: ConversationWhereUniqueInput;
     update: XOR<
-      CoversationUpdateWithoutMemberTwoInput,
-      CoversationUncheckedUpdateWithoutMemberTwoInput
+      ConversationUpdateWithoutMemberTwoInput,
+      ConversationUncheckedUpdateWithoutMemberTwoInput
     >;
     create: XOR<
-      CoversationCreateWithoutMemberTwoInput,
-      CoversationUncheckedCreateWithoutMemberTwoInput
+      ConversationCreateWithoutMemberTwoInput,
+      ConversationUncheckedCreateWithoutMemberTwoInput
     >;
   };
 
-  export type CoversationUpdateWithWhereUniqueWithoutMemberTwoInput = {
-    where: CoversationWhereUniqueInput;
+  export type ConversationUpdateWithWhereUniqueWithoutMemberTwoInput = {
+    where: ConversationWhereUniqueInput;
     data: XOR<
-      CoversationUpdateWithoutMemberTwoInput,
-      CoversationUncheckedUpdateWithoutMemberTwoInput
+      ConversationUpdateWithoutMemberTwoInput,
+      ConversationUncheckedUpdateWithoutMemberTwoInput
     >;
   };
 
-  export type CoversationUpdateManyWithWhereWithoutMemberTwoInput = {
-    where: CoversationScalarWhereInput;
+  export type ConversationUpdateManyWithWhereWithoutMemberTwoInput = {
+    where: ConversationScalarWhereInput;
     data: XOR<
-      CoversationUpdateManyMutationInput,
-      CoversationUncheckedUpdateManyWithoutMemberTwoInput
+      ConversationUpdateManyMutationInput,
+      ConversationUncheckedUpdateManyWithoutMemberTwoInput
     >;
   };
 
@@ -15861,8 +15902,8 @@ export namespace Prisma {
     profile: ProfileCreateNestedOneWithoutMembersInput;
     server: ServerCreateNestedOneWithoutMembersInput;
     directMessages?: DirectMessageCreateNestedManyWithoutMemberInput;
-    conversationInitiated?: CoversationCreateNestedManyWithoutMemberOneInput;
-    conversationReceived?: CoversationCreateNestedManyWithoutMemberTwoInput;
+    conversationInitiated?: ConversationCreateNestedManyWithoutMemberOneInput;
+    conversationReceived?: ConversationCreateNestedManyWithoutMemberTwoInput;
   };
 
   export type MemberUncheckedCreateWithoutMessagesInput = {
@@ -15873,8 +15914,8 @@ export namespace Prisma {
     createdAt?: Date | string;
     updatedAt?: Date | string;
     directMessages?: DirectMessageUncheckedCreateNestedManyWithoutMemberInput;
-    conversationInitiated?: CoversationUncheckedCreateNestedManyWithoutMemberOneInput;
-    conversationReceived?: CoversationUncheckedCreateNestedManyWithoutMemberTwoInput;
+    conversationInitiated?: ConversationUncheckedCreateNestedManyWithoutMemberOneInput;
+    conversationReceived?: ConversationUncheckedCreateNestedManyWithoutMemberTwoInput;
   };
 
   export type MemberCreateOrConnectWithoutMessagesInput = {
@@ -15941,8 +15982,8 @@ export namespace Prisma {
     profile?: ProfileUpdateOneRequiredWithoutMembersNestedInput;
     server?: ServerUpdateOneRequiredWithoutMembersNestedInput;
     directMessages?: DirectMessageUpdateManyWithoutMemberNestedInput;
-    conversationInitiated?: CoversationUpdateManyWithoutMemberOneNestedInput;
-    conversationReceived?: CoversationUpdateManyWithoutMemberTwoNestedInput;
+    conversationInitiated?: ConversationUpdateManyWithoutMemberOneNestedInput;
+    conversationReceived?: ConversationUpdateManyWithoutMemberTwoNestedInput;
   };
 
   export type MemberUncheckedUpdateWithoutMessagesInput = {
@@ -15953,8 +15994,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string;
     directMessages?: DirectMessageUncheckedUpdateManyWithoutMemberNestedInput;
-    conversationInitiated?: CoversationUncheckedUpdateManyWithoutMemberOneNestedInput;
-    conversationReceived?: CoversationUncheckedUpdateManyWithoutMemberTwoNestedInput;
+    conversationInitiated?: ConversationUncheckedUpdateManyWithoutMemberOneNestedInput;
+    conversationReceived?: ConversationUncheckedUpdateManyWithoutMemberTwoNestedInput;
   };
 
   export type ChannelUpsertWithoutMessageInput = {
@@ -16006,7 +16047,7 @@ export namespace Prisma {
     server: ServerCreateNestedOneWithoutMembersInput;
     messages?: MessageCreateNestedManyWithoutMemberInput;
     directMessages?: DirectMessageCreateNestedManyWithoutMemberInput;
-    conversationReceived?: CoversationCreateNestedManyWithoutMemberTwoInput;
+    conversationReceived?: ConversationCreateNestedManyWithoutMemberTwoInput;
   };
 
   export type MemberUncheckedCreateWithoutConversationInitiatedInput = {
@@ -16018,7 +16059,7 @@ export namespace Prisma {
     updatedAt?: Date | string;
     messages?: MessageUncheckedCreateNestedManyWithoutMemberInput;
     directMessages?: DirectMessageUncheckedCreateNestedManyWithoutMemberInput;
-    conversationReceived?: CoversationUncheckedCreateNestedManyWithoutMemberTwoInput;
+    conversationReceived?: ConversationUncheckedCreateNestedManyWithoutMemberTwoInput;
   };
 
   export type MemberCreateOrConnectWithoutConversationInitiatedInput = {
@@ -16038,7 +16079,7 @@ export namespace Prisma {
     server: ServerCreateNestedOneWithoutMembersInput;
     messages?: MessageCreateNestedManyWithoutMemberInput;
     directMessages?: DirectMessageCreateNestedManyWithoutMemberInput;
-    conversationInitiated?: CoversationCreateNestedManyWithoutMemberOneInput;
+    conversationInitiated?: ConversationCreateNestedManyWithoutMemberOneInput;
   };
 
   export type MemberUncheckedCreateWithoutConversationReceivedInput = {
@@ -16050,7 +16091,7 @@ export namespace Prisma {
     updatedAt?: Date | string;
     messages?: MessageUncheckedCreateNestedManyWithoutMemberInput;
     directMessages?: DirectMessageUncheckedCreateNestedManyWithoutMemberInput;
-    conversationInitiated?: CoversationUncheckedCreateNestedManyWithoutMemberOneInput;
+    conversationInitiated?: ConversationUncheckedCreateNestedManyWithoutMemberOneInput;
   };
 
   export type MemberCreateOrConnectWithoutConversationReceivedInput = {
@@ -16065,6 +16106,7 @@ export namespace Prisma {
     id?: string;
     content: string;
     fileURL?: string | null;
+    fileType?: string | null;
     deleted?: boolean;
     createdAt?: Date | string;
     updatedAt?: Date | string;
@@ -16075,6 +16117,7 @@ export namespace Prisma {
     id?: string;
     content: string;
     fileURL?: string | null;
+    fileType?: string | null;
     deleted?: boolean;
     memberID: string;
     createdAt?: Date | string;
@@ -16125,7 +16168,7 @@ export namespace Prisma {
     server?: ServerUpdateOneRequiredWithoutMembersNestedInput;
     messages?: MessageUpdateManyWithoutMemberNestedInput;
     directMessages?: DirectMessageUpdateManyWithoutMemberNestedInput;
-    conversationReceived?: CoversationUpdateManyWithoutMemberTwoNestedInput;
+    conversationReceived?: ConversationUpdateManyWithoutMemberTwoNestedInput;
   };
 
   export type MemberUncheckedUpdateWithoutConversationInitiatedInput = {
@@ -16137,7 +16180,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string;
     messages?: MessageUncheckedUpdateManyWithoutMemberNestedInput;
     directMessages?: DirectMessageUncheckedUpdateManyWithoutMemberNestedInput;
-    conversationReceived?: CoversationUncheckedUpdateManyWithoutMemberTwoNestedInput;
+    conversationReceived?: ConversationUncheckedUpdateManyWithoutMemberTwoNestedInput;
   };
 
   export type MemberUpsertWithoutConversationReceivedInput = {
@@ -16169,7 +16212,7 @@ export namespace Prisma {
     server?: ServerUpdateOneRequiredWithoutMembersNestedInput;
     messages?: MessageUpdateManyWithoutMemberNestedInput;
     directMessages?: DirectMessageUpdateManyWithoutMemberNestedInput;
-    conversationInitiated?: CoversationUpdateManyWithoutMemberOneNestedInput;
+    conversationInitiated?: ConversationUpdateManyWithoutMemberOneNestedInput;
   };
 
   export type MemberUncheckedUpdateWithoutConversationReceivedInput = {
@@ -16181,7 +16224,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string;
     messages?: MessageUncheckedUpdateManyWithoutMemberNestedInput;
     directMessages?: DirectMessageUncheckedUpdateManyWithoutMemberNestedInput;
-    conversationInitiated?: CoversationUncheckedUpdateManyWithoutMemberOneNestedInput;
+    conversationInitiated?: ConversationUncheckedUpdateManyWithoutMemberOneNestedInput;
   };
 
   export type DirectMessageUpsertWithWhereUniqueWithoutConversationInput = {
@@ -16220,8 +16263,8 @@ export namespace Prisma {
     profile: ProfileCreateNestedOneWithoutMembersInput;
     server: ServerCreateNestedOneWithoutMembersInput;
     messages?: MessageCreateNestedManyWithoutMemberInput;
-    conversationInitiated?: CoversationCreateNestedManyWithoutMemberOneInput;
-    conversationReceived?: CoversationCreateNestedManyWithoutMemberTwoInput;
+    conversationInitiated?: ConversationCreateNestedManyWithoutMemberOneInput;
+    conversationReceived?: ConversationCreateNestedManyWithoutMemberTwoInput;
   };
 
   export type MemberUncheckedCreateWithoutDirectMessagesInput = {
@@ -16232,8 +16275,8 @@ export namespace Prisma {
     createdAt?: Date | string;
     updatedAt?: Date | string;
     messages?: MessageUncheckedCreateNestedManyWithoutMemberInput;
-    conversationInitiated?: CoversationUncheckedCreateNestedManyWithoutMemberOneInput;
-    conversationReceived?: CoversationUncheckedCreateNestedManyWithoutMemberTwoInput;
+    conversationInitiated?: ConversationUncheckedCreateNestedManyWithoutMemberOneInput;
+    conversationReceived?: ConversationUncheckedCreateNestedManyWithoutMemberTwoInput;
   };
 
   export type MemberCreateOrConnectWithoutDirectMessagesInput = {
@@ -16244,23 +16287,23 @@ export namespace Prisma {
     >;
   };
 
-  export type CoversationCreateWithoutDirectMessagesInput = {
+  export type ConversationCreateWithoutDirectMessagesInput = {
     id?: string;
     memberOne: MemberCreateNestedOneWithoutConversationInitiatedInput;
     memberTwo: MemberCreateNestedOneWithoutConversationReceivedInput;
   };
 
-  export type CoversationUncheckedCreateWithoutDirectMessagesInput = {
+  export type ConversationUncheckedCreateWithoutDirectMessagesInput = {
     id?: string;
     memberOneID: string;
     memberTwoID: string;
   };
 
-  export type CoversationCreateOrConnectWithoutDirectMessagesInput = {
-    where: CoversationWhereUniqueInput;
+  export type ConversationCreateOrConnectWithoutDirectMessagesInput = {
+    where: ConversationWhereUniqueInput;
     create: XOR<
-      CoversationCreateWithoutDirectMessagesInput,
-      CoversationUncheckedCreateWithoutDirectMessagesInput
+      ConversationCreateWithoutDirectMessagesInput,
+      ConversationUncheckedCreateWithoutDirectMessagesInput
     >;
   };
 
@@ -16292,8 +16335,8 @@ export namespace Prisma {
     profile?: ProfileUpdateOneRequiredWithoutMembersNestedInput;
     server?: ServerUpdateOneRequiredWithoutMembersNestedInput;
     messages?: MessageUpdateManyWithoutMemberNestedInput;
-    conversationInitiated?: CoversationUpdateManyWithoutMemberOneNestedInput;
-    conversationReceived?: CoversationUpdateManyWithoutMemberTwoNestedInput;
+    conversationInitiated?: ConversationUpdateManyWithoutMemberOneNestedInput;
+    conversationReceived?: ConversationUpdateManyWithoutMemberTwoNestedInput;
   };
 
   export type MemberUncheckedUpdateWithoutDirectMessagesInput = {
@@ -16304,37 +16347,37 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string;
     messages?: MessageUncheckedUpdateManyWithoutMemberNestedInput;
-    conversationInitiated?: CoversationUncheckedUpdateManyWithoutMemberOneNestedInput;
-    conversationReceived?: CoversationUncheckedUpdateManyWithoutMemberTwoNestedInput;
+    conversationInitiated?: ConversationUncheckedUpdateManyWithoutMemberOneNestedInput;
+    conversationReceived?: ConversationUncheckedUpdateManyWithoutMemberTwoNestedInput;
   };
 
-  export type CoversationUpsertWithoutDirectMessagesInput = {
+  export type ConversationUpsertWithoutDirectMessagesInput = {
     update: XOR<
-      CoversationUpdateWithoutDirectMessagesInput,
-      CoversationUncheckedUpdateWithoutDirectMessagesInput
+      ConversationUpdateWithoutDirectMessagesInput,
+      ConversationUncheckedUpdateWithoutDirectMessagesInput
     >;
     create: XOR<
-      CoversationCreateWithoutDirectMessagesInput,
-      CoversationUncheckedCreateWithoutDirectMessagesInput
+      ConversationCreateWithoutDirectMessagesInput,
+      ConversationUncheckedCreateWithoutDirectMessagesInput
     >;
-    where?: CoversationWhereInput;
+    where?: ConversationWhereInput;
   };
 
-  export type CoversationUpdateToOneWithWhereWithoutDirectMessagesInput = {
-    where?: CoversationWhereInput;
+  export type ConversationUpdateToOneWithWhereWithoutDirectMessagesInput = {
+    where?: ConversationWhereInput;
     data: XOR<
-      CoversationUpdateWithoutDirectMessagesInput,
-      CoversationUncheckedUpdateWithoutDirectMessagesInput
+      ConversationUpdateWithoutDirectMessagesInput,
+      ConversationUncheckedUpdateWithoutDirectMessagesInput
     >;
   };
 
-  export type CoversationUpdateWithoutDirectMessagesInput = {
+  export type ConversationUpdateWithoutDirectMessagesInput = {
     id?: StringFieldUpdateOperationsInput | string;
     memberOne?: MemberUpdateOneRequiredWithoutConversationInitiatedNestedInput;
     memberTwo?: MemberUpdateOneRequiredWithoutConversationReceivedNestedInput;
   };
 
-  export type CoversationUncheckedUpdateWithoutDirectMessagesInput = {
+  export type ConversationUncheckedUpdateWithoutDirectMessagesInput = {
     id?: StringFieldUpdateOperationsInput | string;
     memberOneID?: StringFieldUpdateOperationsInput | string;
     memberTwoID?: StringFieldUpdateOperationsInput | string;
@@ -16405,8 +16448,8 @@ export namespace Prisma {
     server?: ServerUpdateOneRequiredWithoutMembersNestedInput;
     messages?: MessageUpdateManyWithoutMemberNestedInput;
     directMessages?: DirectMessageUpdateManyWithoutMemberNestedInput;
-    conversationInitiated?: CoversationUpdateManyWithoutMemberOneNestedInput;
-    conversationReceived?: CoversationUpdateManyWithoutMemberTwoNestedInput;
+    conversationInitiated?: ConversationUpdateManyWithoutMemberOneNestedInput;
+    conversationReceived?: ConversationUpdateManyWithoutMemberTwoNestedInput;
   };
 
   export type MemberUncheckedUpdateWithoutProfileInput = {
@@ -16417,8 +16460,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string;
     messages?: MessageUncheckedUpdateManyWithoutMemberNestedInput;
     directMessages?: DirectMessageUncheckedUpdateManyWithoutMemberNestedInput;
-    conversationInitiated?: CoversationUncheckedUpdateManyWithoutMemberOneNestedInput;
-    conversationReceived?: CoversationUncheckedUpdateManyWithoutMemberTwoNestedInput;
+    conversationInitiated?: ConversationUncheckedUpdateManyWithoutMemberOneNestedInput;
+    conversationReceived?: ConversationUncheckedUpdateManyWithoutMemberTwoNestedInput;
   };
 
   export type MemberUncheckedUpdateManyWithoutProfileInput = {
@@ -16483,8 +16526,8 @@ export namespace Prisma {
     profile?: ProfileUpdateOneRequiredWithoutMembersNestedInput;
     messages?: MessageUpdateManyWithoutMemberNestedInput;
     directMessages?: DirectMessageUpdateManyWithoutMemberNestedInput;
-    conversationInitiated?: CoversationUpdateManyWithoutMemberOneNestedInput;
-    conversationReceived?: CoversationUpdateManyWithoutMemberTwoNestedInput;
+    conversationInitiated?: ConversationUpdateManyWithoutMemberOneNestedInput;
+    conversationReceived?: ConversationUpdateManyWithoutMemberTwoNestedInput;
   };
 
   export type MemberUncheckedUpdateWithoutServerInput = {
@@ -16495,8 +16538,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string;
     messages?: MessageUncheckedUpdateManyWithoutMemberNestedInput;
     directMessages?: DirectMessageUncheckedUpdateManyWithoutMemberNestedInput;
-    conversationInitiated?: CoversationUncheckedUpdateManyWithoutMemberOneNestedInput;
-    conversationReceived?: CoversationUncheckedUpdateManyWithoutMemberTwoNestedInput;
+    conversationInitiated?: ConversationUncheckedUpdateManyWithoutMemberOneNestedInput;
+    conversationReceived?: ConversationUncheckedUpdateManyWithoutMemberTwoNestedInput;
   };
 
   export type MemberUncheckedUpdateManyWithoutServerInput = {
@@ -16551,18 +16594,19 @@ export namespace Prisma {
     id?: string;
     content: string;
     fileURL?: string | null;
+    fileType?: string | null;
     deleted?: boolean;
     conversationID: string;
     createdAt?: Date | string;
     updatedAt?: Date | string;
   };
 
-  export type CoversationCreateManyMemberOneInput = {
+  export type ConversationCreateManyMemberOneInput = {
     id?: string;
     memberTwoID: string;
   };
 
-  export type CoversationCreateManyMemberTwoInput = {
+  export type ConversationCreateManyMemberTwoInput = {
     id?: string;
     memberOneID: string;
   };
@@ -16604,16 +16648,18 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string;
     content?: StringFieldUpdateOperationsInput | string;
     fileURL?: NullableStringFieldUpdateOperationsInput | string | null;
+    fileType?: NullableStringFieldUpdateOperationsInput | string | null;
     deleted?: BoolFieldUpdateOperationsInput | boolean;
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string;
-    conversation?: CoversationUpdateOneRequiredWithoutDirectMessagesNestedInput;
+    conversation?: ConversationUpdateOneRequiredWithoutDirectMessagesNestedInput;
   };
 
   export type DirectMessageUncheckedUpdateWithoutMemberInput = {
     id?: StringFieldUpdateOperationsInput | string;
     content?: StringFieldUpdateOperationsInput | string;
     fileURL?: NullableStringFieldUpdateOperationsInput | string | null;
+    fileType?: NullableStringFieldUpdateOperationsInput | string | null;
     deleted?: BoolFieldUpdateOperationsInput | boolean;
     conversationID?: StringFieldUpdateOperationsInput | string;
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string;
@@ -16624,42 +16670,43 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string;
     content?: StringFieldUpdateOperationsInput | string;
     fileURL?: NullableStringFieldUpdateOperationsInput | string | null;
+    fileType?: NullableStringFieldUpdateOperationsInput | string | null;
     deleted?: BoolFieldUpdateOperationsInput | boolean;
     conversationID?: StringFieldUpdateOperationsInput | string;
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string;
   };
 
-  export type CoversationUpdateWithoutMemberOneInput = {
+  export type ConversationUpdateWithoutMemberOneInput = {
     id?: StringFieldUpdateOperationsInput | string;
     memberTwo?: MemberUpdateOneRequiredWithoutConversationReceivedNestedInput;
     directMessages?: DirectMessageUpdateManyWithoutConversationNestedInput;
   };
 
-  export type CoversationUncheckedUpdateWithoutMemberOneInput = {
+  export type ConversationUncheckedUpdateWithoutMemberOneInput = {
     id?: StringFieldUpdateOperationsInput | string;
     memberTwoID?: StringFieldUpdateOperationsInput | string;
     directMessages?: DirectMessageUncheckedUpdateManyWithoutConversationNestedInput;
   };
 
-  export type CoversationUncheckedUpdateManyWithoutMemberOneInput = {
+  export type ConversationUncheckedUpdateManyWithoutMemberOneInput = {
     id?: StringFieldUpdateOperationsInput | string;
     memberTwoID?: StringFieldUpdateOperationsInput | string;
   };
 
-  export type CoversationUpdateWithoutMemberTwoInput = {
+  export type ConversationUpdateWithoutMemberTwoInput = {
     id?: StringFieldUpdateOperationsInput | string;
     memberOne?: MemberUpdateOneRequiredWithoutConversationInitiatedNestedInput;
     directMessages?: DirectMessageUpdateManyWithoutConversationNestedInput;
   };
 
-  export type CoversationUncheckedUpdateWithoutMemberTwoInput = {
+  export type ConversationUncheckedUpdateWithoutMemberTwoInput = {
     id?: StringFieldUpdateOperationsInput | string;
     memberOneID?: StringFieldUpdateOperationsInput | string;
     directMessages?: DirectMessageUncheckedUpdateManyWithoutConversationNestedInput;
   };
 
-  export type CoversationUncheckedUpdateManyWithoutMemberTwoInput = {
+  export type ConversationUncheckedUpdateManyWithoutMemberTwoInput = {
     id?: StringFieldUpdateOperationsInput | string;
     memberOneID?: StringFieldUpdateOperationsInput | string;
   };
@@ -16712,6 +16759,7 @@ export namespace Prisma {
     id?: string;
     content: string;
     fileURL?: string | null;
+    fileType?: string | null;
     deleted?: boolean;
     memberID: string;
     createdAt?: Date | string;
@@ -16722,6 +16770,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string;
     content?: StringFieldUpdateOperationsInput | string;
     fileURL?: NullableStringFieldUpdateOperationsInput | string | null;
+    fileType?: NullableStringFieldUpdateOperationsInput | string | null;
     deleted?: BoolFieldUpdateOperationsInput | boolean;
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string;
@@ -16732,6 +16781,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string;
     content?: StringFieldUpdateOperationsInput | string;
     fileURL?: NullableStringFieldUpdateOperationsInput | string | null;
+    fileType?: NullableStringFieldUpdateOperationsInput | string | null;
     deleted?: BoolFieldUpdateOperationsInput | boolean;
     memberID?: StringFieldUpdateOperationsInput | string;
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string;
@@ -16742,6 +16792,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string;
     content?: StringFieldUpdateOperationsInput | string;
     fileURL?: NullableStringFieldUpdateOperationsInput | string | null;
+    fileType?: NullableStringFieldUpdateOperationsInput | string | null;
     deleted?: BoolFieldUpdateOperationsInput | boolean;
     memberID?: StringFieldUpdateOperationsInput | string;
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string;

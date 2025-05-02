@@ -1,6 +1,8 @@
 // app/(main)/(routes)/server/[serverID]/conversation/[memberID]/page.tsx
 
 import ChatHeader from "@/components/chat/chatHeader";
+import ChatInput from "@/components/chat/chatInput";
+import ChatMessages from "@/components/chat/chatMessage";
 import { getOrCreateConversation } from "@/lib/conversation";
 import getCurrentProfile from "@/lib/currentProfile";
 import { db } from "@/lib/db";
@@ -64,6 +66,25 @@ const MemberIDPage = async ({
           name={otherMember.profile.name}
           type="conversation"
           imageURL={otherMember.profile.imageURL}
+        />
+        gsadgasgsdagasd
+        <ChatMessages
+          name={otherMember.profile.name}
+          member={currentMember}
+          chatID={conversation.id}
+          apiURL="/api/directMessages"
+          socketURL="/api/socket/directMessages"
+          socketQuery={{ conversationID: conversation.id }}
+          paramValue={conversation.id}
+          paramKey="conversationID"
+          type="conversation"
+        />
+        asdgsdagasdgasd
+        <ChatInput
+          name={otherMember.profile.name}
+          apiURL="/api/socket/directMessages"
+          query={{ conversationID: conversation.id }}
+          type="conversation"
         />
       </div>
     </>
