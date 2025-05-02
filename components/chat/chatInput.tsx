@@ -27,19 +27,6 @@ const formSchema = z.object({
   content: z.string().min(1),
 });
 
-// Mapping of channel types to icons
-const iconMap = {
-  [ChannelType.TEXT]: (
-    <Hash className="size-4 text-zinc-500 dark:text-zinc-400" />
-  ),
-  [ChannelType.AUDIO]: (
-    <Mic className="size-4 text-zinc-500 dark:text-zinc-400" />
-  ),
-  [ChannelType.VIDEO]: (
-    <Video className="size-4 text-zinc-500 dark:text-zinc-400" />
-  ),
-};
-
 const ChatInput = ({
   apiURL,
   query,

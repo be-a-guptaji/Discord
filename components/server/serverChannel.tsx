@@ -85,13 +85,13 @@ const ServerChannel = ({ role, channel, server }: ServerChannelProps) => {
               <ActionToolTip lable="Edit">
                 <Edit
                   onClick={(e) => onAction(e, "editChannel")}
-                  className="hidden size-4 text-zinc-500 transition group-hover:block hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300"
+                  className="hidden size-4 cursor-pointer text-zinc-500 transition group-hover:block hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300"
                 />
               </ActionToolTip>
               <ActionToolTip lable="Delete">
                 <Trash
                   onClick={(e) => onAction(e, "deleteChannel")}
-                  className="hidden size-4 text-rose-500 transition group-hover:block hover:text-rose-600 dark:text-rose-400 dark:hover:text-rose-500"
+                  className="hidden size-4 cursor-pointer text-rose-500 transition group-hover:block hover:text-rose-600 dark:text-rose-400 dark:hover:text-rose-500"
                 />
               </ActionToolTip>
             </div>
