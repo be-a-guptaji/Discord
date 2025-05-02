@@ -20,12 +20,14 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import FileUpload from "@/components/fileUpload";
 import { useRouter } from "next/navigation";
 import { useModal } from "@/hooks/useModal";
+import { Input } from "@/components/ui/input";
 import { useState } from "react";
 
 // This is the schema for the form
@@ -33,6 +35,7 @@ const formSchema = z.object({
   fileURL: z.string().url({
     message: "Attachment is required",
   }),
+  content: z.string().optional(),
 });
 
 const MessageFileModal = () => {
@@ -56,6 +59,7 @@ const MessageFileModal = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       fileURL: "",
+      content: "",
     },
   });
 
@@ -78,7 +82,7 @@ const MessageFileModal = () => {
       });
 
       // Make a POST request to create a server
-      await axios.post(URL, { ...data, content: data.fileURL, fileType });
+      await axios.post(URL, { ...data, content: data.content, fileType });
 
       // Reset the form after submission
       form.reset();
@@ -132,6 +136,26 @@ const MessageFileModal = () => {
                     )}
                   />
                 </div>
+                <FormField
+                  control={form.control}
+                  name="content"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="dark:text-secondary/70 text-xs font-bold text-zinc-500 uppercase">
+                        Message
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Enter a message"
+                          {...field}
+                          disabled={isLoading}
+                          className="border-0 bg-zinc-300/50 text-black focus-visible:ring-0 focus-visible:ring-offset-0 dark:bg-zinc-300/50"
+                          {...field}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
               </div>
               <DialogFooter className="bg-gray-100 px-6 py-4">
                 <Button

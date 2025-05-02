@@ -9,6 +9,7 @@ import { ModalProvider } from "@/components/providers/modalProvider";
 import { SocketProvider } from "@/components/providers/socketProvider";
 import { QueryProvider } from "@/components/providers/queryProvider";
 import "@/app/globals.css";
+import { ReactNode } from "react";
 
 const openSANS = Open_Sans({
   variable: "--font-open-sans",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <ClerkProvider>

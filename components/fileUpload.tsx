@@ -95,10 +95,10 @@ const FileUpload = ({
             href={value}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 flex items-center justify-center text-sm text-indigo-500 hover:underline dark:text-indigo-400"
+            className="flex items-center justify-center gap-x-6 px-4 text-sm text-indigo-500 hover:underline dark:text-indigo-400"
           >
             <FileIcon className="size-10 fill-indigo-200 stroke-indigo-400" />
-            <p className="w-[390px] truncate text-wrap">{value}</p>
+            <p className="truncate text-wrap">PDF File</p>
           </a>
           <button
             onClick={() => onChange("")}

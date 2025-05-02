@@ -5,7 +5,8 @@
 import { Member, MemberRole, Profile } from "@/lib/generated/prisma/client";
 import UserAvatar from "@/components/userAvatar";
 import ActionToolTip from "@/components/actionToolTip";
-import { ShieldAlert, ShieldCheck, User } from "lucide-react";
+import { FileIcon, Mic, ShieldAlert, ShieldCheck, User } from "lucide-react";
+import Image from "next/image";
 
 interface ChatItemProps {
   id: string;
@@ -62,7 +63,7 @@ const ChatItem = ({
 
   return (
     <>
-      <div className="group relative flex w-full items-center p-4 transition hover:bg-black/5">
+      <div className="group relative my-4 flex w-full items-center p-4 transition hover:bg-black/5">
         <div className="group flex w-full items-start gap-x-2">
           <div className="cursor-pointer transition hover:drop-shadow-md">
             <UserAvatar src={member.profile.imageURL} />
@@ -81,7 +82,85 @@ const ChatItem = ({
                 {timestamp}
               </span>
             </div>
-            {content}
+
+            {fileType === "pdf" && fileURL && (
+              <>
+                <div className="bg-background/10 relative mt-2 flex h-16 w-48 items-center rounded-md">
+                  <a
+                    href={fileURL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex size-full items-center justify-center gap-x-6 text-sm text-indigo-500 hover:underline dark:text-indigo-400"
+                  >
+                    <FileIcon className="size-10 fill-indigo-200 stroke-indigo-400" />
+                    <p className="truncate text-wrap">PDF File</p>
+                  </a>
+                </div>
+              </>
+            )}
+
+            {fileType === "mp3" && fileURL && (
+              <>
+                <div className="bg-background/10 relative mt-2 flex w-fit items-center rounded-md p-2">
+                  <a
+                    href={fileURL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center text-sm text-indigo-500 hover:underline dark:text-indigo-400"
+                  >
+                    <Mic className="size-10 fill-indigo-200 stroke-indigo-400" />
+                    <audio controls src={fileURL} />
+                  </a>
+                </div>
+              </>
+            )}
+
+            {fileType === "mp4" && fileURL && (
+              <>
+                <div className="bg-background/10 relative mt-2 flex size-fit items-center rounded-md p-2">
+                  <a
+                    href={fileURL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center text-sm text-indigo-500 hover:underline dark:text-indigo-400"
+                  >
+                    <video
+                      src={fileURL}
+                      className="aspect-video w-[390px] rounded-md"
+                      autoPlay={true}
+                      muted
+                      controls
+                    />
+                  </a>
+                </div>
+              </>
+            )}
+
+            {fileType &&
+              !["pdf", "mp3", "mp4"].includes(fileType) &&
+              fileURL && (
+                <a
+                  href={fileURL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-secondary relative mt-2 flex aspect-square size-48 items-center overflow-hidden rounded-md border"
+                >
+                  <Image
+                    fill
+                    priority
+                    src={fileURL}
+                    alt={fileType}
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </a>
+              )}
+
+            {content && (
+              <p className="text-sm text-zinc-600 dark:text-zinc-300">
+                {content}
+              </p>
+            )}
           </div>
         </div>
       </div>

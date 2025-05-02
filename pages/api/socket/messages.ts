@@ -39,7 +39,7 @@ export default async function handler(
     }
 
     // Check if the content is provided
-    if (!content) {
+    if (!content && !fileURL) {
       return res.status(400).json({ error: "Missing content" });
     }
 
@@ -89,7 +89,7 @@ export default async function handler(
     // Create a new message in the database
     const message = await db.message.create({
       data: {
-        content,
+        content: !!content ? (content as string) : "",
         fileURL,
         fileType: fileType as string,
         channelID: channelID as string,
