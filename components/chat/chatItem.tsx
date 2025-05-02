@@ -14,6 +14,7 @@ import {
   Trash,
   User,
 } from "lucide-react";
+import { useRouter, useParams } from "next/navigation";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -72,6 +73,12 @@ const ChatItem = ({
 }: ChatItemProps) => {
   // This is the modal store for opening and closing the modal and getting the type of modal
   const { onOpen } = useModal();
+
+  // Navigation hook
+  const router = useRouter();
+
+  // Params hook
+  const params = useParams();
 
   // State to handle the editing state of the message
   const [isEditing, setIsEditing] = useState(false);
@@ -144,19 +151,33 @@ const ChatItem = ({
     return () => window.removeEventListener("keydown", down);
   }, []);
 
+  // Function to redirect the user to member page on click to his name
+  const onMemberClick = () => {
+    if (member.id === currentMember.id) {
+      return;
+    }
+
+    router.push(`/server/${params?.serverID}/conversation/${member.id}`);
+  };
+
   return (
     <>
-      <div className="group relative my-4 flex w-full items-center p-4 transition hover:bg-black/5">
+      <div className="group relative my-2 flex w-full items-center p-4 transition hover:bg-black/5">
         <div className="group flex w-full items-start gap-x-2">
-          <div className="cursor-pointer transition hover:drop-shadow-md">
+          <button
+            onClick={onMemberClick}
+            className="cursor-pointer transition hover:drop-shadow-md"
+          >
             <UserAvatar src={member.profile.imageURL} />
-          </div>
+          </button>
           <div className="flex w-full flex-col">
             <div className="flex items-center gap-x-2">
               <div className="flex items-center">
-                <p className="mx-2 cursor-pointer text-sm font-semibold hover:underline">
-                  {member.profile.name}
-                </p>
+                <button onClick={onMemberClick}>
+                  <p className="mx-2 cursor-pointer text-sm font-semibold hover:underline">
+                    {member.profile.name}
+                  </p>
+                </button>
                 <ActionToolTip lable={member.role} side="right" align="center">
                   {roleIconMap[member.role]}
                 </ActionToolTip>

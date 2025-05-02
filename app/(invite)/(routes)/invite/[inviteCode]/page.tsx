@@ -4,13 +4,13 @@ import getCurrentProfile from "@/lib/currentProfile";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 
-interface InviteCodePageProps {
+const InviteCodePage = async ({
+  params,
+}: {
   params: Promise<{
     inviteCode: string;
   }>;
-}
-
-const InviteCodePage = async ({ params }: InviteCodePageProps) => {
+}) => {
   // Fetch the current profile
   const profile = await getCurrentProfile();
 
