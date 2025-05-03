@@ -27,18 +27,18 @@ const NavigationItem = ({ id, name, imageURL }: NavigationItemProps) => {
 
   return (
     <>
-      <ActionToolTip lable={name} side="right" align="center">
+      <ActionToolTip label={name} side="right" align="center">
         <button onClick={onClick} className="group relative flex items-center">
           <div
             className={cn(
               "bg-primary absolute left-0 w-[4px] rounded-r-full transition-all",
-              params.serverID === id ? "h-[36px]" : "h-0 group-hover:h-[20px]"
+              params?.serverID === id ? "h-[36px]" : "h-0 group-hover:h-[20px]"
             )}
           />
           <div
             className={cn(
               "group relative mx-3 flex size-[48px] overflow-hidden rounded-[24px] transition-all group-hover:rounded-[16px]",
-              params.serverID === id &&
+              params?.serverID === id &&
                 "bg-primary/10 text-primary rounded-[16px]"
             )}
           >

@@ -6,6 +6,8 @@ import { db } from "@/lib/db";
 import ChatHeader from "@/components/chat/chatHeader";
 import ChatInput from "@/components/chat/chatInput";
 import ChatMessages from "@/components/chat/chatMessage";
+import { ChannelType } from "@/lib/generated/prisma/client";
+import MediaRoom from "@/components/mediaRoom";
 
 const ChannelIDPage = async ({
   params,
@@ -54,23 +56,37 @@ const ChannelIDPage = async ({
           name={channel.name}
           type="channel"
         />
-        <ChatMessages
-          name={channel.name}
-          member={member}
-          chatID={channelID}
-          apiURL="/api/messages"
-          socketURL="/api/socket/messages"
-          socketQuery={{ channelID, serverID }}
-          paramValue={channelID}
-          paramKey="channelID"
-          type="channel"
-        />
-        <ChatInput
-          name={channel.name}
-          apiURL="/api/socket/messages"
-          query={{ channelID, serverID }}
-          type="channel"
-        />
+        {channel.type === ChannelType.TEXT && (
+          <>
+            <ChatMessages
+              name={channel.name}
+              member={member}
+              chatID={channelID}
+              apiURL="/api/messages"
+              socketURL="/api/socket/messages"
+              socketQuery={{ channelID, serverID }}
+              paramValue={channelID}
+              paramKey="channelID"
+              type="channel"
+            />
+            <ChatInput
+              name={channel.name}
+              apiURL="/api/socket/messages"
+              query={{ channelID, serverID }}
+              type="channel"
+            />
+          </>
+        )}
+        {channel.type === ChannelType.AUDIO && (
+          <>
+            <MediaRoom chatID={channelID} audio={true} video={false} />
+          </>
+        )}
+        {channel.type === ChannelType.VIDEO && (
+          <>
+            <MediaRoom chatID={channelID} audio={true} video={true} />
+          </>
+        )}
       </div>
     </>
   );

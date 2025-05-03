@@ -8,8 +8,8 @@ import { cn } from "@/lib/utils";
 import { ModalProvider } from "@/components/providers/modalProvider";
 import { SocketProvider } from "@/components/providers/socketProvider";
 import { QueryProvider } from "@/components/providers/queryProvider";
-import "@/app/globals.css";
 import { ReactNode } from "react";
+import "@/app/globals.css";
 
 const openSANS = Open_Sans({
   variable: "--font-open-sans",

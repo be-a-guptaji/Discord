@@ -15,7 +15,6 @@ import UserAvatar from "@/components/userAvatar";
 
 interface ServerMemberProps {
   member: Member & { profile: Profile };
-  server: Server;
 }
 
 // Mapping of member roles to icons
@@ -26,7 +25,7 @@ const roleIconMap = {
   ),
   [MemberRole.GUEST]: <User className="ml-auto size-4 text-zinc-500" />,
 };
-const ServerMember = ({ member, server }: ServerMemberProps) => {
+const ServerMember = ({ member }: ServerMemberProps) => {
   // Navigation hook
   const router = useRouter();
 

@@ -13,7 +13,7 @@ const NavigationAction = () => {
   return (
     <>
       <div>
-        <ActionToolTip lable="Create Server" side="right" align="center">
+        <ActionToolTip label="Create Server" side="right" align="center">
           <button
             className="group flex items-center"
             onClick={() => onOpen("createServer")}

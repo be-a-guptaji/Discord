@@ -72,7 +72,7 @@ const ChatInput = ({ name, apiURL, query, type }: ChatInputProps) => {
               <FormItem>
                 <FormControl>
                   <div className="relative p-4 pb-6">
-                    <ActionToolTip lable="Add File" side="top" align="center">
+                    <ActionToolTip label="Add File" side="top" align="center">
                       <button
                         onClick={() => onOpen("messageFile", { apiURL, query })}
                         type="button"
@@ -87,7 +87,7 @@ const ChatInput = ({ name, apiURL, query, type }: ChatInputProps) => {
                       className="border-0 border-none bg-zinc-200/90 px-14 py-6 text-zinc-600 focus-visible:ring-0 focus-visible:ring-offset-0 dark:bg-zinc-700/75 dark:text-zinc-200"
                       {...field}
                     />
-                    <ActionToolTip lable="Emoji" side="top" align="center">
+                    <ActionToolTip label="Emoji" side="top" align="center">
                       <div className="absolute top-7 right-16">
                         <EmojiPicker
                           onChange={(emoji: string) =>
@@ -96,7 +96,7 @@ const ChatInput = ({ name, apiURL, query, type }: ChatInputProps) => {
                         />
                       </div>
                     </ActionToolTip>
-                    <ActionToolTip lable="Send" side="top" align="center">
+                    <ActionToolTip label="Send" side="top" align="center">
                       <div className="absolute top-7 right-8">
                         <button
                           onClick={form.handleSubmit(onSubmit)}

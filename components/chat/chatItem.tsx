@@ -178,7 +178,7 @@ const ChatItem = ({
                     {member.profile.name}
                   </p>
                 </button>
-                <ActionToolTip lable={member.role} side="right" align="center">
+                <ActionToolTip label={member.role} side="right" align="center">
                   {roleIconMap[member.role]}
                 </ActionToolTip>
               </div>
@@ -300,7 +300,7 @@ const ChatItem = ({
                         </FormItem>
                       )}
                     />
-                    <ActionToolTip lable="Save" side="top" align="center">
+                    <ActionToolTip label="Save" side="top" align="center">
                       <Button
                         size="sm"
                         variant={"primary"}
@@ -331,7 +331,7 @@ const ChatItem = ({
             <div className="absolute -top-2 right-5 hidden items-center gap-x-2 rounded-sm border bg-white p-1 group-hover:flex dark:bg-zinc-800">
               {canEditMessage && (
                 <>
-                  <ActionToolTip lable="Edit" side="top" align="center">
+                  <ActionToolTip label="Edit" side="top" align="center">
                     <Edit
                       onClick={() => setIsEditing(!isEditing)}
                       className="hidden size-4 cursor-pointer text-zinc-500 transition group-hover:block hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300"
@@ -339,7 +339,7 @@ const ChatItem = ({
                   </ActionToolTip>
                 </>
               )}
-              <ActionToolTip lable="Delete" side="top" align="center">
+              <ActionToolTip label="Delete" side="top" align="center">
                 <Trash
                   onClick={() =>
                     onOpen("deleteMessage", {

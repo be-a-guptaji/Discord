@@ -5,7 +5,7 @@ import { db } from "@/lib/db";
 const findConversation = async (memberOneID: string, memberTwoID: string) => {
   // Find the conversation between memberOneID and memberTwoID
   try {
-    return await db.coversation.findFirst({
+    return await db.conversation.findFirst({
       where: {
         AND: [{ memberOneID }, { memberTwoID }],
       },
@@ -34,7 +34,7 @@ const createNewConversation = async (
 ) => {
   // Create a new conversation between memberOneID and memberTwoID
   try {
-    return await db.coversation.create({
+    return await db.conversation.create({
       data: {
         memberOneID,
         memberTwoID,
