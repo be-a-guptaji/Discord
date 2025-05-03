@@ -14,7 +14,7 @@ interface MemberIDPageProps {
     memberID: string;
     serverID: string;
   }>;
-  searchParams: { video?: string | null | undefined };
+  searchParams: Promise<{ video?: string | null | undefined }>;
 }
 
 const MemberIDPage = async ({ params, searchParams }: MemberIDPageProps) => {
@@ -28,6 +28,9 @@ const MemberIDPage = async ({ params, searchParams }: MemberIDPageProps) => {
 
   // Get the member ID and server ID from the request parameters
   const { memberID, serverID } = await params;
+
+  // Get the video from the searchParams
+  const { video } = await searchParams;
 
   // Fetch the member Profile
   const currentMember = await db.member.findFirst({
@@ -72,12 +75,12 @@ const MemberIDPage = async ({ params, searchParams }: MemberIDPageProps) => {
           type="conversation"
           imageURL={otherMember.profile.imageURL}
         />
-        {searchParams.video && (
+        {video && (
           <>
             <MediaRoom chatID={conversation.id} audio video />
           </>
         )}
-        {!searchParams.video && (
+        {!video && (
           <>
             <ChatMessages
               name={otherMember.profile.name}
