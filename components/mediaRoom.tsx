@@ -2,9 +2,17 @@
 
 "use client";
 
-import { LiveKitRoom, VideoConference } from "@livekit/components-react";
 import { useEffect, useState } from "react";
-import { Channel } from "@/lib/generated/prisma/client";
+import {
+  LiveKitRoom,
+  GridLayout,
+  ParticipantTile,
+  ControlBar,
+  RoomAudioRenderer,
+  useTracks,
+  LayoutContextProvider,
+} from "@livekit/components-react";
+import { Track } from "livekit-client";
 import { useUser } from "@clerk/nextjs";
 import { Loader2 } from "lucide-react";
 import "@livekit/components-styles";
@@ -13,6 +21,38 @@ interface MediaRoomProps {
   chatID: string;
   audio: boolean;
   video: boolean;
+}
+
+function VideoLayout({ audio, video }: { audio: boolean; video: boolean }) {
+  const tracks = useTracks(
+    [
+      { source: Track.Source.Camera, withPlaceholder: true },
+      { source: Track.Source.ScreenShare, withPlaceholder: false },
+    ],
+    { onlySubscribed: false }
+  );
+
+  return (
+    <LayoutContextProvider>
+      <div className="flex h-full w-full flex-col">
+        <RoomAudioRenderer />
+
+        <GridLayout tracks={tracks} className="flex-1">
+          <ParticipantTile />
+        </GridLayout>
+
+        <ControlBar
+          controls={{
+            microphone: audio,
+            camera: video,
+            screenShare: video,
+            chat: audio,
+            leave: false, // this hides the Leave button
+          }}
+        />
+      </div>
+    </LayoutContextProvider>
+  );
 }
 
 const MediaRoom = ({ chatID, audio, video }: MediaRoomProps) => {
@@ -70,7 +110,7 @@ const MediaRoom = ({ chatID, audio, video }: MediaRoomProps) => {
         video={video}
         audio={audio}
       >
-        <VideoConference />
+        <VideoLayout audio={audio} video={video} />
       </LiveKitRoom>
     </>
   );
