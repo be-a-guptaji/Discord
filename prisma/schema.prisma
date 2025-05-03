@@ -5,8 +5,9 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
-  output   = "../lib/generated/prisma/client"
+  provider      = "prisma-client-js"
+  output        = "../lib/generated/prisma/client"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
 datasource db {
@@ -64,8 +65,8 @@ model Member {
 
   messages              Message[]
   directMessages        DirectMessage[]
-  conversationInitiated Conversation[]   @relation("MemberOne")
-  conversationReceived  Conversation[]   @relation("MemberTwo")
+  conversationInitiated Conversation[]  @relation("MemberOne")
+  conversationReceived  Conversation[]  @relation("MemberTwo")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -100,11 +101,11 @@ model Channel {
 }
 
 model Message {
-  id      String  @id @default(uuid())
-  content String  @db.Text
-  fileURL String? @db.Text
+  id       String  @id @default(uuid())
+  content  String  @db.Text
+  fileURL  String? @db.Text
   fileType String?
-  deleted Boolean @default(false)
+  deleted  Boolean @default(false)
 
   memberID String
   member   Member @relation(fields: [memberID], references: [id], onDelete: Cascade)
@@ -136,11 +137,11 @@ model Conversation {
 }
 
 model DirectMessage {
-  id      String  @id @default(uuid())
-  content String  @db.Text
-  fileURL String? @db.Text
+  id       String  @id @default(uuid())
+  content  String  @db.Text
+  fileURL  String? @db.Text
   fileType String?
-  deleted Boolean @default(false)
+  deleted  Boolean @default(false)
 
   memberID String
   member   Member @relation(fields: [memberID], references: [id], onDelete: Cascade)
