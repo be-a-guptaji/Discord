@@ -15,7 +15,6 @@ import {
 import { Track } from "livekit-client";
 import { useUser } from "@clerk/nextjs";
 import { Loader2 } from "lucide-react";
-import "@livekit/components-styles";
 
 interface MediaRoomProps {
   chatID: string;
@@ -46,7 +45,7 @@ function VideoLayout({ audio, video }: { audio: boolean; video: boolean }) {
             microphone: audio,
             camera: video,
             screenShare: video,
-            chat: audio,
+            chat: false,
             leave: false, // this hides the Leave button
           }}
         />
