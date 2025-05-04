@@ -15,6 +15,7 @@ import {
 import { Track } from "livekit-client";
 import { useUser } from "@clerk/nextjs";
 import { Loader2 } from "lucide-react";
+import "@livekit/components-styles";
 
 interface MediaRoomProps {
   chatID: string;
