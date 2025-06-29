@@ -1,14 +1,6 @@
 // components/server/serverSidebar.tsx
 
-import {
-  Hash,
-  Mic,
-  Server,
-  ShieldAlert,
-  ShieldCheck,
-  User,
-  Video,
-} from "lucide-react";
+import { Hash, Mic, ShieldAlert, ShieldCheck, User, Video } from "lucide-react";
 import { redirect } from "next/navigation";
 import getCurrentProfile from "@/lib/currentProfile";
 import { db } from "@/lib/db";
