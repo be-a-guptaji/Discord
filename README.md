@@ -1,5 +1,5 @@
 
-# Be-A-Guptaji Discord
+#  Discord
 
 ![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
 ![Status](https://img.shields.io/badge/status-active-brightgreen?style=flat-square)
@@ -11,7 +11,7 @@
 
 ## 📖 About The Project
 
-**Be-A-Guptaji Discord** is a modern, feature-packed, real-time chat application built with **Next.js**, **TypeScript**, **Prisma**, and **TailwindCSS**. This project simulates a Discord-like environment, allowing users to create and join servers, participate in text and voice channels, share media, and manage servers, all in real-time. 
+**Discord** is a modern, feature-packed, real-time chat application built with **Next.js**, **TypeScript**, **Prisma**, and **TailwindCSS**. This project simulates a Discord-like environment, allowing users to create and join servers, participate in text and voice channels, share media, and manage servers, all in real-time. 
 
 With integrations like **Clerk** for authentication and **LiveKit** for media communication, **Be-A-Guptaji Discord** ensures that all real-time interactions (text, voice, video) are secure and scalable. It is designed for developers and community managers who want to create and manage online communities with ease.
 
