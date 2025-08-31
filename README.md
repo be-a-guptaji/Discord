@@ -98,55 +98,79 @@ The application architecture is designed for modularity, scalability, and perfor
 
 ```mermaid
 graph TD
+    %% ==============================
+    %% CLIENT LAYER
+    %% ==============================
     subgraph Client
-    U[User Browser] --> F[Next.js Frontend]
+    U[🖥️ User Browser] --> F[💻 Next.js Frontend]
     end
 
+    %% ==============================
+    %% BACKEND & API
+    %% ==============================
     subgraph Backend
-    F --> API[Next.js API Routes]
-    API --> DB[(PostgreSQL via Prisma)]
-    API --> WebSocket[Real-Time WebSocket]
+    F --> API[⚙️ Next.js API Routes]
+    API --> DB[(🗄️ PostgreSQL via Prisma)]
+    API --> WebSocket[🔗 Real-Time WebSocket]
     end
 
+    %% ==============================
+    %% AUTHENTICATION
+    %% ==============================
     subgraph Authentication
-    F --> Clerk[Clerk Authentication Service]
-    Clerk -->|Authenticate User| U
+    F --> Clerk[🔐 Clerk Authentication Service]
+    Clerk -->|✅ Authenticate User| U
     end
 
+    %% ==============================
+    %% MEDIA SERVICES
+    %% ==============================
     subgraph Services
-    API --> LS[LiveKit - Video/Audio Communication]
+    API --> LS[🎥 LiveKit - Video/Audio Communication]
     end
 
+    %% ==============================
+    %% FILE UPLOAD SERVICE
+    %% ==============================
     subgraph FileUpload
-    API --> Uploadthing[Uploadthing - File Upload Service]
+    API --> Uploadthing[📤 Uploadthing - File Upload Service]
     end
 
-    %% Interactions
-    U -->|Login| Clerk
-    Clerk -->|Session Token| F
-    U -->|Join Server| API
-    API -->|Retrieve Data| DB
-    API -->|Send/Receive Real-Time Messages| WebSocket
-    API -->|Join Media Call| LS
-    LS -->|Real-Time Media Streaming| U
-    API -->|File Upload| Uploadthing
-    Uploadthing -->|Store Files| DB
+    %% ==============================
+    %% FLOWS & INTERACTIONS
+    %% ==============================
+    U -->|🔑 Login| Clerk
+    Clerk -->|🔖 Session Token| F
+    U -->|📡 Join Server| API
+    API -->|📂 Retrieve Data| DB
+    API -->|💬 Send/Receive Real-Time Messages| WebSocket
+    API -->|🎧 Join Media Call| LS
+    LS -->|📺 Real-Time Media Streaming| U
+    API -->|📤 File Upload| Uploadthing
+    Uploadthing -->|💾 Store Files| DB
 
-    %% Descriptions
-    classDef default fill:#f9f,stroke:#333,stroke-width:2px;
-    class API,DB,Clerk,LS,WebSocket,Uploadthing default;
-    
-    class U,F,Clerk,WebSocket,Uploadthing fill:#ffcc00,stroke:#000,stroke-width:2px;
-    class U,Clerk,LS,Uploadthing fill:#f9c2c2,stroke:#000,stroke-width:2px;
-    
-    style U fill:#5c89b0;
-    style F fill:#6ac6b7;
-    style API fill:#f1a4cb;
-    style DB fill:#f1a4cb;
-    style WebSocket fill:#92d0f9;
-    style Clerk fill:#92f6c5;
-    style LS fill:#82c7f9;
-    style Uploadthing fill:#ffbcab;
+    %% ==============================
+    %% COLOR STYLING
+    %% ==============================
+    classDef client fill:#6ac6b7,stroke:#000,stroke-width:2px,color:#000,font-weight:bold;
+    classDef backend fill:#f1a4cb,stroke:#000,stroke-width:2px,color:#000,font-weight:bold;
+    classDef auth fill:#92f6c5,stroke:#000,stroke-width:2px,color:#000,font-weight:bold;
+    classDef db fill:#f1e1a4,stroke:#000,stroke-width:2px,color:#000,font-weight:bold;
+    classDef ws fill:#92d0f9,stroke:#000,stroke-width:2px,color:#000,font-weight:bold;
+    classDef services fill:#82c7f9,stroke:#000,stroke-width:2px,color:#000,font-weight:bold;
+    classDef upload fill:#ffbcab,stroke:#000,stroke-width:2px,color:#000,font-weight:bold;
+    classDef user fill:#5c89b0,stroke:#000,stroke-width:2px,color:#fff,font-weight:bold;
+
+    %% Apply Classes
+    class U user;
+    class F client;
+    class API backend;
+    class DB db;
+    class WebSocket ws;
+    class Clerk auth;
+    class LS services;
+    class Uploadthing upload;
+
 ```
 
 ---
