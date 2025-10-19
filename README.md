@@ -476,4 +476,6 @@ MIT License © 2025 Aryan Baadlas
 
 ---
 
-Feel free to explore the repository, contribute, or create your own features!
+### ⭐ Show some love!
+
+If you like this project, **give it a star ⭐ on GitHub**!
