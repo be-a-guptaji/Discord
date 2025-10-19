@@ -1,4 +1,3 @@
-
 # 🎮 Discord
 
 ![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
@@ -11,7 +10,7 @@
 
 ## 📖 About The Project
 
-**Discord** is a modern, feature-packed, real-time chat application built with **Next.js**, **TypeScript**, **Prisma**, and **TailwindCSS**. This project simulates a Discord-like environment, allowing users to create and join servers, participate in text and voice channels, share media, and manage servers, all in real-time. 
+**Discord** is a modern, feature-packed, real-time chat application built with **Next.js**, **TypeScript**, **Prisma**, and **TailwindCSS**. This project simulates a Discord-like environment, allowing users to create and join servers, participate in text and voice channels, share media, and manage servers, all in real-time.
 
 With integrations like **Clerk** for authentication and **LiveKit** for media communication, **Be-A-Guptaji Discord** ensures that all real-time interactions (text, voice, video) are secure and scalable. It is designed for developers and community managers who want to create and manage online communities with ease.
 
@@ -36,7 +35,7 @@ With integrations like **Clerk** for authentication and **LiveKit** for media co
 
 ![Sign-In](https://vbjgcpip2m.ufs.sh/f/LZ1PZKgs97f8k7tmCOS8RFPqQSC3KYWMuHI6d2wGfajokgD5)
 
-###  Create New Server
+### Create New Server
 
 ![Create New Server](https://vbjgcpip2m.ufs.sh/f/LZ1PZKgs97f8b3Ag6NvmA9nPuE1kQzFqCN6MORZUYpG5sDoc)
 
@@ -78,19 +77,19 @@ With integrations like **Clerk** for authentication and **LiveKit** for media co
 
 The application architecture is designed for modularity, scalability, and performance. The architecture follows a **client-server** model, which is broken down as follows:
 
-- **Frontend (Next.js + TailwindCSS)**: 
+- **Frontend (Next.js + TailwindCSS)**:
   - Handles rendering of UI components like the server dashboard, chat rooms, and media room interfaces.
   - Manages client-side routing with dynamic route handling for each server.
   - Implements state management via **Zustand** to manage app-level state.
 
-- **Backend (Next.js API Routes)**: 
+- **Backend (Next.js API Routes)**:
   - Handles real-time WebSocket communication and provides REST API routes for server management.
   - Processes requests for creating and managing servers, channels, and messages.
 
-- **Authentication (Clerk)**: 
+- **Authentication (Clerk)**:
   - Ensures secure user authentication with features like social login (Google, GitHub), email-based sign-up, and session management.
 
-- **Database (Prisma + PostgreSQL)**: 
+- **Database (Prisma + PostgreSQL)**:
   - Stores user data, server information, channels, messages, roles, and more using Prisma ORM connected to PostgreSQL.
 
 - **Real-Time Communication (LiveKit)**:
